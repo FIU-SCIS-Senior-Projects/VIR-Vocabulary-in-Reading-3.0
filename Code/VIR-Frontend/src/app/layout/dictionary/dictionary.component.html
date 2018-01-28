@@ -2,6 +2,7 @@
 <div class="container bottomMarging">
   <div class="btn-group hidden-sm-down">
     <button type="button" class="btn btn-primary" (click)="updateCategory('awl')">AWL</button>
+    <button type="button" class="btn btn-info" (click)="updateCategory('stem')">STEM AWL</button>
     <button type="button" class="btn btn-danger" (click)="updateCategory('hi')">High Frequency</button>
     <button type="button" class="btn btn-success" (click)="updateCategory('med')">Medium Frequency</button>
     <button type="button" class="btn btn-warning" (click)="updateCategory('low')">Low Frequency</button>
@@ -57,7 +58,7 @@
         <td (click)="getDefinition(word.value); open(content);">
           <a href="javascript:void(0)">{{ word.value}}</a>
         </td>
-        <td>{{word.category}}</td>
+        <td>{{resultCategory}}</td>
       </tr>
     </tbody>
   </table>

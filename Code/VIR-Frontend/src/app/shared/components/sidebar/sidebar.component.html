@@ -5,8 +5,6 @@
 		</a>
 
 
-
-
 		<div class="nested-menu">
 			<a class="list-group-item" (click)="addExpandClass('upload')">
 				<span>
@@ -41,6 +39,10 @@
 		<a routerLink="/dictionary" [routerLinkActive]="['router-link-active']" class="list-group-item">
 			<i class="fa fa-fw fa-list"></i>&nbsp;{{ 'school dictionary' | translate }}
 		</a>
+
+        <a routerLink="/tests" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <li class="fa fa-fw fa-check"></li>&nbsp;{{ 'tests' | translate }} 
+        </a>
 
 	</ul>
 </nav>

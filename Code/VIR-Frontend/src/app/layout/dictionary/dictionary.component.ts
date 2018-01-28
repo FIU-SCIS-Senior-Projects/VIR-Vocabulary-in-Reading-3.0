@@ -42,6 +42,9 @@ export class DictionaryComponent implements OnInit {
   cleanWord: string;
   closeResult: string;
 
+  resultCategory: string;
+  searchTrigger: boolean;
+
   errorSearch: boolean;
   word: IWord;
   showTable = false;
@@ -67,7 +70,8 @@ export class DictionaryComponent implements OnInit {
   }
 
   updateCategory(category: string) {
-    this.activeCategory = category;
+      this.activeCategory = category;
+      this.searchTrigger = false;
     this.getWordList(0, this.activeCategory, this.tableSize, this.sort);
     this.convertText(this.activeCategory)
   }
@@ -109,15 +113,25 @@ export class DictionaryComponent implements OnInit {
   }
 
   convertText(category: string) {
-    if (category === 'awl') {
-      return this.wordCategory = 'AWL'
+
+      var temp: string;
+      if (category === 'awl') {
+          temp = 'AWL'
     } else if (category === 'hi') {
-      return this.wordCategory = 'High Frequency'
+        temp = 'High Frequency'
+    } else if (category == 'stem') {
+        temp = 'STEM AWL'
     } else if (category === 'med') {
-      return this.wordCategory = 'Medium Frequency'
-    } else if (category === 'low') {
-      return this.wordCategory = 'Low Frequency'
-    }
+        temp = 'Medium Frequency'
+      } else if (category === 'low') {
+          temp = 'Low Frequency'
+      }
+
+      if (this.searchTrigger == true) {
+          return this.resultCategory = temp;
+      } else if (this.searchTrigger == false) {
+          return this.wordCategory = temp;
+      }
   }
 
   ngOnInit() {
@@ -173,7 +187,8 @@ export class DictionaryComponent implements OnInit {
 
 
   searchWord(): void {
-    this.errorSearch = false;
+      this.errorSearch = false;
+      this.searchTrigger = true;
     this.alertWord = this.searchArea;
     this._wordsList.getWord(this.searchArea)
       .subscribe
@@ -181,6 +196,8 @@ export class DictionaryComponent implements OnInit {
         this.word = res;
         this.processing = false;
         this.showTable = true;
+        this.resultCategory = this.convertText(res.category);
+        
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {

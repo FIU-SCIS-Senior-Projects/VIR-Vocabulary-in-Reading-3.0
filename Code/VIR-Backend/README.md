@@ -2,9 +2,9 @@
 
 ### Instructions
 
--Make sure that your JAVA_HOME env. variable is set up correctly.
--Install Maven and make sure that your Maven env. variables are set correctly. (M2_HOME and MAVEN_HOME).
--Set up an eviromental variable called "APP_ENCRYPTION_PASSWORD". (the key is kept secret, guarded in a vault)
+*Make sure that your JAVA_HOME env. variable is set up correctly.
+*Install Maven and make sure that your Maven env. variables are set correctly. (M2_HOME and MAVEN_HOME).
+*Set up an eviromental variable called "APP_ENCRYPTION_PASSWORD". (the key is kept secret, guarded in a vault)
 
 *To Build:
 ```

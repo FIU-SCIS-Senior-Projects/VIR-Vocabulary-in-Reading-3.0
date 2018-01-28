@@ -20,37 +20,45 @@
 	<!--Category Colors Information -->
 	<div class="container center">
 		<div class="row center font-responsive">
-			<div class="col-xl-2 col-md-4 col-6">
+			<div class="col-xl-4 col-md-8 col-12">
 				<span (click)="activeCategory('awl'); open(wordList);">
 					<a href="javascript:void(0)">Academic Word</a>
 				</span>
 				<div class="box goldBox"></div>
 			</div>
-			<div class="col-xl-2 col-md-4 col-6">
+			<div class="col-xl-4 col-md-8 col-12">
+				<span (click)="activeCategory('stem'); open(wordList);">
+					<a href="javascript:void(0)">STEM Academic Word</a>
+				</span>
+				<div class="box lightBlueBox"></div>
+			</div>
+			<div class="col-xl-4 col-md-8 col-12">
 				<span (click)="activeCategory('hi'); open(wordList);">
 					<a href="javascript:void(0)">High Frequency</a>
 				</span>
 				<span class="box blueBox"></span>
 			</div>
-			<div class="col-xl-2 col-md-4 col-6">
+		</div>
+        <div class = row center front-responsive>
+			<div class="col-xl-4 col-md-8 col-12">
 				<span (click)="activeCategory('med'); open(wordList);">
 					<a href="javascript:void(0)">Med Frequency</a>
 				</span>
 				<div class="box redBox"></div>
 			</div>
-			<div class="col-xl-2 col-md-4 col-6">
+			<div class="col-xl-4 col-md-8 col-12">
 				<span (click)="activeCategory('low'); open(wordList);">
 					<a href="javascript:void(0)">Low Frequency</a>
 				</span>
 				<div class="box greenBox"></div>
 			</div>
-			<div class="col-xl-2 col-md-4 col-6">
+			<div class="col-xl-4 col-md-8 col-12">
 				<span (click)="activeCategory(''); open(wordList);">
 					<a href="javascript:void(0)">Names & Off-List</a>
 				</span>
 				<div class="box blackBox"></div>
 			</div>
-		</div>
+        </div>
 	</div>
 	<hr>
 

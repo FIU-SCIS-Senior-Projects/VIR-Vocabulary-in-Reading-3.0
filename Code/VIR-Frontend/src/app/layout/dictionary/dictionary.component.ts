@@ -100,6 +100,10 @@ export class DictionaryComponent implements OnInit {
     this.getWordList(pageNumber - 1, 'awl', this.tableSize, this.sort)
   }
 
+  getSTEMWordList(pageNumber: number): void {
+    this.getWordList(pageNumber - 1, 'stem', this.tableSize, this.sort)
+  }
+
   getHIWordList(pageNumber: number): void {
     this.getWordList(pageNumber - 1, 'hi', this.tableSize, this.sort)
   }
@@ -131,7 +135,7 @@ export class DictionaryComponent implements OnInit {
           return this.resultCategory = temp;
       } else if (this.searchTrigger == false) {
           return this.wordCategory = temp;
-      }
+      }//This determines if the user hits 'search' in order to update the view properly
   }
 
   ngOnInit() {

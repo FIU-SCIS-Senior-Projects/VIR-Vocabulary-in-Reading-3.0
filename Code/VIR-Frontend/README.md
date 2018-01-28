@@ -14,6 +14,7 @@
 
 ### How to start
 **Note** that this seed project requires  **node >=v6.9.0 and npm >=3**.
+**INSTALL NODE IN ORDER TO BE ABLE TO USE 'npm' COMMANDS**
 
 In order to start the project use:
 ```bash
@@ -35,6 +36,8 @@ Run `ng generate component component-name` to generate a new component. You can 
 ### Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**NOTE FOR WINDOWS USERS: this currently does not work properly for windows 7. 
+Works with out errors on Windows 10**
 
 ### Running end-to-end tests
 
@@ -43,12 +46,14 @@ Before running the tests make sure you are serving the app via `ng serve`.
 
 ### Further help
 
+(IF 'ng' COMMANDS NOT WORKING, INSTALL ANGULAR/CLI WITH 'npm install -g @angular/cli')
+
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ### Documentation
 - install it with npm :
 ```bash
-$ npm i -g @compodoc/compodoc
+$ npm i -g @compodoc/compodoc 
 ```
 - run it inside the folder of your Angular application
 ```bash

@@ -1,4 +1,4 @@
-﻿# Up and running
+﻿# Up and running (ReadMe Created by Alfredo Lopez, Modified by Chris Hidalgo)
 
 We will get you up an running in no time. 
 
@@ -18,8 +18,10 @@ password: root
 
 * Run: 
 ```
-./build.sh
-./start
+./build.sh 	('build.cmd' for Windows)
+./start		('start.bat' for Windows)
+
+NOTE: you have to be in the .../Code directory in order to execute these commands
 ```
 * Access the application at [localhost:8080](localhost:8080)
 
@@ -27,6 +29,9 @@ _Note:_
 If you are using a Unix like system make sure you give execution permitions to the files.
 ```chmod +x build.sh```
 
+
+_Note:_
+You can have the application running on :8080 and still modify the front end and see your changes on :4200.
 
 # Folder structure information
 
@@ -71,7 +76,8 @@ build.sh         | Script to build the application from Unix/Mac.
 mvnw             | File needed for the maven wrapper. (safely ignore, but not delete)
 mvnw.cmd         | File needed for the maven wrapper. (safely ignore, but not delete)
 pom.xml          | Configuration file to build the whole project. Read more about the build pipeline.
-start            | Script to start the application
+start            | Script to start the application from Unix/Mac
+Start.bat		 | Script to start the application from Windows	
 README.md        | This readme file (talking about recursion...)
 
 

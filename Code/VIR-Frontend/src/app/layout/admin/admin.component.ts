@@ -25,7 +25,7 @@ export class AdminComponent implements OnInit {
   deleteWordMessage: string;
   alertWord: string;
 
-  categoryItems: string[] = ['Category...', 'awl', 'hi', 'med', 'low'];
+  categoryItems: string[] = ['Category...', 'awl','stem', 'hi', 'med', 'low'];
   category: string = this.categoryItems[0];
 
   sessionHistory: string[] = [];

@@ -76,7 +76,7 @@ export class EnhancedTextResultComponent implements OnInit {
     this.updaTeLabels();
     event.target.innerWidth;
   }
-
+  
 
   private updaTeLabels(): void {
     this.backLabel = this.showOnlyIcons ? '' : EnhancedTextResultComponent.BACK_LABEL;
@@ -106,6 +106,6 @@ export class EnhancedTextResultComponent implements OnInit {
   activeCategory(cat: string) {
       this.category = cat;
       // tslint:disable-next-line:max-line-length
-      this.wordCategory = ( cat === 'awl') ? 'Academic Words' :( cat === 'stem') ? 'Academic STEM' : ( cat === 'hi') ? 'High Frequency' : ( cat === 'med') ? 'Medium Frequency' : ( cat === 'low') ? 'Low Frequency' : 'Names & Off-Lists';
+      this.wordCategory = ( cat === 'awl') ? 'Academic' :( cat === 'stem') ? 'Academic STEM' : ( cat === 'hi') ? 'High Frequency' : ( cat === 'med') ? 'Medium Frequency' : ( cat === 'low') ? 'Low Frequency' : 'Names & Off-Lists';
   }
 }

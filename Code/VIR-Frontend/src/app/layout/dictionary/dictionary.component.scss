@@ -6,6 +6,14 @@
     width: 25%;
 }
 
+.purpleButton {
+    background-color: darkorchid;
+    color: white;
+}
+
+.purpleButton:hover {
+    background-color: darkmagenta;
+}
 
 .page {
     width: 40% !important;

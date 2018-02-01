@@ -120,11 +120,11 @@ export class DictionaryComponent implements OnInit {
 
       var temp: string;
       if (category === 'awl') {
-          temp = 'AWL'
+          temp = 'Academic Word'
     } else if (category === 'hi') {
         temp = 'High Frequency'
     } else if (category == 'stem') {
-        temp = 'STEM AWL'
+        temp = 'STEM'
     } else if (category === 'med') {
         temp = 'Medium Frequency'
       } else if (category === 'low') {

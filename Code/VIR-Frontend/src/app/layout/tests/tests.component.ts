@@ -3,7 +3,6 @@ import { routerTransition } from '../../router.animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-
 @Component({
     selector: 'app-tests',
     templateUrl: './tests.component.html',

@@ -8,7 +8,7 @@ import com.vir.model.dictionary.oxford.RetrieveEntry;
 import com.vir.model.dictionary.wiki.WikiEntry;
 
 /**
- * Class to hole the definitions data.
+ * Class to hold the definitions data.
  * 
  * @author Alfredo Lopez
  *

@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./doc.component.scss'],
   animations: [routerTransition()]
 })
+
 export class DocComponent implements OnInit {
 
   @ViewChild('fileInput') fileInput;

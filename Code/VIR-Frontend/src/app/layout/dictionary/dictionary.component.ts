@@ -13,7 +13,7 @@ import { IWord, IText, IDefinition, IPage } from '../../shared'
   selector: 'app-dictionary',
   templateUrl: './dictionary.component.html',
   styleUrls: ['./dictionary.component.scss'],
-  providers: [NgbPaginationConfig]
+  providers: [NgbPaginationConfig],
 })
 export class DictionaryComponent implements OnInit {
   page: IPage;
@@ -140,7 +140,8 @@ export class DictionaryComponent implements OnInit {
 
   ngOnInit() {
     this.getWordList(0, this.activeCategory, this.tableSize, this.sort);
-    this.convertText(this.activeCategory)
+      this.convertText(this.activeCategory)
+      window.scrollTo(0,0);
   }
 
 

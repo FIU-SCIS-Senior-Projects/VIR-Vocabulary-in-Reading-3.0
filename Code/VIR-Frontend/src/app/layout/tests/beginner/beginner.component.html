@@ -5,14 +5,14 @@
     <div class="container-fluid" text-align="center">
 
         <button class="btn btn-warning float-right" (click)="backClicked()">
-            <i class="fa fa-step-backward"></i> To Test Levels
+            <i class="fa fa-step-backward"></i> To Test Categories
         </button>
         <h3>Beginner Level Questions.</h3>
     </div>
 
     <div *ngIf="!start">
         <hr />
-        <button class="btn btn-success btn-block" (click)="startQuiz()" type="button">
+        <button class="btn btn-success" (click)="startQuiz()" type="button">
             Click here to start the Begginer Word Quiz!
         </button>
     </div>
@@ -68,7 +68,9 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-danger btn-block" (click)="validate()" [disabled]="submited">Submit</button>
+                <button class="btn btn-primary btn-block" (click)="validate()" [disabled]="submited">Check your answer!</button>
+                <div class="alert alert-success" *ngIf="correct">Correct!</div>
+                <div class="alert alert-danger" *ngIf="wrong"><strong>Opps! </strong>Sorry, the answer is {{correctAnswer}}</div>
             </form>
         </div>
     </div>
@@ -76,7 +78,7 @@
     <!-- This 'next' button will skip the question. Also provide the user with a warning if question not answered -->
 
     <div class="container-fluid">
-        <button class="btn btn-success float-right" (click)="nextQuestion(content)">
+        <button class="btn btn-success float-right" (click)="nextQuestion(content)" [disabled]="!start">
             Next <i class="fa fa-step-forward">  </i>
         </button>
     </div>
@@ -92,18 +94,15 @@
             <th>Total Questions</th>
             <th>Correct</th>
             <th>Incorrect</th>
+            <th>Skipped</th>
         </tr>
         <tr>
             <td>{{numberOfQuestions}}</td>
             <td>{{numRight}}</td>
             <td>{{numWrong}}</td>
+            <td>{{numSkipped}}</td>
         </tr>
     </table>
-
-
-    <button class="btn btn-success float-right" (click)="open(content)">
-        Next <i class="fa fa-step-forward">  </i>
-    </button>
 
     <!--Definition model (Popup)-->
     <ng-template #content let-c="close" let-d="dismiss">
@@ -118,7 +117,7 @@
         <div class="modal-body">
             <!--Alert-->
             <div>
-                <strong>This question is not answered!</strong>If you skip the question, we will mark it as an 'Not Attempted'.
+                <strong>This question is not answered! </strong>If you skip the question, we will mark it as an 'Not Attempted'.
             </div>
         </div>
         <div class="modal-footer">

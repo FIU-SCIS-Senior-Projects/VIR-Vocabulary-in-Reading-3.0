@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BeginnerComponent } from './beginner.component';
-import { BeginnerTestBank } from './testBank';
+import { BeginnerTestBank } from '../../../shared/services/beginnerTestBank.service';
 
 const routes: Routes = [
     { path: '', component: BeginnerComponent }

@@ -5,7 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Location } from '@angular/common';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
-import { BeginnerTestBank } from './testBank';
+import { BeginnerTestBank } from '../../../shared/services/beginnerTestBank.service';
 
 
 @Component({
@@ -23,16 +23,19 @@ export class BeginnerComponent implements OnInit {
     options: any[];
     selection: string;
     closeResult: string;
+    correctAnswer: string;
 
     numberOfQuestions: number;
     numWrong: number = 0;
     numRight: number = 0;
+    numSkipped: number = 0;
 
     correct: boolean;
     wrong: boolean;
     skip: boolean;
 
     id: number = 0;
+    randID: number = 0;
 
     submited: boolean = false;
     start: boolean = false;
@@ -61,14 +64,18 @@ export class BeginnerComponent implements OnInit {
 
         this.selection = this.radioData;
         this.submited = true;
+
         if (this.selection == this.answer) {
             this.correct = true;
             this.numRight = this.numRight + 1;
+
         } else {
             this.wrong = true;
             this.numWrong = this.numWrong + 1;
-        }
 
+            this.correctAnswer = this._question.options[this.answer];//Gets the value of the correct answer
+
+        }
     }
     
     nextQuestion(content) {
@@ -80,8 +87,11 @@ export class BeginnerComponent implements OnInit {
 
             this.id = this.id + 1;
 
+            //this will get a random number, this number will be used to get the next question.
+            this.randID = Math.floor(Math.random() * Math.floor(this.numberOfQuestions));
+
             if (this.id < this.numberOfQuestions) {
-                this._question.questionsLib(this.id);
+                this._question.questionsLib(this.randID);
                 this.updateInfo();
                 this.submited = false;
                 this.skip = false;
@@ -134,5 +144,6 @@ export class BeginnerComponent implements OnInit {
     skipQuestion() {
         this.skip = true;
         this.submited = true;
+        this.numSkipped++;
     }
 }

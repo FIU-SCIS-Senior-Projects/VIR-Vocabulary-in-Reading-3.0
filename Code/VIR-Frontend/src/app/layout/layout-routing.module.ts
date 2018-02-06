@@ -17,8 +17,19 @@ const routes: Routes = [
             { path: 'text-statistics', loadChildren: './text-statistics/text-statistics.module#TextStatisticsModule' },
             { path: 'dictionary', loadChildren: './dictionary/dictionary.module#DictionaryModule' },
             { path: 'admin', loadChildren: './admin/admin.module#AdminModule'},
+<<<<<<< HEAD
             { path: 'credits', loadChildren: './credits/credits.module#CreditsModule'},
             { path: 'itranslate', loadChildren: './itranslate/itranslate.module#ItranslateModule'}
+=======
+            { path: 'credits', loadChildren: './credits/credits.module#CreditsModule' },
+            { path: 'tests', loadChildren: './tests/tests.module#TestsModule' },
+            { path: 'tests/beginner', loadChildren: './tests/beginner/beginner.module#BeginnerModule' },
+            //{ path: 'tests/STEM', loadChildren: './tests/stem/stem.module#StemModule' },
+            //{ path: 'tests/high', loadChildren: './tests/high/high.module#HighModule' },
+            //{ path: 'tests/med', loadChildren: './tests/med/med.module#MedModule' },
+            //{ path: 'tests/low', loadChildren: './tests/low/low.module#LowModule' },
+            //{ path: 'tests/all', loadChildren: './tests/all/all.module#AllModule' },
+>>>>>>> 94bd12fa0e9a5b194170bcfba9d45bcfbe07cf96
         ]
     }
 

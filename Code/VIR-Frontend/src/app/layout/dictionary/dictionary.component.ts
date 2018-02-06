@@ -13,7 +13,7 @@ import { IWord, IText, IDefinition, IPage } from '../../shared'
   selector: 'app-dictionary',
   templateUrl: './dictionary.component.html',
   styleUrls: ['./dictionary.component.scss'],
-  providers: [NgbPaginationConfig]
+  providers: [NgbPaginationConfig],
 })
 export class DictionaryComponent implements OnInit {
   page: IPage;
@@ -120,11 +120,11 @@ export class DictionaryComponent implements OnInit {
 
       var temp: string;
       if (category === 'awl') {
-          temp = 'AWL'
+          temp = 'Academic Word'
     } else if (category === 'hi') {
         temp = 'High Frequency'
     } else if (category == 'stem') {
-        temp = 'STEM AWL'
+        temp = 'STEM'
     } else if (category === 'med') {
         temp = 'Medium Frequency'
       } else if (category === 'low') {
@@ -140,7 +140,8 @@ export class DictionaryComponent implements OnInit {
 
   ngOnInit() {
     this.getWordList(0, this.activeCategory, this.tableSize, this.sort);
-    this.convertText(this.activeCategory)
+      this.convertText(this.activeCategory)
+      window.scrollTo(0,0);
   }
 
 

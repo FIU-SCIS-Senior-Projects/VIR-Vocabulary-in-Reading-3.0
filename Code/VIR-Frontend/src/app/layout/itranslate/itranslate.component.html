@@ -1,3 +1,17 @@
-<p>
-  itranslate works!
-</p>
+<i class="fa fa-fw fa-keyboard-o fa-2x float-right" title="Itranslate"></i>Enter your text&nbsp;&nbsp;
+
+<div class="form-group">
+  <div class="col-md-12">
+    <textarea class="form-control" name="textArea" id="exampleTextarea" rows="1" maxlength="30000" [(ngModel)]="textArea" 
+     placeholder="Enter your text to translate here" required></textarea>
+  </div>
+</div>
+<div class="container bottomMarging">
+  <div class="btn-group hidden-sm-down">
+    <h4>Translate too: &nbsp;&nbsp;  </h4>
+    <button type="button" class="btn btn-primary" (click)="changeLang('en')">English</button>
+    <button type="button" class="btn btn-info" (click)="changeLang('fa')">Farsi</button>
+    <button type="button" class="btn btn-danger" (click)="changeLang('es')">Spanish</button>
+  </div>
+</div>
+

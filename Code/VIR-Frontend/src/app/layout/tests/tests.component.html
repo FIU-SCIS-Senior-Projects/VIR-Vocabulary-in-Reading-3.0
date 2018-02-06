@@ -1,0 +1,53 @@
+<div [@routerTransition] class="container-fluid">
+
+    <div class="card card-info card-inverse mb-3 col-lg-12 center-block">
+        <div class="card-header card-info">
+            <i class="fa fa-fw fa-pencil-square-o fa-3x float-right" title="Test"></i>
+            <h1>Test your Vocabulary!</h1>
+            <hr>
+            <p>See how well your vocabulary is! You can either select one category, or select the option 'All Categories' to be tested on every category!</p>
+        </div>
+
+    </div>
+
+
+    <!--Category selection for quizes-->
+
+    <br>
+
+    <div>
+        <h2>Test Catergories</h2>
+    </div> 
+        <hr>
+
+        <div class="row">
+            <div class="col col-md-4 col-xs-12">
+                <a routerLink="/tests/beginner" [routerLinkActive]="['router-link-active']" class="btn btn-success btn-block btn-lg">Beginner</a>
+            </div>
+            <div class="col col-md-4 col-xs-12">
+                <a routerLink="/tests/STEM" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">Intermediate</a>
+            </div>
+            <div class="col col-md-4 col-xs-12">
+                <a routerLink="/tests/high" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">Upper Intermediate</a>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col col-md-4 col-xs-12">
+                <a routerLink="/tests/med" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">Advanced</a>
+            </div>
+            <div class="col col-md-4 col-xs-12">
+                <a routerLink="/tests/low" [routerLinkActive]="['router-link-active']"class="btn btn-primary btn-block btn-lg">Vocabulary Sized Test</a>
+            </div>
+            <div class="col col-md-4 col-xs-12">
+                <a routerLink="/tests/all" [routerLinkActive]="['router-link-active']"class="btn btn-primary btn-block btn-lg">All Categories</a>
+            </div>
+        </div>
+
+</div>
+
+
+
+

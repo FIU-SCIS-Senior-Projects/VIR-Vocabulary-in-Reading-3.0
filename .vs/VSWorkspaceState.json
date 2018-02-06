@@ -5,16 +5,12 @@
     "\\Code\\VIR-Backend\\src",
     "\\Code\\VIR-Backend\\src\\main",
     "\\Code\\VIR-Backend\\src\\main\\java",
-    "\\Code\\VIR-Backend\\src\\main\\java\\com",
-    "\\Code\\VIR-Backend\\src\\main\\java\\com\\vir",
     "\\Code\\VIR-Frontend",
     "\\Code\\VIR-Frontend\\src",
     "\\Code\\VIR-Frontend\\src\\app",
     "\\Code\\VIR-Frontend\\src\\app\\layout",
-    "\\Code\\VIR-Frontend\\src\\app\\layout\\enhanced-text-result",
-    "\\Code\\VIR-Frontend\\src\\app\\shared",
-    "\\Code\\VIR-Frontend\\src\\app\\shared\\components"
+    "\\Code\\VIR-Frontend\\src\\app\\layout\\dashboard"
   ],
-  "SelectedNode": "\\Code\\VIR-Frontend\\src\\app\\layout\\enhanced-text-result\\enhanced-text-result.component.spec.ts",
+  "SelectedNode": "\\Code\\VIR-Frontend\\src\\app\\layout\\layout-routing.module.ts",
   "PreviewInSolutionExplorer": false
 }

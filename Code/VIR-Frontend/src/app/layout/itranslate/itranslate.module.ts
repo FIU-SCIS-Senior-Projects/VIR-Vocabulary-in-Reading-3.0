@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { ItranslateRoutingModule } from './itranslate-routing.module';
 import { ItranslateComponent } from './itranslate.component';
 import { TextService } from '../../shared'
-
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap'
 
 @NgModule({
   imports: [
@@ -15,6 +15,7 @@ import { TextService } from '../../shared'
     ItranslateRoutingModule,
     NgbModule.forRoot(),
     FormsModule,
+    NgbDropdownModule.forRoot()
 
   ],
   declarations: [ ItranslateComponent ],

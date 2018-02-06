@@ -43,7 +43,7 @@ export class DictionaryComponent implements OnInit {
   closeResult: string;
 
   resultCategory: string;
-  searchTrigger: boolean;
+  searchTrigger: boolean = false;
 
   errorSearch: boolean;
   word: IWord;
@@ -119,6 +119,7 @@ export class DictionaryComponent implements OnInit {
   convertText(category: string) {
 
       var temp: string;
+
       if (category === 'awl') {
           temp = 'Academic Word'
     } else if (category === 'hi') {

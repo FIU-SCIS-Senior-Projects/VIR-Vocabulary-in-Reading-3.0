@@ -19,12 +19,12 @@ const routes: Routes = [
             { path: 'admin', loadChildren: './admin/admin.module#AdminModule'},
             { path: 'credits', loadChildren: './credits/credits.module#CreditsModule' },
             { path: 'tests', loadChildren: './tests/tests.module#TestsModule' },
-            { path: 'tests/academic', loadChildren: './tests/academic/academic.module#AcademicModule' },
-            { path: 'tests/STEM', loadChildren: './tests/stem/academic.module#StemModule' },
-            { path: 'tests/high', loadChildren: './tests/high/high.module#HighModule' },
-            { path: 'tests/med', loadChildren: './tests/med/med.module#MedModule' },
-            { path: 'tests/low', loadChildren: './tests/low/low.module#LowModule' },
-            { path: 'tests/all', loadChildren: './tests/all/all.module#AllModule' },
+            { path: 'tests/beginner', loadChildren: './tests/beginner/beginner.module#BeginnerModule' },
+            //{ path: 'tests/STEM', loadChildren: './tests/stem/stem.module#StemModule' },
+            //{ path: 'tests/high', loadChildren: './tests/high/high.module#HighModule' },
+            //{ path: 'tests/med', loadChildren: './tests/med/med.module#MedModule' },
+            //{ path: 'tests/low', loadChildren: './tests/low/low.module#LowModule' },
+            //{ path: 'tests/all', loadChildren: './tests/all/all.module#AllModule' },
         ]
     }
 

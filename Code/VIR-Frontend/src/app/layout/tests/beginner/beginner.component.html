@@ -73,10 +73,10 @@
         </div>
     </div>
 
-    <!-- This button is to get the next question. This will be available once the user has submit an answer-->
+    <!-- This 'next' button will skip the question. Also provide the user with a warning if question not answered -->
 
     <div class="container-fluid">
-        <button class="btn btn-success float-right" (click)="nextQuestion()" [disabled]="!submited">
+        <button class="btn btn-success float-right" (click)="nextQuestion(content)">
             Next <i class="fa fa-step-forward">  </i>
         </button>
     </div>
@@ -99,5 +99,32 @@
             <td>{{numWrong}}</td>
         </tr>
     </table>
+
+
+    <button class="btn btn-success float-right" (click)="open(content)">
+        Next <i class="fa fa-step-forward">  </i>
+    </button>
+
+    <!--Definition model (Popup)-->
+    <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4>
+                WARNING<i class="fa fa-fw fa-exclamation"></i>
+            </h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <!--Alert-->
+            <div>
+                <strong>This question is not answered!</strong>If you skip the question, we will mark it as an 'Not Attempted'.
+            </div>
+        </div>
+        <div class="modal-footer">
+            <!--this button will skip the currwnt question from the quiz-->
+            <button type="button" class="btn btn-warning" (click)="c('Close click'); skipQuestion(); nextQuestion(content)">Skip Anyway...</button>
+        </div>
+    </ng-template>
 
 </div>

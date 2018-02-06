@@ -3,6 +3,7 @@ import { routerTransition } from '../../../router.animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Location } from '@angular/common';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 import { BeginnerTestBank } from './testBank';
 
@@ -21,6 +22,7 @@ export class BeginnerComponent implements OnInit {
     answer: string;
     options: any[];
     selection: string;
+    closeResult: string;
 
     numberOfQuestions: number;
     numWrong: number = 0;
@@ -28,6 +30,7 @@ export class BeginnerComponent implements OnInit {
 
     correct: boolean;
     wrong: boolean;
+    skip: boolean;
 
     id: number = 0;
 
@@ -36,7 +39,7 @@ export class BeginnerComponent implements OnInit {
 
     @Input() radioData: string;
 
-    constructor(private _question: BeginnerTestBank, private _location: Location) {
+    constructor(private _question: BeginnerTestBank, private _location: Location, private _modalService: NgbModal) {
 
         _question.questionsLib(this.id);
 
@@ -68,17 +71,24 @@ export class BeginnerComponent implements OnInit {
 
     }
     
-    nextQuestion() {
+    nextQuestion(content) {
 
-        this.id = this.id + 1;
+        if (!this.submited) {
+            this.open(content);
+        }
+        else if (this.submited || this.skip) {
 
-        if (this.id < this.numberOfQuestions) {
-            this._question.questionsLib(this.id);
-            this.updateInfo();
-            this.submited = false;
+            this.id = this.id + 1;
 
-            this.correct = false;
-            this.wrong = false;
+            if (this.id < this.numberOfQuestions) {
+                this._question.questionsLib(this.id);
+                this.updateInfo();
+                this.submited = false;
+                this.skip = false;
+
+                this.correct = false;
+                this.wrong = false;
+                }
         }
 
     }
@@ -100,5 +110,29 @@ export class BeginnerComponent implements OnInit {
 
     backClicked() {
         this._location.back();
+    }
+
+    // Definiton Model open
+    open(content) {
+        this._modalService.open(content).result.then((result) => {
+            this.closeResult = `Closed with: ${result}`;
+        }, (reason) => {
+            this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        });
+    }
+
+    private getDismissReason(reason: any): string {
+        if (reason === ModalDismissReasons.ESC) {
+            return 'by pressing ESC';
+        } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+            return 'by clicking on a backdrop';
+        } else {
+            return `with: ${reason}`;
+        }
+    }
+
+    skipQuestion() {
+        this.skip = true;
+        this.submited = true;
     }
 }

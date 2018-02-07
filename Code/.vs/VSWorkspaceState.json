@@ -8,12 +8,9 @@
     "\\VIR-Frontend\\src\\app\\layout\\dictionary",
     "\\VIR-Frontend\\src\\app\\layout\\itranslate",
     "\\VIR-Frontend\\src\\app\\layout\\tests",
-    "\\VIR-Frontend\\src\\app\\shared",
-    "\\VIR-Frontend\\src\\app\\shared\\components",
-    "\\VIR-Frontend\\src\\app\\shared\\components\\header",
-    "\\VIR-Frontend\\src\\app\\shared\\components\\sidebar",
-    "\\VIR-Frontend\\src\\app\\shared\\services"
+    "\\VIR-Frontend\\src\\app\\layout\\tests\\beginner",
+    "\\VIR-Frontend\\src\\app\\shared"
   ],
-  "SelectedNode": "\\VIR-Frontend\\src\\app\\shared\\components\\sidebar\\sidebar.component.ts",
+  "SelectedNode": "\\VIR-Frontend\\src\\app\\layout\\tests\\beginner\\beginner.component.html",
   "PreviewInSolutionExplorer": false
 }

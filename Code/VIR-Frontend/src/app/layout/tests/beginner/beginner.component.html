@@ -3,17 +3,17 @@
     <!--This button dissapears whenerer you start the quiz-->
 
     <div class="container-fluid" text-align="center">
-
+       
         <button class="btn btn-warning float-right" (click)="backClicked()">
             <i class="fa fa-step-backward"></i> To Test Categories
         </button>
-        <h3>Beginner Level Questions.</h3>
+        <h3>{{level}} Level Questions.</h3>
     </div>
 
     <div *ngIf="!start">
         <hr />
         <button class="btn btn-success" (click)="startQuiz()" type="button">
-            Click here to start the Begginer Word Quiz!
+            Click here to start the {{level}} Word Quiz!
         </button>
     </div>
     <hr />
@@ -70,7 +70,7 @@
                 </div>
                 <button class="btn btn-primary btn-block" (click)="validate()" [disabled]="submited">Check your answer!</button>
                 <div class="alert alert-success" *ngIf="correct">Correct!</div>
-                <div class="alert alert-danger" *ngIf="wrong"><strong>Opps! </strong>Sorry, the answer is {{correctAnswer}}</div>
+                <div class="alert alert-danger" *ngIf="wrong"><strong>Opps! </strong>Sorry, the answer is: '{{correctAnswer}}'</div>
             </form>
         </div>
     </div>

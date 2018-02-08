@@ -19,7 +19,7 @@ const routes: Routes = [
             { path: 'admin', loadChildren: './admin/admin.module#AdminModule'},
             { path: 'credits', loadChildren: './credits/credits.module#CreditsModule' },
             { path: 'tests', loadChildren: './tests/tests.module#TestsModule' },
-            { path: 'tests/beginner', loadChildren: './tests/beginner/beginner.module#BeginnerModule' },
+            { path: 'tests/:id', loadChildren: './tests/beginner/beginner.module#BeginnerModule' },
             { path: 'itranslate', loadChildren: './itranslate/itranslate.module#ItranslateModule'}
             //{ path: 'tests/STEM', loadChildren: './tests/stem/stem.module#StemModule' },
             //{ path: 'tests/high', loadChildren: './tests/high/high.module#HighModule' },

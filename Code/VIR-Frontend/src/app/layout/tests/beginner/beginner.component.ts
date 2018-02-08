@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Location } from '@angular/common';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { ActivatedRoute } from '@angular/router';
 
 import { BeginnerTestBank } from '../../../shared/services/beginnerTestBank.service';
 
@@ -24,6 +25,9 @@ export class BeginnerComponent implements OnInit {
     selection: string;
     closeResult: string;
     correctAnswer: string;
+    level: string;
+
+    bank: BeginnerTestBank;
 
     numberOfQuestions: number;
     numWrong: number = 0;
@@ -35,16 +39,17 @@ export class BeginnerComponent implements OnInit {
     skip: boolean;
 
     id: number = 0;
-    randID: number = 0;
+    randID: number = Math.floor(Math.random() * Math.floor(20));
 
     submited: boolean = false;
     start: boolean = false;
 
     @Input() radioData: string;
 
-    constructor(private _question: BeginnerTestBank, private _location: Location, private _modalService: NgbModal) {
+    constructor(private _question: BeginnerTestBank, private _location: Location, private _modalService: NgbModal, private _route: ActivatedRoute) {
 
-        _question.questionsLib(this.id);
+
+        _question.questionsLib(this.randID);
 
         this.question = _question.question;
         this.answer = _question.answer;
@@ -115,7 +120,8 @@ export class BeginnerComponent implements OnInit {
     ngOnInit() {
 
         window.scrollTo(0, 0);
-
+        this.level = this._route.snapshot.paramMap.get('id');
+        this.determineLevel(this.level);
     }
 
     backClicked() {
@@ -145,5 +151,24 @@ export class BeginnerComponent implements OnInit {
         this.skip = true;
         this.submited = true;
         this.numSkipped++;
+    }
+
+    determineLevel(lvl:string) {
+
+        if (lvl == "beginner") {
+            this.level = "Beginner";
+        }
+        else if (lvl == "advanced") {
+            this.level = "Advanced";
+        }
+        else if (lvl == "intermediate") {
+            this.level = "Intermedite";
+        }
+        else if (lvl == "upper") {
+            this.level = "Upper Intermediate";
+        }
+        else if (lvl == "vocab") {
+            this.level = "Vocabulary Sized";
+        }
     }
 }

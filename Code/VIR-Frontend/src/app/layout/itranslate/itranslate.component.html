@@ -1,5 +1,6 @@
-<i class="fa fa-fw fa-keyboard-o fa-2x float-right" title="Itranslate"></i>Enter your text&nbsp;&nbsp;
-
+<div class="card-header card-primary card-inverse bg-info">
+    <i class="fa fa-fw fa-font fa-2x float-right"></i>iTranslate&nbsp;&nbsp;
+</div>
 <div class="form-group">
   <div class="col-md-12">
     <textarea class="form-control" name="textArea" id="exampleTextarea" rows="1" maxlength="30000" [(ngModel)]="textArea" 
@@ -13,7 +14,8 @@
     <button type="button" class="btn btn-info" (click)="changeLang('fa')">Farsi</button>
     <button type="button" class="btn btn-danger" (click)="changeLang('es')">Spanish</button>
   </div>
+  <div class="btn-group float-right">
+    <button type="button" class="btn btn-warning" (click)="translate()">Translate</button>
+  </div>
 </div>
-
-
-
+<!-- <div> {{itranslation.translated}}</div> -->

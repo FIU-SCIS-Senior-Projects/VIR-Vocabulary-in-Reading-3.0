@@ -1,5 +1,4 @@
-import { DefinitionService } from './../../shared/services/definition.service';
-import { WordsListService } from './../../shared/services/wordsList.service';
+
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
@@ -8,6 +7,9 @@ import { ItranslateRoutingModule } from './itranslate-routing.module';
 import { ItranslateComponent } from './itranslate.component';
 import { TextService } from '../../shared'
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap'
+import { HttpClient } from '@angular/common/http';
+import { iTranslation } from '../../shared'
+import { iTranslateService } from '../../shared/services'
 
 @NgModule({
   imports: [
@@ -19,6 +21,6 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap'
 
   ],
   declarations: [ ItranslateComponent ],
-  providers: [WordsListService, DefinitionService],
+  providers: [iTranslateService],
 })
 export class ItranslateModule { }

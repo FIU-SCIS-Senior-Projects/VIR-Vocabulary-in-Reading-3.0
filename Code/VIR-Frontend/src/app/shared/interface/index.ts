@@ -7,3 +7,4 @@ export * from './IPage';
 export * from './IOrder';
 export * from './IWordCount';
 export * from './IWordPercentage';
+export * from './iTranslation';

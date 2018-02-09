@@ -1,4 +1,6 @@
 import { Component, Input, NgModule, OnInit} from '@angular/core';
+import { iTranslation } from '../../shared'
+import { iTranslateService } from '../../shared/services'
 
 @Component({
   selector: 'app-itranslate',
@@ -9,7 +11,9 @@ import { Component, Input, NgModule, OnInit} from '@angular/core';
 export class ItranslateComponent implements OnInit {
   @Input() textArea: string;
   @Input() target: string;
-  constructor() { }
+  itranslation:iTranslation;
+  
+  constructor(private _itranslate:iTranslateService) { }
 
   ngOnInit() {
   }
@@ -18,8 +22,16 @@ export class ItranslateComponent implements OnInit {
     console.log(this.textArea);
   }
 
-  changeLang(target){
+  changeLang(target:string){
     this.target=target;
-    console.log(this.target)
+    console.log(this.target);
   }
+
+  translate(){
+    
+    this._itranslate.getTranslation(this.textArea, this.target).subscribe(res=>{this.itranslation=res; });
+
+  }
+
+
 }

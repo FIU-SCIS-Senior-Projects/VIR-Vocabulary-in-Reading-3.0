@@ -36,7 +36,7 @@ export class BeginnerTestBank {
             },
 
             {
-                question: "WHich verb can you __ with all these words? Skiing, Swimming, Dancing, Shopping",
+                question: "Which verb can you __ with all these words? Skiing, Swimming, Dancing, Shopping",
                 answer: "3",
                 options: ["Take", "Make", "Do", "Go"]
             },
@@ -46,6 +46,7 @@ export class BeginnerTestBank {
                 answer: "0",
                 options: ["What are you doing?", "What do you do?", "What do you to to relax?", "WHat do yo like doing?"]
             },
+
 
             {
                 question: "Which sentence is not correct?",
@@ -62,7 +63,7 @@ export class BeginnerTestBank {
             {
                 question: "Complete the phase: _______ to get to the airport?",
                 answer: "2",
-                options: ["How long is it", "How much", "How long doe it take", "How lar"]
+                options: ["How long is it", "How much", "How long doe it take", "How far"]
             },
 
             {
@@ -139,9 +140,9 @@ export class BeginnerTestBank {
             },
 
             {
-                question: "",
+                question: "Complete the sentence: Yesterday i ______ a great book",
                 answer: "0",
-                options: ["Becasue", "So", "If", "But"]
+                options: ["Read", "Readed", "Reed", "Rode"]
             },
 
             {
@@ -377,12 +378,12 @@ export class BeginnerTestBank {
                 question: "What is the definition of 'commited to do something'.",
                 answer: "2",
                 options: ["Is not interested", "Is interested", "Want to do at any price", "Wish to do"]
-            },
+            }
 
         ];
 
         this.totalQuestions = questions.length;
-        
+
         this.answer = questions[id].answer;
         this.question = questions[id].question
         this.options = questions[id].options;

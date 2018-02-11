@@ -6,7 +6,7 @@ import { Location } from '@angular/common';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute } from '@angular/router';
 
-import { BeginnerTestBank } from '../../../shared/services/beginnerTestBank.service';
+import { BeginnerTestBank } from '../../../shared/services/testBanks/beginnerTestBank.service';
 
 
 @Component({
@@ -33,21 +33,26 @@ export class BeginnerComponent implements OnInit {
     numWrong: number = 0;
     numRight: number = 0;
     numSkipped: number = 0;
+    attempted: number = 0;
+    usedQuetions: number[] = []; 
+    usedIndex: number = 0;
 
     correct: boolean;
     wrong: boolean;
     skip: boolean;
+    used: boolean;
 
-    id: number = 0;
+
+    counter: number = 0;
     randID: number = Math.floor(Math.random() * Math.floor(20));
 
     submited: boolean = false;
     start: boolean = false;
+    finished: boolean = true;
 
     @Input() radioData: string;
 
     constructor(private _question: BeginnerTestBank, private _location: Location, private _modalService: NgbModal, private _route: ActivatedRoute) {
-
 
         _question.questionsLib(this.randID);
 
@@ -62,6 +67,7 @@ export class BeginnerComponent implements OnInit {
     startQuiz() {
 
         this.start = true;
+        this.finished = false;
 
     }
 
@@ -69,6 +75,7 @@ export class BeginnerComponent implements OnInit {
 
         this.selection = this.radioData;
         this.submited = true;
+        this.attempted++;
 
         if (this.selection == this.answer) {
             this.correct = true;
@@ -90,20 +97,37 @@ export class BeginnerComponent implements OnInit {
         }
         else if (this.submited || this.skip) {
 
-            this.id = this.id + 1;
+            this.counter++;
 
-            //this will get a random number, this number will be used to get the next question.
+            this.usedQuetions[this.usedIndex] = this.randID;
+            this.usedIndex++;
+
             this.randID = Math.floor(Math.random() * Math.floor(this.numberOfQuestions));
 
-            if (this.id < this.numberOfQuestions) {
+            this.checkUsed(this.randID);
+
+            while (this.used == true && this.counter < this.numberOfQuestions) {
+
+                this.randID = Math.floor(Math.random() * Math.floor(this.numberOfQuestions));
+
+                this.checkUsed(this.randID);
+            }
+
+            if (this.counter < this.numberOfQuestions) {
+
                 this._question.questionsLib(this.randID);
                 this.updateInfo();
+
                 this.submited = false;
                 this.skip = false;
 
                 this.correct = false;
                 this.wrong = false;
-                }
+
+            } else {
+
+                this.finished = true;
+            }
         }
 
     }
@@ -114,6 +138,10 @@ export class BeginnerComponent implements OnInit {
         this.answer = this._question.answer;
         this.options = this._question.options;
 
+    }
+
+    finishQuiz(stats) {
+        this.open(stats);
     }
 
 
@@ -151,6 +179,7 @@ export class BeginnerComponent implements OnInit {
         this.skip = true;
         this.submited = true;
         this.numSkipped++;
+        this.attempted++;
     }
 
     determineLevel(lvl:string) {
@@ -170,5 +199,20 @@ export class BeginnerComponent implements OnInit {
         else if (lvl == "vocab") {
             this.level = "Vocabulary Sized";
         }
+    }
+
+    checkUsed(id: number) {
+
+        this.used = false;
+
+        for (let i of this.usedQuetions) {
+
+            if (i == id) {
+
+                this.used = true;
+                
+            }
+        }
+
     }
 }

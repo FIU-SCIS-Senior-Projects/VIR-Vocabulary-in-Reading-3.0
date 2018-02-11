@@ -3,7 +3,7 @@
     <!--This button dissapears whenerer you start the quiz-->
 
     <div class="container-fluid" text-align="center">
-       
+
         <button class="btn btn-warning float-right" (click)="backClicked()">
             <i class="fa fa-step-backward"></i> To Test Categories
         </button>
@@ -78,7 +78,9 @@
     <!-- This 'next' button will skip the question. Also provide the user with a warning if question not answered -->
 
     <div class="container-fluid">
-        <button class="btn btn-success float-right" (click)="nextQuestion(content)" [disabled]="!start">
+        <button class="btn btn-primary" (click)="finishQuiz(stats)" *ngIf="start">Finish Quiz!
+        </button>
+        <button class="btn btn-success float-right" (click)="nextQuestion(content)" *ngIf="!finished">
             Next <i class="fa fa-step-forward">  </i>
         </button>
     </div>
@@ -87,7 +89,7 @@
     <br />
     <hr />
 
-    <!-- Feed back for the user -->
+    <!-- Feedback for the user -->
     <h4>Progress</h4>
     <table id="progress">
         <tr>
@@ -104,7 +106,7 @@
         </tr>
     </table>
 
-    <!--Definition model (Popup)-->
+    <!--Definition model (Popup) for skipped question warning-->
     <ng-template #content let-c="close" let-d="dismiss">
         <div class="modal-header">
             <h4>
@@ -125,5 +127,39 @@
             <button type="button" class="btn btn-warning" (click)="c('Close click'); skipQuestion(); nextQuestion(content)">Skip Anyway...</button>
         </div>
     </ng-template>
+
+    <ng-template #stats let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4>
+                Session Stats:
+            </h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <!--Alert-->
+            <div>
+                <strong>Attempted: </strong> {{attempted}}
+            </div>
+            <div>
+                <strong>Correct: </strong>{{numRight}}
+            </div>
+            <div>
+                <strong>Wrong: </strong> {{numWrong}}
+            </div>
+            <div>
+                <strong>Skiped: </strong> {{numSkipped}}
+            </div>
+        </div>
+        <div class="modal-footer">
+            <!--this button will skip the currwnt question from the quiz-->
+            <button type="button" class="btn btn-warning" (click)="c('Close click');">Close</button>
+        </div>
+    </ng-template>
+
+    <div>
+
+    </div>
 
 </div>

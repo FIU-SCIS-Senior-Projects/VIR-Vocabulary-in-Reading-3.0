@@ -5,11 +5,11 @@
     "\\VIR-Frontend\\src",
     "\\VIR-Frontend\\src\\app",
     "\\VIR-Frontend\\src\\app\\layout",
-    "\\VIR-Frontend\\src\\app\\layout\\dictionary",
-    "\\VIR-Frontend\\src\\app\\layout\\itranslate",
     "\\VIR-Frontend\\src\\app\\layout\\tests",
     "\\VIR-Frontend\\src\\app\\layout\\tests\\beginner",
-    "\\VIR-Frontend\\src\\app\\shared"
+    "\\VIR-Frontend\\src\\app\\shared",
+    "\\VIR-Frontend\\src\\app\\shared\\components",
+    "\\VIR-Frontend\\src\\app\\shared\\services"
   ],
   "SelectedNode": "\\VIR-Frontend\\src\\app\\layout\\tests\\beginner\\beginner.component.html",
   "PreviewInSolutionExplorer": false

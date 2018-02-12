@@ -2,18 +2,18 @@
 
     <!--This button dissapears whenerer you start the quiz-->
 
-    <div class="container-fluid" text-align="center">
+    <div class="container-fluid" text-align="center" (window:resize)="onResize($event)">
 
-        <button class="btn btn-warning float-right" (click)="backClicked()">
-            <i class="fa fa-step-backward"></i> To Test Categories
+        <button class="btn btn-warning float-right" (click)="backClicked()" >
+            <i class="fa fa-step-backward"></i> {{backLabel}}
         </button>
         <h3>{{level}} Level Questions.</h3>
     </div>
 
     <div *ngIf="!start">
         <hr />
-        <button class="btn btn-success" (click)="startQuiz()" type="button">
-            Click here to start the {{level}} Word Quiz!
+        <button class="btn btn-success btn-block" (click)="startQuiz()" type="button">
+            Start The {{level}} Word Quiz!
         </button>
     </div>
     <hr />
@@ -25,6 +25,9 @@
             <h5>Ready?</h5>
         </div>
         <div class="card-header card-info" placeholder="test" *ngIf="start">
+            <div class="float-right">Time: {{timer}} sec</div>
+            <br />
+            <hr />
             <i class="fa fa-fw fa-check fa-2x float-right" *ngIf="correct"></i>
             <i class="fa fa-fw fa-times fa-2x float-right" *ngIf="wrong"></i>
             <h5>{{question}}</h5>
@@ -68,10 +71,11 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-primary btn-block" (click)="validate()" [disabled]="submited">Check your answer!</button>
+                <button class="btn btn-primary btn-block" (click)="validate()" [disabled]="submited" *ngIf="!timeUp">Check your answer!</button>
                     
                 <div class="alert alert-success" *ngIf="correct">Correct!</div>
-                <div class="alert alert-danger" *ngIf="wrong"><strong>Opps! </strong>Sorry, the answer is: '{{correctAnswer}}'</div>
+                <div class="alert alert-danger" *ngIf="wrong && !timeUp"><strong>Opps! </strong>Sorry, the answer is: '{{correctAnswer}}'</div>
+                <div class="alert alert-warning" *ngIf="timeUp"><strong>Ran out of time! </strong>Remember that you only have 60 secs per question! </div>
             </form>
         </div>
     </div>

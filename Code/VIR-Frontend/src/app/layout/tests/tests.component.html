@@ -17,17 +17,18 @@
 
     <div>
         <h2>Test Catergories</h2>
-    </div> 
-        <hr>
+    </div>
+    <hr>
 
+    <div class="hidden-sm-down">
         <div class="row">
-            <div class="col col-md-4 col-xs-12">
+            <div class="col col-md-4">
                 <a routerLink="/tests/beginner" [routerLinkActive]="['router-link-active']" class="btn btn-success btn-block btn-lg">Beginner</a>
             </div>
-            <div class="col col-md-4 col-xs-12">
+            <div class="col col-md-4">
                 <a routerLink="/tests/intermediate" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">Intermediate</a>
             </div>
-            <div class="col col-md-4 col-xs-12">
+            <div class="col col-md-4">
                 <a routerLink="/tests/upper" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">Upper Intermediate</a>
             </div>
         </div>
@@ -35,16 +36,63 @@
         <hr />
 
         <div class="row">
-            <div class="col col-md-4 col-xs-12">
+            <div class="col col-md-4">
                 <a routerLink="/tests/advanced" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">Advanced</a>
             </div>
-            <div class="col col-md-4 col-xs-12">
-                <a routerLink="/tests/vocab" [routerLinkActive]="['router-link-active']"class="btn btn-primary btn-block btn-lg">Vocabulary Sized Test</a>
+            <div class="col col-md-4">
+                <a routerLink="/tests/vocab" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">Vocabulary Sized Test</a>
             </div>
-            <div class="col col-md-4 col-xs-12">
-                <a routerLink="/tests/all" [routerLinkActive]="['router-link-active']"class="btn btn-primary btn-block btn-lg">All Categories</a>
+            <div class="col col-md-4">
+                <a routerLink="/tests/all" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">All Categories</a>
             </div>
         </div>
+    </div>
+
+    <div class="container-fluid hidden-md-up">
+
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <button routerLink="/tests/beginner" [routerLinkActive]="['router-link-active']" class="btn btn-success btn-block btn-lg">Beginner</button>
+            </div>
+            <div class="container hidden-sm-up">
+                <hr />
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <button routerLink="/tests/intermediate" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">Intermediate</button>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <button routerLink="/tests/upper" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">Upper Intermediate</button>
+            </div>
+            <div class="container hidden-sm-up">
+                <hr />
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <button routerLink="/tests/advanced" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">Advanced</button>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <button routerLink="/tests/vocab" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">Vocabulary Sized Test</button>
+            </div>
+            <div class="container hidden-sm-up">
+                <hr />
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <button routerLink="/tests/all" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">All Categories</button>
+            </div>
+        </div>
+
+
+
+    </div>
 
 </div>
 

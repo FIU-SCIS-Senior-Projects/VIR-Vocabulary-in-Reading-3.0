@@ -5,6 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Location } from '@angular/common';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute } from '@angular/router';
+import { SimpleTimer } from 'ng2-simple-timer';
 
 import { BeginnerTestBank } from '../../../shared/services/testBanks/beginnerTestBank.service';
 
@@ -19,6 +20,9 @@ import { BeginnerTestBank } from '../../../shared/services/testBanks/beginnerTes
 
 export class BeginnerComponent implements OnInit {
 
+    public static BACK_LABEL: string = ' To Categories';
+
+    backLabel: string = BeginnerComponent.BACK_LABEL;
     question: string;
     answer: string;
     options: any[];
@@ -27,8 +31,7 @@ export class BeginnerComponent implements OnInit {
     correctAnswer: string;
     level: string;
     standing: string;
-
-    bank: BeginnerTestBank;
+    timerId: string;
 
     numberOfQuestions: number;
     numWrong: number = 0;
@@ -38,12 +41,15 @@ export class BeginnerComponent implements OnInit {
     usedQuetions: number[] = []; 
     usedIndex: number = 0;
     percent: number;
+    timer: number = 0;
 
     correct: boolean;
     wrong: boolean;
     skip: boolean;
     used: boolean;
     alrt: boolean = false;
+    timeUp: boolean = false;
+    showOnlyIcons: boolean;
 
 
     counter: number = 0;
@@ -55,7 +61,8 @@ export class BeginnerComponent implements OnInit {
 
     @Input() radioData: string;
 
-    constructor(private _question: BeginnerTestBank, private _location: Location, private _modalService: NgbModal, private _route: ActivatedRoute) {
+    constructor(private _question: BeginnerTestBank, private _location: Location, private _modalService: NgbModal,
+        private _route: ActivatedRoute, private simpleT: SimpleTimer) {
 
         _question.questionsLib(this.randID);
 
@@ -67,12 +74,68 @@ export class BeginnerComponent implements OnInit {
 
     }
 
+    ngOnInit() {
+        window.scrollTo(0, 0);
+        this.level = this._route.snapshot.paramMap.get('id');
+        this.determineLevel(this.level);
+        this.showOnlyIcons = window.innerWidth <= 680;
+        this.updaTeLabels();
+    }
+
     startQuiz() {
 
         this.start = true;
         this.finished = false;
+        this.simpleT.newTimer('1sec', 1);
+        this.subscribeTimer();
 
     }
+
+    onResize(event) {
+        this.showOnlyIcons = window.innerWidth <= 680;
+        this.updaTeLabels();
+        event.target.innerWidth;
+    }
+
+    private updaTeLabels(): void {
+        this.backLabel = this.showOnlyIcons ? '' : BeginnerComponent.BACK_LABEL;
+        
+    }
+
+    subscribeTimer() {
+        if (this.timerId) {
+            // Unsubscribe if timer Id is defined
+            this.simpleT.unsubscribe(this.timerId);
+            this.timerId = undefined;
+            //console.log('timer 0 Unsubscribed.');
+            
+        } else {
+
+            this.timer = -1;
+            // Subscribe if timer Id is undefined
+            this.timerId = this.simpleT.subscribe('1sec', () => this.timerCallback());
+            //console.log('timer 0 Subscribed.');
+            this.timeUp = false;
+        }
+  
+    }
+
+    timerCallback() {
+        if (this.timer < 60) {
+            this.timer++;
+        } else {
+            // Unsubscribe if timer Id is defined
+            this.simpleT.unsubscribe(this.timerId);
+            this.timerId = undefined;
+            this.timeUp = true;
+            this.submited = true;
+            this.attempted++;
+            this.numWrong++;
+            this.wrong = true;
+        }
+
+    }
+
 
     validate() {
 
@@ -80,6 +143,7 @@ export class BeginnerComponent implements OnInit {
         this.submited = true;
         this.attempted++;
         this.alrt = false;
+        this.subscribeTimer();
 
         if (this.selection == this.answer) {
             this.correct = true;
@@ -128,6 +192,7 @@ export class BeginnerComponent implements OnInit {
                 this.correct = false;
                 this.wrong = false;
                 this.alrt = false;
+                this.subscribeTimer();
 
             } else {
 
@@ -166,13 +231,6 @@ export class BeginnerComponent implements OnInit {
 
     }
 
-
-    ngOnInit() {
-        window.scrollTo(0, 0);
-        this.level = this._route.snapshot.paramMap.get('id');
-        this.determineLevel(this.level);
-    }
-
     backClicked() {
         this._location.back();
     }
@@ -201,6 +259,7 @@ export class BeginnerComponent implements OnInit {
         this.submited = true;
         this.numSkipped++;
         this.attempted++;
+        this.subscribeTimer();
     }
 
     determineLevel(lvl:string) {

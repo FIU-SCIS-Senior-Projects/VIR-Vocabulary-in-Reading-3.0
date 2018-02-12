@@ -69,20 +69,26 @@
                     </div>
                 </div>
                 <button class="btn btn-primary btn-block" (click)="validate()" [disabled]="submited">Check your answer!</button>
+                    
                 <div class="alert alert-success" *ngIf="correct">Correct!</div>
                 <div class="alert alert-danger" *ngIf="wrong"><strong>Opps! </strong>Sorry, the answer is: '{{correctAnswer}}'</div>
             </form>
         </div>
     </div>
 
-    <!-- This 'next' button will skip the question. Also provide the user with a warning if question not answered -->
+    <!-- Buttons, next and finish -->
 
     <div class="container-fluid">
-        <button class="btn btn-primary" (click)="finishQuiz(stats)" *ngIf="start">Finish Quiz!
+        <button class="btn btn-primary" (click)="finishQuiz(stats); calcPercentage()" *ngIf="start">Finish Quiz!
         </button>
         <button class="btn btn-success float-right" (click)="nextQuestion(content)" *ngIf="!finished">
             Next <i class="fa fa-step-forward">  </i>
         </button>
+    </div>
+
+    <div class="container-fluid">
+        <hr />
+        <div class="alert alert-warning" *ngIf="alrt"><strong>You need to attempt atleast 10 questions. </strong> You have attempted only {{attempted}}.</div>
     </div>
 
     <br />
@@ -90,6 +96,7 @@
     <hr />
 
     <!-- Feedback for the user -->
+
     <h4>Progress</h4>
     <table id="progress">
         <tr>
@@ -123,10 +130,13 @@
             </div>
         </div>
         <div class="modal-footer">
-            <!--this button will skip the currwnt question from the quiz-->
+            <!--this button will skip the current question from the quiz-->
             <button type="button" class="btn btn-warning" (click)="c('Close click'); skipQuestion(); nextQuestion(content)">Skip Anyway...</button>
         </div>
     </ng-template>
+
+
+    <!--This is the modal that shows the stats of the session once a user hits finish-->
 
     <ng-template #stats let-c="close" let-d="dismiss">
         <div class="modal-header">
@@ -138,23 +148,61 @@
             </button>
         </div>
         <div class="modal-body">
-            <!--Alert-->
+            <table id="progress">
+                <tr>
+                    <th>Attempted</th>
+                    <th>Correct</th>
+                    <th>Incorrect</th>
+                    <th>Skipped</th>
+                </tr>
+                <tr>
+                    <td>{{attempted}}</td>
+                    <td>{{numRight}}</td>
+                    <td>{{numWrong}}</td>
+                    <td>{{numSkipped}}</td>
+                </tr>
+            </table>
+
             <div>
-                <strong>Attempted: </strong> {{attempted}}
+                <hr />
+                <h5><strong>You scored: </strong> {{percent}}%</h5>
+                <hr />
             </div>
-            <div>
-                <strong>Correct: </strong>{{numRight}}
-            </div>
-            <div>
-                <strong>Wrong: </strong> {{numWrong}}
-            </div>
-            <div>
-                <strong>Skiped: </strong> {{numSkipped}}
-            </div>
+            <table id="stats">
+                <tr>
+                    <th>Range</th>
+                    <th>Standing</th>
+                </tr>
+                <tr>
+                    <td>100 - 90</td>
+                    <td>Awsome!</td>
+                </tr>
+                <tr>
+                    <td>89 - 80</td>
+                    <td>Great</td>
+                </tr>
+                <tr>
+                    <td>79 - 70</td>
+                    <td>Good</td>
+                </tr>
+                <tr>
+                    <td>69 - 60</td>
+                    <td>Fair</td>
+                </tr>
+                <tr>
+                    <td>59 - 50</td>
+                    <td>Needs Improvement</td>
+                </tr>
+                <tr>
+                    <td>Less than 49</td>
+                    <td>Needs Instruction</td>
+                </tr>
+            </table>
         </div>
+
         <div class="modal-footer">
             <!--this button will skip the currwnt question from the quiz-->
-            <button type="button" class="btn btn-warning" (click)="c('Close click');">Close</button>
+            <button type="button" class="btn btn-warning" (click)="c('Close click'); backClicked()">Done</button>
         </div>
     </ng-template>
 

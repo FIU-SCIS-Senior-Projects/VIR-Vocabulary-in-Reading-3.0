@@ -26,6 +26,7 @@ export class BeginnerComponent implements OnInit {
     closeResult: string;
     correctAnswer: string;
     level: string;
+    standing: string;
 
     bank: BeginnerTestBank;
 
@@ -36,11 +37,13 @@ export class BeginnerComponent implements OnInit {
     attempted: number = 0;
     usedQuetions: number[] = []; 
     usedIndex: number = 0;
+    percent: number;
 
     correct: boolean;
     wrong: boolean;
     skip: boolean;
     used: boolean;
+    alrt: boolean = false;
 
 
     counter: number = 0;
@@ -76,6 +79,7 @@ export class BeginnerComponent implements OnInit {
         this.selection = this.radioData;
         this.submited = true;
         this.attempted++;
+        this.alrt = false;
 
         if (this.selection == this.answer) {
             this.correct = true;
@@ -123,6 +127,7 @@ export class BeginnerComponent implements OnInit {
 
                 this.correct = false;
                 this.wrong = false;
+                this.alrt = false;
 
             } else {
 
@@ -141,12 +146,28 @@ export class BeginnerComponent implements OnInit {
     }
 
     finishQuiz(stats) {
-        this.open(stats);
+
+        if (this.attempted >= 10) {
+            this.open(stats);
+            this.finished = true;
+            
+        } else {
+            this.alrt = true;
+
+        }
+
+
+
+    }
+
+    //This will calculate the percentage of the quiz taken
+    calcPercentage() {
+        this.percent = Math.round((this.numRight / this.attempted) * 100);
+
     }
 
 
     ngOnInit() {
-
         window.scrollTo(0, 0);
         this.level = this._route.snapshot.paramMap.get('id');
         this.determineLevel(this.level);
@@ -201,6 +222,7 @@ export class BeginnerComponent implements OnInit {
         }
     }
 
+    //this checks if the question has been used or not
     checkUsed(id: number) {
 
         this.used = false;

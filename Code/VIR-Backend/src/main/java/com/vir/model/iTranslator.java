@@ -11,12 +11,16 @@ import java.util.List;
  *
  *
  */
-public class iTranslator {
+public class Itranslator {
 
 	private String original;
 	private String target;
 	private String translated;
-	
+    
+     Itranslator(){}
+    
+
+
     /**
      * @return the original
      */

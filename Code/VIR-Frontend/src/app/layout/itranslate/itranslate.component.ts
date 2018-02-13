@@ -1,6 +1,8 @@
 import { Component, Input, NgModule, OnInit} from '@angular/core';
 import { iTranslation } from '../../shared'
 import { iTranslateService } from '../../shared/services'
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-itranslate',

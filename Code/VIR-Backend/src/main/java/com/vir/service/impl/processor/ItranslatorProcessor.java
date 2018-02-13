@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.management.MXBean;
 import javax.transaction.Transactional;
 
 import com.google.cloud.translate.Translate;
@@ -22,29 +23,28 @@ import org.springframework.stereotype.Service;
 import com.vir.model.Text;
 import com.vir.model.Word;
 import com.vir.model.WordMatch;
-import com.vir.model.iTranslator;
+import com.vir.model.Itranslator;
 import com.vir.repository.WordRepository;
 import com.vir.service.TextProcessorService;
 import com.vir.service.WordService;
-import com.vir.service.iTranslateProcessorService;
+import com.vir.service.ItranslatorService;
 
 /**
- * A simple text processor to match a word to the category.
+ * Requesting translation from google.
  * 
  *
  *
  */
-@Service("simpleTextProcessorService")
-@Transactional
-public class iTranslateProcessor implements iTranslateProcessorService {
+@Service("ITranslatorService")
+
+public class ItranslatorProcessor implements ItranslatorService {
 
 	@Override
-	public iTranslator process(String text, String target) {
+	public Itranslator process(String text, String target) {
         Translate translate = TranslateOptions.getDefaultInstance().getService();
-        main.java.com.vir.model.iTranslator itranslator = new iTranslator();
+        Itranslator itranslator = new Itranslator();
 
 
-    // Translates some text into Russian
         Translation translation =
         translate.translate(
             text,

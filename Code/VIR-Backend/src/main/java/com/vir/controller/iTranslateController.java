@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.vir.exception.ApiError;
-import com.vir.model.iTranslator;
-import com.vir.service.iTranslateProcessorService;
+import com.vir.model.Itranslator;
+import com.vir.service.ItranslatorService;
+import com.vir.service.impl.processor.ItranslatorProcessor;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -20,18 +21,18 @@ import io.swagger.annotations.ApiResponse;
 
 @RestController
 @RequestMapping("/api")
-@Api(tags = "iTranslate")
-public class iTranslateController {
+@Api(tags = "Itranslate")
+public class ItranslateController {
 
 	@Autowired
-	@Qualifier("iTranslatorService")
-	private iTranslateProcessorService itranslateProcessorService;
+	@Qualifier("ItranslatorService")
+	private ItranslatorService trans;
 
 
 	@ApiOperation(value = "Translate a text input.")
 	@ApiResponse(code = 400, message = "Generic error", response = ApiError.class)
 	@PostMapping(value = "/iTranslate", produces = MediaType.APPLICATION_JSON_VALUE)
-	public iTranslator iTranslate(@RequestBody(required = true) String text, @RequestBody(required = true) String target) {
-		return itranslateProcessorService.process(text, target);
+	public Itranslator iTranslate(@RequestBody(required = true) String text, @RequestBody(required = true) String target) {
+		return trans.process(text, target);
 	}
 }

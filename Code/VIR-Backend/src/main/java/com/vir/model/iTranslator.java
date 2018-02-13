@@ -17,7 +17,6 @@ public class Itranslator {
 	private String target;
 	private String translated;
     
-     Itranslator(){}
     
 
 

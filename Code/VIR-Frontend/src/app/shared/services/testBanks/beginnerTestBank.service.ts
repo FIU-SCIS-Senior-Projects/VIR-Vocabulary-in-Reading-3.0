@@ -32,30 +32,30 @@ export class BeginnerTestBank {
             {
                 question: "Which sentence is not correct?",
                 answer: "3",
-                options: ["Have you got a brother?", "I've got a cold", "My house has got three bedrooms", "I've always got a good time in my English lesson"]
+                options: ["Do you have a brother?", "I've got a cold", "My house has three bedrooms", "I've always got a good time in my English lesson"]
             },
 
             {
-                question: "Which verb can you __ with all these words? Skiing, Swimming, Dancing, Shopping",
+                question: "Which verb can you ___ with all these words? Skiing, Swimming, Dancing, Shopping",
                 answer: "3",
                 options: ["Take", "Make", "Do", "Go"]
             },
 
             {
-                question: "The answer is 'Im listening to music'. What is the question?",
+                question: "The answer is 'I'm listening to music'. What is the question?",
                 answer: "0",
-                options: ["What are you doing?", "What do you do?", "What do you to to relax?", "WHat do yo like doing?"]
+                options: ["What are you doing?", "What do you do?", "What do you to to relax?", "What do yo like doing?"]
             },
 
 
             {
                 question: "Which sentence is not correct?",
                 answer: "3",
-                options: ["I'm making a cup of coffee", "Can yo make the bed, please?", "The book made me sad", "She made a photo of the baby"]
+                options: ["I'm making a cup of coffee", "Can you make the bed, please?", "The book made me sad", "She made a photo of the baby"]
             },
 
             {
-                question: "What time did you _______ last night?",
+                question: "Complete the sentence: What time did you _______ last night?",
                 answer: "0",
                 options: ["Come home", "Come to home", "Come bank to home", "Come in home"]
             },
@@ -63,11 +63,11 @@ export class BeginnerTestBank {
             {
                 question: "Complete the phase: _______ to get to the airport?",
                 answer: "2",
-                options: ["How long is it", "How much", "How long doe it take", "How far"]
+                options: ["How long is it", "How much", "How long does it take", "How far"]
             },
 
             {
-                question: "Which one is the best reply to the question: 'Can i borrow the book?'",
+                question: "Which one is the best reply to the question: 'Can I borrow the book?'",
                 answer: "0",
                 options: ["Yes, but please bring it back tomorrow", "Yes, but please take it back tomorrow",
                     "Ye, but get it back by tomorrow", "Yes, but it should be got back in tomorrow"]
@@ -82,23 +82,23 @@ export class BeginnerTestBank {
             {
                 question: "Complete the phase: I _______ very well with my sister",
                 answer: "1",
-                options: ["Get out", "Get on", "Get up", "Get over"]
+                options: ["Get out", "Get along", "Get up", "Get over"]
             },
 
             {
                 question: "Which one is correct?",
                 answer: "2",
-                options: ["He told me 'Goodbye'", "He said to me'Goodbye'", "He said 'Goodbye'", "He told 'Goodbye'"]
+                options: ["He told me 'Goodbye'", "He said to me 'Goodbye'", "He said 'Goodbye'", "He told 'Goodbye'"]
             },
 
             {
-                question: "Whic of these can't you 'tell'?",
+                question: "Which of these can't you 'tell'?",
                 answer: "3",
                 options: ["A story", "A joke", "The time", "A question"]
             },
 
             {
-                question: "Which verbs can you use with: Train, Plane, Bus, Bicyle",
+                question: "Which of these verbs can you use with: Train, Plane, Bus, Bicyle",
                 answer: "2",
                 options: ["Miss", "Catch", "Go by", "Take"]
             },
@@ -116,13 +116,13 @@ export class BeginnerTestBank {
             },
 
             {
-                question: "Fill in the gap: Jane's ______ at the moment, She is coming back in about 10 minutes.",
+                question: "Fill in the gap: Jane is ______ at the moment, She is coming back in about 10 minutes.",
                 answer: "0",
-                options: ["Out", "Abroad", "Away", "On the way"]
+                options: ["Out", "Abroad", "Here", "On the way"]
             },
 
             {
-                question: "Complete the sentence: The drver sits at the ______ of the bus.",
+                question: "Complete the sentence: The driver sits at the ______ of the bus.",
                 answer: "3",
                 options: ["Side", "Sequinning", "Middle", "Front"]
             },
@@ -182,15 +182,15 @@ export class BeginnerTestBank {
             },
 
             {
-                question: "Complete the sentence: Th house is ______.",
+                question: "Complete the sentence: The house is ______.",
                 answer: "1",
                 options: ["Very quite", "Very quiet", "Very quietly", "Very quietness"]
             },
 
             {
-                question: "Which questio is correct?",
+                question: "Which question is correct?",
                 answer: "1",
-                options: ["When you were born?", "When were you born?", "When are you born?", "When do you born?"]
+                options: ["When was you born?", "When were you born?", "When are you born?", "When do you born?"]
             },
 
             {
@@ -209,7 +209,7 @@ export class BeginnerTestBank {
             {
                 question: "Find something that only women wear",
                 answer: "2",
-                options: ["Trainers", "Jeans", "Tights", "T-shirt"]
+                options: ["Trainers", "Jeans", "Dress", "T-shirt"]
             },
 
             {
@@ -225,7 +225,7 @@ export class BeginnerTestBank {
             },
 
             {
-                question: "When do you say 'COngratulations?",
+                question: "When do you say 'Congratulations?",
                 answer: "1",
                 options: ["It's your mom's birthday", "Your friend passed the exam", "Your sister missed her plane", "Your friend is taking a test tomorrow"]
             },
@@ -291,8 +291,8 @@ export class BeginnerTestBank {
             },
 
             {
-                question: "WHere does a doctor work?",
-                answer: "0",
+                question: "Where does a doctor work?",
+                answer: "3",
                 options: ["In a shop", "In an office", "In a factory", "At the hospital"]
             },
 
@@ -347,11 +347,11 @@ export class BeginnerTestBank {
             {
                 question: "Which sentence is wrong?",
                 answer: "2",
-                options: ["I like relaxing after dinner", "I often listen to music", "I see TV every evening for ano hour", "I enjoy reading"]
+                options: ["I like relaxing after dinner", "I often listen to music", "I see TV every evening for an hour", "I enjoy reading"]
             },
 
             {
-                question: "Complete the sentence: A ______ attacked me in the street and stol emy bag",
+                question: "Complete the sentence: A ______ attacked me in the street and stole my bag",
                 answer: "1",
                 options: ["Terrorist", "Mugger", "Vandal", "Murderer"]
             },
@@ -369,8 +369,8 @@ export class BeginnerTestBank {
             },
 
             {
-                question: "COmplete the sentence: WHen you are unemployed, you  ______ .",
-                answer: "0",
+                question: "Complete the sentence: When you are unemployed, you  ______ .",
+                answer: "1",
                 options: ["Do not have enough food", "Do not have a job", "Have a new job", "Do not have a home"]
             },
 

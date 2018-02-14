@@ -27,7 +27,7 @@ export class IntermediateTestBank {
             },
 
             {
-                question: "which noun forms an adjective with thr suffix -able?",
+                question: "which noun forms an adjective with the suffix -able?",
                 answer: "2",
                 option: ["Sad", "Pain", "Fashion", "Danger"],
             },
@@ -41,7 +41,7 @@ export class IntermediateTestBank {
             {
                 question: "Which of these collocations is not correct?",
                 answer: "2",
-                option: ["A wesk accent", "A strong coffee", "A heavy traffic", "Hard work"],
+                option: ["A weak accent", "A strong coffee", "Draw some contract", "Hard work"],
             },
 
             {
@@ -63,7 +63,7 @@ export class IntermediateTestBank {
             },
 
             {
-                question: "Which expression can you use are a reply to 'Thank you'?",
+                question: "Which expression can you use as a reply to 'Thank you'?",
                 answer: "2",
                 option: ["It does not matter", "Please", "No problem", "Sorry"],
             },
@@ -71,7 +71,7 @@ export class IntermediateTestBank {
             {
                 question: "Which of these expressions is the odd one out?",
                 answer: "1",
-                option: ["I don't mind this film", "I can't stand this film", "i quite like this film", "I'm really into this film"],
+                option: ["I don't mind this film", "I can't stand this film", "I quite like this film", "I'm really into this film"],
             },
 
             {
@@ -83,13 +83,13 @@ export class IntermediateTestBank {
             {
                 question: "Complete with the correct phrasal verb. 'What time does your alarm clock ______ in the morning?",
                 answer: "2",
-                option: ["get through", "give up", "go off", "go out"],
+                option: ["Get through", "Give up", "Go off", "Go out"],
             },
 
             {
                 question: "Choose the right verb for: 'Let's ______ a drink together' and 'Could I ______ the bill please?",
                 answer: "3",
-                option: ["take", "drink", "look", "have"],
+                option: ["Take", "Drink", "Look", "Have"],
             },
 
             {
@@ -107,7 +107,7 @@ export class IntermediateTestBank {
             {
                 question: "Which phrase can be used with all these nouns? Paper, cake, wood, advice",
                 answer: "3",
-                option: ["A slice of", "A box of", "a packet of", "a piece of"],
+                option: ["A slice of", "A box of", "A packet of", "A piece of"],
             },
 
             {
@@ -132,7 +132,7 @@ export class IntermediateTestBank {
             {
                 question: "Complete the sentence: I lost my ticket, ______",
                 answer: "1",
-                option: ["Unless i walked home", "So I had to walk home", "Because i had to walk home", "No way but to walk"],
+                option: ["Unless i walked home", "So I had to walk home", "Because I had to walk home", "No way but to walk"],
             },
 
             {
@@ -221,7 +221,7 @@ export class IntermediateTestBank {
 
 
             {
-                question: "Which phrase means teh same?: Prices have increased slowly",
+                question: "Which phrase means the same?: Prices have increased slowly",
                 answer: "0",
                 option: ["Risen gradually", "Dropped sharply", "Fallen slowly", "Gone up sharply"],
             },
@@ -247,13 +247,13 @@ export class IntermediateTestBank {
 
 
             {
-                question: "Complete the sentence: The can ______ the file from the Internet",
+                question: "Complete the sentence: You can ______ the file from the Internet if you want to keep it",
                 answer: "2",
-                option: ["Collect", "Browse", "Download", "Save"],
+                option: ["Store", "Browse", "Download", "Stow"],
             },
 
             {
-                question: "Complete the sentence: Thepolice have arrested a man and ______",
+                question: "Complete the sentence: The police have arrested a man and ______",
                 answer: "0",
                 option: ["Charged him with murder", "Investigated a crime", "Brokn the law", "Proven he is guilty"],
             },
@@ -262,13 +262,13 @@ export class IntermediateTestBank {
             {
                 question: "Complete the sentence: A ______ is when there is no rain",
                 answer: "1",
-                option: ["A famine", "A drought", "A flood", "A disaster"],
+                option: ["Famine", "Drought", "Flood", "Disaster"],
             },
 
             {
                 question: "Complete the sentence: The center of Rome is always ______ with tourists at this time of year",
                 answer: "3",
-                option: ["Lively", "Cosmopolitan", "Busy", "Packed"],
+                option: ["Lively", "Cosmopolitan", "Busier", "Packed"],
             },
 
 
@@ -308,7 +308,7 @@ export class IntermediateTestBank {
             {
                 question: "What does 'My phone went dead' mean?",
                 answer: "3",
-                option: ["It is broken", "It is frozen", "No service", "Battery withno charge"],
+                option: ["It is broken", "It is frozen", "No service", "Battery with no charge"],
             },
 
 

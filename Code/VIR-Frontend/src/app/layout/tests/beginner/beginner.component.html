@@ -1,13 +1,16 @@
+
 <div [@routerTransition] class="container-fluid">
+
 
     <!--This button dissapears whenerer you start the quiz-->
 
     <div class="container-fluid" text-align="center" (window:resize)="onResize($event)">
 
-        <button class="btn btn-warning float-right" (click)="backClicked()" >
+        <button class="btn btn-warning float-right" (click)="backClicked()">
             <i class="fa fa-step-backward"></i> {{backLabel}}
         </button>
-        <h3>{{level}} Level Questions.</h3>
+
+        <h3>{{level}} Questions.</h3>
     </div>
 
     <div *ngIf="!start">
@@ -72,7 +75,7 @@
                     </div>
                 </div>
                 <button class="btn btn-primary btn-block" (click)="validate()" [disabled]="submited || finished" *ngIf="!timeUp">Check your answer!</button>
-                    
+
                 <div class="alert alert-success" *ngIf="correct">Correct!</div>
                 <div class="alert alert-danger" *ngIf="wrong && !timeUp"><strong>Opps! </strong>Sorry, the answer is: '{{correctAnswer}}'</div>
                 <div class="alert alert-warning" *ngIf="timeUp"><strong>Ran out of time! </strong>Remember that you only have 60 secs per question! </div>
@@ -83,7 +86,8 @@
     <!-- Buttons, next and finish -->
 
     <div class="container-fluid">
-        <button class="btn btn-primary" (click)="finishQuiz(stats); calcPercentage()" *ngIf="start">Finish Quiz!
+        <button class="btn btn-primary" (click)="finishQuiz(stats); calcPercentage()" *ngIf="start">
+            Finish Quiz!
         </button>
         <button class="btn btn-success float-right" (click)="nextQuestion(content)" *ngIf="!finished">
             Next <i class="fa fa-step-forward">  </i>
@@ -117,7 +121,7 @@
         </tr>
     </table>
 
-    <!--Definition model (Popup) for skipped question warning-->
+    <!--This is the modal for skipped question warning-->
     <ng-template #content let-c="close" let-d="dismiss">
         <div class="modal-header">
             <h4>
@@ -130,7 +134,7 @@
         <div class="modal-body">
             <!--Alert-->
             <div>
-                <strong>This question is not answered! </strong>If you skip the question, we will mark it as an 'Not Attempted'.
+                <strong>This question is not answered! </strong>Please hit 'Check Answer' to check your selection. If you skip the question without checking, we will mark it as an 'Not Attempted'.
             </div>
         </div>
         <div class="modal-footer">
@@ -193,7 +197,7 @@
                     <td>69 - 60</td>
                     <td>Fair</td>
                 </tr>
-                <tr>                
+                <tr>
                     <td>Less than 60</td>
                     <td>Needs Instruction</td>
                 </tr>
@@ -209,5 +213,7 @@
     <div>
 
     </div>
+
+
 
 </div>

@@ -7,18 +7,23 @@ import { AdvancedTestBank } from '../testBanks/advancedTestBank.service';
 /**
  * This class acts as a single access point for all other test banks
  * The class BeginnerComponent in /layout/tests/beginner is the one that uses this class.
+ * Depending on the 'level' it will return the question/an
  */
 
 @Injectable()
 export class TestBanks {
 
+    //Constants-----------------------------------------------------------------------
     private BEGINNER: string = "Beginner";
     private INTER: string = "Intermediate";
     private UPPER: string = "Upper Intermediate";
     private ADVANCED: string = "Advanced";
     private VOCAB: string = "Vocabulary Size"
 
+
+    //This for when the testbanks are being modified.. something to pass on to the html
     private NOTE: string = "THIS SECTION IS NOT DONE YET!! COME BACK SOON...";
+    //----------------------------------------------------------------------------------
 
     answer: string;                                     //This is where the answer for the selected question is stored for access
     question: string;                                   //This is where the actual question is stored for access
@@ -57,29 +62,30 @@ export class TestBanks {
 
         if (level == "upper" || level == this.UPPER) {
 
-            //UpperTestBank.questionsLib(id);
+            UpperTestBank.questionsLib(id);
 
-            //this.question = IntermediateTestBank.question;
-            //this.answer = IntermediateTestBank.answer;
-            //this.options = IntermediateTestBank.options;
+            this.question = UpperTestBank.question;
+            this.answer = UpperTestBank.answer;
+            this.options = UpperTestBank.options;
 
-            //this.totalQuestions = IntermediateTestBank.totalQuestions;
-            this.answer = this.NOTE;
-            this.question = this.NOTE;
-            this.options = [this.NOTE, this.NOTE, this.NOTE, this.NOTE];
-            this.totalQuestions = 0;
+            this.totalQuestions = UpperTestBank.totalQuestions;
 
-        }//Pulls the questions from the Intermediate test bank
+            //this.answer = this.NOTE;
+            //this.question = this.NOTE;
+            //this.options = [this.NOTE, this.NOTE, this.NOTE, this.NOTE];
+            //this.totalQuestions = 0;
+
+        }//Pulls the questions from the Upper Intermediate test bank
 
         if (level == "advanced" || level == this.ADVANCED) {
 
             //AdvancedTestBank.questionsLib(id);
 
-            //this.question = IntermediateTestBank.question;
-            //this.answer = IntermediateTestBank.answer;
-            //this.options = IntermediateTestBank.options;
+            //this.question = AdvancedTestBank.question;
+            //this.answer = AdvancedTestBank.answer;
+            //this.options = AdvancedTestBank.options;
 
-            //this.totalQuestions = IntermediateTestBank.totalQuestions;
+            //this.totalQuestions = AdvancedTestBank.totalQuestions;
 
             this.answer = this.NOTE;
             this.question = this.NOTE;

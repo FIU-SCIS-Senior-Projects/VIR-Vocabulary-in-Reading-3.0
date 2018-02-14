@@ -6,6 +6,7 @@ import { SimpleTimer } from 'ng2-simple-timer';
 
 import { BeginnerRoutingModule } from './beginner-routing.module';
 import { BeginnerComponent } from './beginner.component';
+import { TestBanks } from '../../../shared/services/testBanks/testBanks.service';
 
 @NgModule({
     imports: [
@@ -19,7 +20,8 @@ import { BeginnerComponent } from './beginner.component';
         BeginnerComponent,
     ],
     providers: [
-        SimpleTimer
+        SimpleTimer,
+        TestBanks
     ]
 
 })

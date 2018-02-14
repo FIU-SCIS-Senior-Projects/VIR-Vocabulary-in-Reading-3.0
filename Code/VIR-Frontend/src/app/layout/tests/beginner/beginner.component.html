@@ -71,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-primary btn-block" (click)="validate()" [disabled]="submited" *ngIf="!timeUp">Check your answer!</button>
+                <button class="btn btn-primary btn-block" (click)="validate()" [disabled]="submited || finished" *ngIf="!timeUp">Check your answer!</button>
                     
                 <div class="alert alert-success" *ngIf="correct">Correct!</div>
                 <div class="alert alert-danger" *ngIf="wrong && !timeUp"><strong>Opps! </strong>Sorry, the answer is: '{{correctAnswer}}'</div>
@@ -145,7 +145,7 @@
     <ng-template #stats let-c="close" let-d="dismiss">
         <div class="modal-header">
             <h4>
-                Session Stats:
+                Test Results:
             </h4>
             <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
                 <span aria-hidden="true">&times;</span>
@@ -169,7 +169,7 @@
 
             <div>
                 <hr />
-                <h5><strong>You scored: </strong> {{percent}}%</h5>
+                <h5><strong>You scored: </strong> {{percent}}% - {{suggestion}}.</h5>
                 <hr />
             </div>
             <table id="stats">
@@ -178,27 +178,23 @@
                     <th>Standing</th>
                 </tr>
                 <tr>
-                    <td>100 - 90</td>
-                    <td>Awsome!</td>
+                    <td>100 - 95</td>
+                    <td>Excelent</td>
                 </tr>
                 <tr>
-                    <td>89 - 80</td>
-                    <td>Great</td>
+                    <td>94 - 85</td>
+                    <td>Very Good</td>
                 </tr>
                 <tr>
-                    <td>79 - 70</td>
+                    <td>84 - 70</td>
                     <td>Good</td>
                 </tr>
                 <tr>
                     <td>69 - 60</td>
                     <td>Fair</td>
                 </tr>
-                <tr>
-                    <td>59 - 50</td>
-                    <td>Needs Improvement</td>
-                </tr>
-                <tr>
-                    <td>Less than 49</td>
+                <tr>                
+                    <td>Less than 60</td>
                     <td>Needs Instruction</td>
                 </tr>
             </table>

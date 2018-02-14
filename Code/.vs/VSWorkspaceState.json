@@ -1,16 +1,26 @@
 {
   "ExpandedNodes": [
     "",
+    "\\VIR-Backend\\src",
+    "\\VIR-Backend\\src\\main",
+    "\\VIR-Backend\\src\\main\\java",
+    "\\VIR-Backend\\src\\main\\java\\com",
+    "\\VIR-Backend\\src\\main\\java\\com\\vir",
+    "\\VIR-Backend\\src\\test",
+    "\\VIR-Backend\\src\\test\\java",
+    "\\VIR-Backend\\src\\test\\java\\com",
+    "\\VIR-Backend\\src\\test\\java\\com\\vir",
+    "\\VIR-Backend\\src\\test\\java\\com\\vir\\service\\impl",
+    "\\VIR-Backend\\src\\test\\java\\com\\vir\\service\\impl\\processor",
+    "\\VIR-Backend\\src\\test\\resources\\integration_tests\\pdf",
     "\\VIR-Frontend",
     "\\VIR-Frontend\\src",
     "\\VIR-Frontend\\src\\app",
     "\\VIR-Frontend\\src\\app\\layout",
-    "\\VIR-Frontend\\src\\app\\layout\\tests",
-    "\\VIR-Frontend\\src\\app\\layout\\tests\\beginner",
-    "\\VIR-Frontend\\src\\app\\shared",
-    "\\VIR-Frontend\\src\\app\\shared\\components",
-    "\\VIR-Frontend\\src\\app\\shared\\services"
+    "\\VIR-Frontend\\src\\app\\layout\\doc",
+    "\\VIR-Frontend\\src\\app\\layout\\text-statistics",
+    "\\VIR-Frontend\\src\\app\\shared"
   ],
-  "SelectedNode": "\\VIR-Frontend\\src\\app\\layout\\tests\\beginner\\beginner.component.html",
+  "SelectedNode": "\\VIR-Frontend\\src\\app\\layout\\text-statistics\\text-statistics.component.ts",
   "PreviewInSolutionExplorer": false
 }

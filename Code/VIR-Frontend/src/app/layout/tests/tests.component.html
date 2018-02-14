@@ -3,7 +3,7 @@
     <div class="card card-info card-inverse mb-3 col-lg-12 center-block">
         <div class="card-header card-info">
             <i class="fa fa-fw fa-pencil-square-o fa-3x float-right" title="Test"></i>
-            <h1>Test your Vocabulary!</h1>
+            <h2>Test your Vocabulary!</h2>
             <hr>
             <p>See how well your vocabulary is! You can either select one category, or select the option 'All Categories' to be tested on every category!</p>
         </div>
@@ -16,9 +16,10 @@
     <br>
 
     <div>
-        <h2>Test Catergories</h2>
+        <h3>Test Catergories</h3>
     </div>
     <hr>
+    <!--Button for Desktop sized screens-->
 
     <div class="hidden-sm-down">
         <div class="row">
@@ -26,7 +27,7 @@
                 <a routerLink="/tests/beginner" [routerLinkActive]="['router-link-active']" class="btn btn-success btn-block btn-lg">Beginner</a>
             </div>
             <div class="col col-md-4">
-                <a routerLink="/tests/intermediate" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">Intermediate</a>
+                <a routerLink="/tests/intermediate" [routerLinkActive]="['router-link-active']" class="btn btn-info btn-block btn-lg">Intermediate</a>
             </div>
             <div class="col col-md-4">
                 <a routerLink="/tests/upper" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">Upper Intermediate</a>
@@ -37,10 +38,10 @@
 
         <div class="row">
             <div class="col col-md-4">
-                <a routerLink="/tests/advanced" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">Advanced</a>
+                <a routerLink="/tests/advanced" [routerLinkActive]="['router-link-active']" class="btn btn-warning btn-block btn-lg">Advanced</a>
             </div>
             <div class="col col-md-4">
-                <a routerLink="/tests/vocab" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">Vocabulary Sized Test</a>
+                <a routerLink="/tests/vocab" [routerLinkActive]="['router-link-active']" class="btn btn-danger btn-block btn-lg">Vocabulary Sized Test</a>
             </div>
             <div class="col col-md-4">
                 <a routerLink="/tests/all" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">All Categories</a>
@@ -48,6 +49,8 @@
         </div>
     </div>
 
+
+    <!--Buttons for smaller screen sized-->
     <div class="container-fluid hidden-md-up">
 
         <div class="row">
@@ -58,7 +61,7 @@
                 <hr />
             </div>
             <div class="col-md-6 col-sm-6">
-                <button routerLink="/tests/intermediate" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">Intermediate</button>
+                <button routerLink="/tests/intermediate" [routerLinkActive]="['router-link-active']" class="btn btn-info btn-block btn-lg">Intermediate</button>
             </div>
         </div>
 
@@ -72,7 +75,7 @@
                 <hr />
             </div>
             <div class="col-md-6 col-sm-6">
-                <button routerLink="/tests/advanced" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">Advanced</button>
+                <button routerLink="/tests/advanced" [routerLinkActive]="['router-link-active']" class="btn btn-warning btn-block btn-lg">Advanced</button>
             </div>
         </div>
 
@@ -80,7 +83,7 @@
 
         <div class="row">
             <div class="col-md-6 col-sm-6">
-                <button routerLink="/tests/vocab" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">Vocabulary Sized Test</button>
+                <button routerLink="/tests/vocab" [routerLinkActive]="['router-link-active']" class="btn btn-danger btn-block btn-lg">Vocabulary Size Test</button>
             </div>
             <div class="container hidden-sm-up">
                 <hr />
@@ -89,11 +92,61 @@
                 <button routerLink="/tests/all" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">All Categories</button>
             </div>
         </div>
-
-
-
     </div>
 
+    <hr />
+    <!--Instructions Boxes-->
+    <div>
+        <h3>Instructions</h3>
+    </div>
+
+    <div class="row topMargin">
+
+        <div class="col-md box1">
+            <div class="col-md-12 head">
+                <i class="fa fa-calculator fa-3x" style="padding-bottom: 10px;" aria-hidden="true"></i>
+            </div>
+            <div class="col-md-12">
+                <div class="head">
+                    <h5>Select the level of dificulty</h5>
+                </div>
+                
+                <hr>
+                <p>- Choose from the levels above.</p>
+                <p>- The levels are ordered from easy to hard.</p>
+            </div>
+        </div>
+        <div class="col-md box2">
+            <div class="col-md-12 head">
+                <i class="fa fa-edit fa-3x " style="padding-bottom: 10px;" aria-hidden="true"></i>
+            </div>
+
+            <div class="col-md-12">
+                <div class="head">
+                    <h5>Press "Take the test!"</h5>
+                </div>
+                
+                <hr>
+                <p>- You will have 60 secs per question</p>
+                <p>- Choose the best answer for the question, then hit 'Check answer'.</p>
+            </div>
+        </div>
+        <div class="col-md box3">
+            <div class="col-md-12 head">
+                <i class="fa fa-pie-chart fa-3x" style="padding-bottom: 10px;" aria-hidden="true"></i>
+            </div>
+            <div class="col-md-12">
+                <div class="head">
+                    <h5>Press "Finish Test"</h5>
+                </div>
+
+                <hr>
+                <p>- To end the current test and display your performance.</p>
+                <p>- Once you are done, you can hit 'Done' to return to this page.</p>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 

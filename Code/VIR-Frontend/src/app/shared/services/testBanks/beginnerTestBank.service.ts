@@ -7,14 +7,14 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class BeginnerTestBank {
 
-    answer: string;
-    question: string;
-    options: string[];
+    public static answer: string;
+    public static question: string;
+    public static options: string[];
 
-    totalQuestions: number;
+    public static totalQuestions: number;
 
-    
-    public questionsLib(id:number) {
+
+    public static questionsLib(id: number) {
 
         var questions = [
             {

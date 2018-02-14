@@ -7,7 +7,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute } from '@angular/router';
 import { SimpleTimer } from 'ng2-simple-timer';
 
-import { BeginnerTestBank } from '../../../shared/services/testBanks/beginnerTestBank.service';
+import { TestBanks } from '../../../shared/services/testBanks/testBanks.service';
 
 
 @Component({
@@ -32,6 +32,7 @@ export class BeginnerComponent implements OnInit {
     level: string;
     standing: string;
     timerId: string;
+    suggestion: string;
 
     numberOfQuestions: number;
     numWrong: number = 0;
@@ -61,26 +62,30 @@ export class BeginnerComponent implements OnInit {
 
     @Input() radioData: string;
 
-    constructor(private _question: BeginnerTestBank, private _location: Location, private _modalService: NgbModal,
-        private _route: ActivatedRoute, private simpleT: SimpleTimer) {
+    constructor(private _location: Location, private _modalService: NgbModal, private _route: ActivatedRoute,
+        private simpleT: SimpleTimer, private _test: TestBanks) {
 
-        _question.questionsLib(this.randID);
+        this.level = this._route.snapshot.paramMap.get('id');
+        _test.getQuestion(this.randID, this.level);
+        this.question = _test.question;
+        this.answer = _test.answer;
+        this.options = _test.options;
 
-        this.question = _question.question;
-        this.answer = _question.answer;
-        this.options = _question.options;
-
-        this.numberOfQuestions = _question.totalQuestions;
+        this.numberOfQuestions = _test.totalQuestions;
 
     }
 
+
     ngOnInit() {
+
         window.scrollTo(0, 0);
         this.level = this._route.snapshot.paramMap.get('id');
         this.determineLevel(this.level);
         this.showOnlyIcons = window.innerWidth <= 680;
         this.updaTeLabels();
+
     }
+
 
     startQuiz() {
 
@@ -90,6 +95,7 @@ export class BeginnerComponent implements OnInit {
         this.subscribeTimer();
 
     }
+
 
     onResize(event) {
         this.showOnlyIcons = window.innerWidth <= 680;
@@ -101,6 +107,7 @@ export class BeginnerComponent implements OnInit {
         this.backLabel = this.showOnlyIcons ? '' : BeginnerComponent.BACK_LABEL;
         
     }
+
 
     subscribeTimer() {
         if (this.timerId) {
@@ -120,7 +127,9 @@ export class BeginnerComponent implements OnInit {
   
     }
 
+
     timerCallback() {
+
         if (this.timer < 60) {
             this.timer++;
         } else {
@@ -150,19 +159,22 @@ export class BeginnerComponent implements OnInit {
             this.numRight = this.numRight + 1;
 
         } else {
+
             this.wrong = true;
             this.numWrong = this.numWrong + 1;
 
-            this.correctAnswer = this._question.options[this.answer];//Gets the value of the correct answer
+            this.correctAnswer = this._test.options[this.answer];//Gets the value of the correct answer
 
         }
     }
+
     
     nextQuestion(content) {
 
         if (!this.submited) {
             this.open(content);
-        }
+        }//If question is not submited, the warning modal will pop up
+
         else if (this.submited || this.skip) {
 
             this.counter++;
@@ -179,11 +191,12 @@ export class BeginnerComponent implements OnInit {
                 this.randID = Math.floor(Math.random() * Math.floor(this.numberOfQuestions));
 
                 this.checkUsed(this.randID);
-            }
+            }//This keeps getting a random number that has not been used, then returns it
 
             if (this.counter < this.numberOfQuestions) {
 
-                this._question.questionsLib(this.randID);
+                //this._question.questionsLib(this.randID);
+                this._test.getQuestion(this.randID, this.level);
                 this.updateInfo();
 
                 this.submited = false;
@@ -197,43 +210,55 @@ export class BeginnerComponent implements OnInit {
             } else {
 
                 this.finished = true;
-            }
+            }//Keeps loading questions until no more questions, once done, finish quiz
         }
 
     }
 
+
     private updateInfo() {
 
-        this.question = this._question.question;
-        this.answer = this._question.answer;
-        this.options = this._question.options;
+        this.question = this._test.question;
+        this.answer = this._test.answer;
+        this.options = this._test.options;
 
     }
+
 
     finishQuiz(stats) {
 
         if (this.attempted >= 10) {
             this.open(stats);
             this.finished = true;
+            this.simpleT.unsubscribe(this.timerId);
             
         } else {
             this.alrt = true;
-
         }
 
-
-
     }
+
 
     //This will calculate the percentage of the quiz taken
     calcPercentage() {
         this.percent = Math.round((this.numRight / this.attempted) * 100);
 
+        if (this.percent >= 85 && this.percent <= 100)
+            this.suggestion = "Move on to the next level.";
+        else if (this.percent >= 70 && this.percent < 85)
+            this.suggestion = "Needs practice before going to next level.";
+        else if (this.percent >= 60 && this.percent < 70)
+            this.suggestion = "Stay in this level and have more vocabulary exercises";
+        else if (this.percent < 60)
+            this.suggestion = "Needs further instruction.";
+
     }
+
 
     backClicked() {
         this._location.back();
     }
+
 
     // Definiton Model open
     open(content) {
@@ -243,6 +268,7 @@ export class BeginnerComponent implements OnInit {
             this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         });
     }
+
 
     private getDismissReason(reason: any): string {
         if (reason === ModalDismissReasons.ESC) {
@@ -254,6 +280,7 @@ export class BeginnerComponent implements OnInit {
         }
     }
 
+
     skipQuestion() {
         this.skip = true;
         this.submited = true;
@@ -261,6 +288,7 @@ export class BeginnerComponent implements OnInit {
         this.attempted++;
         this.subscribeTimer();
     }
+
 
     determineLevel(lvl:string) {
 
@@ -271,15 +299,16 @@ export class BeginnerComponent implements OnInit {
             this.level = "Advanced";
         }
         else if (lvl == "intermediate") {
-            this.level = "Intermedite";
+            this.level = "Intermediate";
         }
         else if (lvl == "upper") {
             this.level = "Upper Intermediate";
         }
         else if (lvl == "vocab") {
-            this.level = "Vocabulary Sized";
+            this.level = "Vocabulary Size";
         }
     }
+
 
     //this checks if the question has been used or not
     checkUsed(id: number) {

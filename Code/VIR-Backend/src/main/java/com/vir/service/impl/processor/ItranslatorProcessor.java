@@ -35,14 +35,17 @@ import com.vir.service.ItranslatorService;
  *
  *
  */
-@Service("ITranslatorService")
+
+
 
 public class ItranslatorProcessor implements ItranslatorService {
 
-	@Override
+    
+	private Itranslator itranslator;
+
 	public Itranslator process(String text, String target) {
         Translate translate = TranslateOptions.getDefaultInstance().getService();
-        Itranslator itranslator = new Itranslator();
+        
 
 
         Translation translation =

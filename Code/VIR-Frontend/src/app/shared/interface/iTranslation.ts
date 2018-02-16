@@ -1,6 +1,6 @@
 
 export interface iTranslation {
-    original: string,
+    translations: string,
     target: string,
     translated: string
 }

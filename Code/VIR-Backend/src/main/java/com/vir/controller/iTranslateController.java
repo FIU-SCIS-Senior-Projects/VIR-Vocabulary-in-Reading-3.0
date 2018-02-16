@@ -24,15 +24,14 @@ import io.swagger.annotations.ApiResponse;
 @Api(tags = "Itranslate")
 public class ItranslateController {
 
-	@Autowired
-	@Qualifier("ItranslatorService")
-	private ItranslatorService trans;
+	
+	private ItranslatorService itranslatorService = new ItranslatorProcessor();
 
 
 	@ApiOperation(value = "Translate a text input.")
 	@ApiResponse(code = 400, message = "Generic error", response = ApiError.class)
 	@PostMapping(value = "/iTranslate", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Itranslator iTranslate(@RequestBody(required = true) String text, @RequestBody(required = true) String target) {
-		return trans.process(text, target);
+		return itranslatorService.process(text, target);
 	}
 }

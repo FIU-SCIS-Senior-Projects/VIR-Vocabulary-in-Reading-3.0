@@ -13,6 +13,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export class ItranslateComponent implements OnInit {
   @Input() textArea: string;
   @Input() target: string;
+  targetDisplay:string;
   itranslation:iTranslation;
   data:any;
   t:any;
@@ -22,15 +23,17 @@ export class ItranslateComponent implements OnInit {
   constructor(private _itranslate:iTranslateService) { }
 
   ngOnInit() {
+    this.targetDisplay='';
   }
 
   onClick(){
     console.log(this.textArea);
   }
 
-  changeLang(target:string){
+  changeLang(target:string, targetDisplay:string){
     this.target=target;
     console.log(this.target);
+    this.targetDisplay=targetDisplay;
   }
 
   translate(){

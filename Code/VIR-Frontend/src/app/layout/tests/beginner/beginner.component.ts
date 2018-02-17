@@ -360,4 +360,6 @@ export class BeginnerComponent implements OnInit {
         }
 
     }
+
+
 }

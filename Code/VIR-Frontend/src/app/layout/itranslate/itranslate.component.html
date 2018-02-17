@@ -1,19 +1,156 @@
-<i class="fa fa-fw fa-keyboard-o fa-2x float-right" title="Itranslate"></i>Enter your text&nbsp;&nbsp;
 
+
+
+
+<div class="card-header card-primary card-inverse bg-info">
+    <i class="fa fa-fw fa-font fa-2x float-right"></i>iTranslate&nbsp;&nbsp;
+</div>
 <div class="form-group">
   <div class="col-md-12">
     <textarea class="form-control" name="textArea" id="exampleTextarea" rows="1" maxlength="30000" [(ngModel)]="textArea" 
      placeholder="Enter your text to translate here" required></textarea>
   </div>
 </div>
-<div class="container bottomMarging">
-  <div class="btn-group hidden-sm-down">
-    <h4>Translate too: &nbsp;&nbsp;  </h4>
-    <button type="button" class="btn btn-primary" (click)="changeLang('en')">English</button>
-    <button type="button" class="btn btn-info" (click)="changeLang('fa')">Farsi</button>
-    <button type="button" class="btn btn-danger" (click)="changeLang('es')">Spanish</button>
+
+<br>
+
+<div>
+  <div class="dropdown float-left">
+    <button type="button" class="btn btn-primary" >Target Language: {{targetDisplay}}</button>
+    <div class="dropdown-content scrollable-menu">
+      <button type="button" class="btn " (click)="changeLang('af', 'Afrikaans')">Afrikaans</button>
+      <button type="button" class="btn " (click)="changeLang('sq', 'Albanian')">Albanian</button>
+      <button type="button" class="btn " (click)="changeLang('am', 'Amharic')">Amharic</button>
+      <button type="button" class="btn " (click)="changeLang('ar', 'Arabic')">Arabic</button>
+      <button type="button" class="btn " (click)="changeLang('hy', 'Armenian')">Armenian</button>
+      <button type="button" class="btn " (click)="changeLang('az','Azeerbaijani')">Azeerbaijani</button>
+      <button type="button" class="btn " (click)="changeLang('eu', 'Basque')">Basque</button>
+      <button type="button" class="btn " (click)="changeLang('bs','Bosnian')">Bosnian</button>
+      <button type="button" class="btn " (click)="changeLang('bg','Bulgarian')">Bulgarian</button>
+      <button type="button" class="btn " (click)="changeLang('ca','Catalan')">Catalan</button>
+      <button type="button" class="btn " (click)="changeLang('zh-CN', 'Chinese')">Chinese</button>
+      <button type="button" class="btn " (click)="changeLang('hr', 'Croatian')">Croatian</button>
+      <button type="button" class="btn " (click)="changeLang('cs', 'Czech')">Czech</button>
+      <button type="button" class="btn " (click)="changeLang('da', 'Danish')">Danish</button>
+      <button type="button" class="btn " (click)="changeLang('nl','Dutch')">Dutch</button>
+      <button type="button" class="btn " (click)="changeLang('en', 'English')">English</button>
+      <button type="button" class="btn " (click)="changeLang('et', 'Estonian')">Estonian</button>
+      <button type="button" class="btn " (click)="changeLang('fi', 'Finnish')">Finnish</button>
+      <button type="button" class="btn " (click)="changeLang('fr','French')">French</button>
+      <button type="button" class="btn " (click)="changeLang('gl', 'Galician')">Galician</button>
+      <button type="button" class="btn " (click)="changeLang('ka','Georgian')">Georgian</button>
+      <button type="button" class="btn " (click)="changeLang('de','German')">German</button>
+      <button type="button" class="btn " (click)="changeLang('el','Greek')">Greek</button>
+      <button type="button" class="btn " (click)="changeLang('ht','Haitian Creole')">Haitian Creole</button>
+      <button type="button" class="btn " (click)="changeLang('haw','Hawaiian')">Hawaiian</button>
+      <button type="button" class="btn " (click)="changeLang('iw','Hebrew')">Hebrew</button>
+      <button type="button" class="btn " (click)="changeLang('hi','Hindi')">Hindi</button>
+      <button type="button" class="btn " (click)="changeLang('hmn','Hmong')">Hmong</button>
+      <button type="button" class="btn " (click)="changeLang('hu','Hungarian')">Hungarian</button>
+      <button type="button" class="btn " (click)="changeLang('is','Icelandic')">Icelandic</button>
+      <button type="button" class="btn " (click)="changeLang('id','Indonesian')">Indonesian</button>
+      <button type="button" class="btn " (click)="changeLang('ga','Irish')">Irish</button>
+      <button type="button" class="btn " (click)="changeLang('it','Italian')">Italian</button>
+      <button type="button" class="btn " (click)="changeLang('ja','Japanese')">Japanese</button>
+      <button type="button" class="btn " (click)="changeLang('kk','Kazakh')">Kazakh</button>
+      <button type="button" class="btn " (click)="changeLang('ko','Korean')">Korean</button>
+      <button type="button" class="btn " (click)="changeLang('ku','Kurdish')">Kurdish</button>
+      <button type="button" class="btn " (click)="changeLang('ky','Kyrgyz')">Kyrgyz</button>
+      <button type="button" class="btn " (click)="changeLang('lo','Lao')">Lao</button>
+      <button type="button" class="btn " (click)="changeLang('la','Latin')">Latin</button>
+      <button type="button" class="btn " (click)="changeLang('lv','Latvian')">Latvian</button>
+      <button type="button" class="btn " (click)="changeLang('lt','Lithuanian')">Lithuanian</button>
+      <button type="button" class="btn " (click)="changeLang('lb','Luxembourgish')">Luxembourgish</button>
+      <button type="button" class="btn " (click)="changeLang('mk','Macedonian')">Macedonian</button>
+      <button type="button" class="btn " (click)="changeLang('ms','Malay')">Malay</button>
+      <button type="button" class="btn " (click)="changeLang('mn','Mongolian')">Mongolian</button>
+      <button type="button" class="btn " (click)="changeLang('my','Myanmar')">Myanmar</button>
+      <button type="button" class="btn " (click)="changeLang('ne','Nepali')">Nepali</button>
+      <button type="button" class="btn " (click)="changeLang('no','Norwegian')">Norwegian</button>
+      <button type="button" class="btn " (click)="changeLang('ps','Pashto')">Pashto</button>
+      <button type="button" class="btn " (click)="changeLang('fa','Persian')">Persian</button>
+      <button type="button" class="btn " (click)="changeLang('po','Polish')">Polish</button>
+      <button type="button" class="btn " (click)="changeLang('pt','Portuguese')">Portuguese</button>
+      <button type="button" class="btn " (click)="changeLang('pa','Punjabi')">Punjabi</button>
+      <button type="button" class="btn " (click)="changeLang('ro','Romanian')">Romanian</button>
+      <button type="button" class="btn " (click)="changeLang('ru','Russian')">Russian</button>
+      <button type="button" class="btn " (click)="changeLang('sm','Samoan')">Samoan</button>
+      <button type="button" class="btn " (click)="changeLang('gd','Scots Gaelic')">Scots Gaelic</button>
+      <button type="button" class="btn " (click)="changeLang('sr','Serbian')">Serbian</button>
+      <button type="button" class="btn " (click)="changeLang('si','Sinhala')">Sinhala</button>
+      <button type="button" class="btn " (click)="changeLang('sk','Slovak')">Slovak</button>
+      <button type="button" class="btn " (click)="changeLang('sl','Slovenian')">Slovenian</button>
+      <button type="button" class="btn " (click)="changeLang('so','Somali')">Somali</button>
+      <button type="button" class="btn " (click)="changeLang('es','Spanish')">Spanish</button>
+      <button type="button" class="btn " (click)="changeLang('se','Sundanese')">Sundanese</button>
+      <button type="button" class="btn " (click)="changeLang('sw','Swahili')">Swahili</button>
+      <button type="button" class="btn " (click)="changeLang('sv','Swedish')">Swedish</button>
+      <button type="button" class="btn " (click)="changeLang('tl','Tagalog')">Tagalog</button>
+      <button type="button" class="btn " (click)="changeLang('tg','Tajik')">Tajik</button>
+      <button type="button" class="btn " (click)="changeLang('ta','Tamil')">Tamil</button>
+      <button type="button" class="btn " (click)="changeLang('te','Telugu')">Telugu</button>
+      <button type="button" class="btn " (click)="changeLang('th','Thai')">Thai</button>
+      <button type="button" class="btn " (click)="changeLang('tr','Turkish')">Turkish</button>
+      <button type="button" class="btn " (click)="changeLang('uk','Ukrainian')">Ukrainian</button>
+      <button type="button" class="btn " (click)="changeLang('uz','Uzbek')">Uzbek</button>
+      <button type="button" class="btn " (click)="changeLang('vi','Vietnamese')">Vietnamese</button>
+      <button type="button" class="btn " (click)="changeLang('cy','Welsh')">Welsh</button>
+      <button type="button" class="btn " (click)="changeLang('xh','Xhosa')">Xhosa</button>
+      <button type="button" class="btn " (click)="changeLang('yi','Yiddish')">Yiddish</button>
+      <button type="button" class="btn " (click)="changeLang('yo','Yoruba')">Yoruba</button>
+      <button type="button" class="btn " (click)="changeLang('zu','Zulu')">Zulu</button>
+    </div>
+  </div>
+  <!-- <div>
+    <p align="right">Target Language: {{targetDisplay}}</p>
+  </div> -->
+  <div class="btn-group float-right">
+    <button type="button" class="btn btn-warning" (click)="translate()">Translate</button>
   </div>
 </div>
 
+
+<!-- <div class="container bottomMarging">
+  <div class="btn-group hidden-sm-down">
+    <p>Common Languages: &nbsp;&nbsp;  </p>
+      
+        <button type="button" class="btn btn-primary" (click)="changeLang('en')">English</button>
+        <button type="button" class="btn btn-info" (click)="changeLang('fa')">Farsi</button>
+        <button type="button" class="btn btn-danger" (click)="changeLang('es')">Spanish</button>
+     
+  </div>
+  <div class="btn-group float-right">
+    <button type="button" class="btn btn-warning" (click)="translate()">Translate</button>
+  </div>
+</div>  -->
+<br>
+<br>
+
+
+<div class="container-fluid" style="text-align:justify">
+  <div class="card">
+    <div class="card-header card-primary card-inverse bg-success">
+      <i class="fa fa-fw fa-2x float-left"></i>Translation&nbsp;&nbsp;
+    </div>
+    <div class="container-fluid" style="text-align:justify">
+        {{t2}}
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 

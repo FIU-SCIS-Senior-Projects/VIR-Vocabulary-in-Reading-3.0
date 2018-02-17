@@ -148,6 +148,11 @@
 			<artifactId>opencv</artifactId>
 			<version>${opencv.version}</version>
 		</dependency>
+		<dependency>
+ 			<groupId>com.google.cloud</groupId>
+  			<artifactId>google-cloud-translate</artifactId>
+  			<version>1.14.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>

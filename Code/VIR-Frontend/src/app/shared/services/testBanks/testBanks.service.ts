@@ -93,6 +93,13 @@ export class TestBanks {
             this.totalQuestions = 0;
         }//Pulls the questions from the Intermediate test bank
 
+        else {
+
+            this.answer = this.NOTE;
+            this.question = this.NOTE;
+            this.options = [this.NOTE, this.NOTE, this.NOTE, this.NOTE];
+            this.totalQuestions = 0;
+        }
 
     }
 

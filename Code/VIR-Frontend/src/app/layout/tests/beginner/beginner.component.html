@@ -13,12 +13,7 @@
         <h3>{{level}} Questions.</h3>
     </div>
 
-    <div *ngIf="!start">
-        <hr />
-        <button class="btn btn-success btn-block" (click)="startQuiz()" type="button">
-            Start The {{level}} Word Quiz!
-        </button>
-    </div>
+
     <hr />
 
     <!--This is the start of the card, this displays the questions -->
@@ -83,6 +78,12 @@
         </div>
     </div>
 
+    <div *ngIf="!start">
+        <hr />
+        <button class="btn btn-success btn-block" (click)="startQuiz()" type="button">
+            Start The {{level}} Word Test!
+        </button>
+    </div>
     <!-- Buttons, next and finish -->
 
     <div class="container-fluid">
@@ -102,24 +103,6 @@
     <br />
     <br />
     <hr />
-
-    <!-- Feedback for the user -->
-
-    <h4>Progress</h4>
-    <table id="progress">
-        <tr>
-            <th>Total Questions</th>
-            <th>Correct</th>
-            <th>Incorrect</th>
-            <th>Skipped</th>
-        </tr>
-        <tr>
-            <td>{{numberOfQuestions}}</td>
-            <td>{{numRight}}</td>
-            <td>{{numWrong}}</td>
-            <td>{{numSkipped}}</td>
-        </tr>
-    </table>
 
     <!--This is the modal for skipped question warning-->
     <ng-template #content let-c="close" let-d="dismiss">
@@ -160,7 +143,7 @@
                 <tr>
                     <th>Attempted</th>
                     <th>Correct</th>
-                    <th>Incorrect</th>
+                    <th>Wrong</th>
                     <th>Skipped</th>
                 </tr>
                 <tr>

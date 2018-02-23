@@ -41,17 +41,17 @@
                 <a routerLink="/tests/advanced" [routerLinkActive]="['router-link-active']" class="btn btn-warning btn-block btn-lg">Advanced</a>
             </div>
             <div class="col col-md-4">
-                <a routerLink="/tests/vocab" [routerLinkActive]="['router-link-active']" class="btn btn-danger btn-block btn-lg">Vocabulary Size Test</a>
+                <button class="btn btn-danger btn-block btn-lg" (click)="open(content) ">Vocabulary Size Test</button>
             </div>
             <div class="col col-md-4">
-                <a routerLink="/tests/all" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">Depth of Vocabulary Knowledge</a>
+                <a routerLink="/tests/depth" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">{{smallLabel}}</a>
             </div>
         </div>
     </div>
 
 
     <!--Buttons for smaller screen sized-->
-    <div class="container-fluid hidden-md-up">
+    <div class="container-fluid hidden-md-up" (window:resize)="onResize($event)">
 
         <div class="row">
             <div class="col-md-6 col-sm-6">
@@ -63,7 +63,7 @@
             <div class="col-md-6 col-sm-6">
                 <button routerLink="/tests/intermediate" [routerLinkActive]="['router-link-active']" class="btn btn-info btn-block btn-lg">Intermediate</button>
             </div>
-        </div> 
+        </div>
 
         <hr />
 
@@ -89,10 +89,35 @@
                 <hr />
             </div>
             <div class="col-md-6 col-sm-6">
-                <button routerLink="/tests/depth" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">Depth of Vocabulary Knowledge</button>
+                <button routerLink="/tests/depth" [routerLinkActive]="['router-link-active']" class="btn btn-primary btn-block btn-lg">{{smallLabel}}</button>
             </div>
         </div>
     </div>
+
+    <!--This is the modal for the 2 versions of Vocab tests-->
+    <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4>
+                Choose Desired Version.
+            </h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <!--Alert-->
+            <div>
+                <a routerLink="/tests/vocabA" [routerLinkActive]="['router-link-active']"
+                   class="btn btn-warning btn-block btn-lg" (click)="c('Close click')">Version A</a>
+            </div>
+            <hr />
+            <div>
+                <a routerLink="/tests/vocabB" [routerLinkActive]="['router-link-active']"
+                   class="btn btn-primary btn-block btn-lg" (click)="c('Close click')">Version B</a>
+            </div>
+        </div>
+
+    </ng-template>
 
     <hr />
     <!--Instructions Boxes-->
@@ -110,7 +135,7 @@
                 <div class="head">
                     <h5>Select the level of dificulty</h5>
                 </div>
-                
+
                 <hr>
                 <p>- Choose from the levels above.</p>
                 <p>- The levels are ordered from easy to hard.</p>
@@ -125,7 +150,7 @@
                 <div class="head">
                     <h5>Press "Take the test!"</h5>
                 </div>
-                
+
                 <hr>
                 <p>- You will have 60 secs per question</p>
                 <p>- Choose the best answer for the question, then hit 'Check answer'.</p>

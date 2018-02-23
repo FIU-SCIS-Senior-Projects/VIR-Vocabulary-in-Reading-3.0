@@ -88,7 +88,7 @@
 
     <div class="container-fluid">
         <button class="btn btn-primary" (click)="finishQuiz(stats); calcPercentage()" *ngIf="start">
-            Finish test and check the result!
+            {{finish}}
         </button>
         <button class="btn btn-success float-right" (click)="nextQuestion(content)" *ngIf="!finished">
             Next <i class="fa fa-step-forward">  </i>
@@ -101,8 +101,6 @@
     </div>
 
     <br />
-    <br />
-    <hr />
 
     <!--This is the modal for skipped question warning-->
     <ng-template #content let-c="close" let-d="dismiss">
@@ -141,7 +139,7 @@
         <div class="modal-body">
             <table id="progress">
                 <tr>
-                    <th>Attempted</th>
+                    <th>Attempts</th>
                     <th>Correct</th>
                     <th>Wrong</th>
                     <th>Skipped</th>
@@ -194,6 +192,7 @@
     </ng-template>
 
     <div>
+
 
     </div>
 

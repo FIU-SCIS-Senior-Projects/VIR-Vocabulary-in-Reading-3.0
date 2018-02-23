@@ -12,7 +12,7 @@ import { TestBanks } from '../../../shared/services/testBanks/testBanks.service'
 
 
 @Component({
-    selector: 'app-academic',
+    selector: 'ngbd-buttons-radio',
     templateUrl: './beginner.component.html',
     styleUrls: ['./beginner.component.scss'],
     animations: [routerTransition()] 
@@ -24,11 +24,12 @@ export class BeginnerComponent implements OnInit {
     //-----------------------------------------------------------------------------------
 
     public static BACK_LABEL: string = ' Categories';
-
+    public static FINISH: string = 'Finish Test and View Results';
 
     //-----------------------------------------------------------------------------------
 
     backLabel: string = BeginnerComponent.BACK_LABEL;
+    finish: string = BeginnerComponent.FINISH;
     question: string;
     answer: string;
     options: any[];
@@ -120,6 +121,7 @@ export class BeginnerComponent implements OnInit {
 
     private updaTeLabels(): void {
         this.backLabel = this.showOnlyIcons ? '' : BeginnerComponent.BACK_LABEL;
+        this.finish = this.showOnlyIcons ? 'Finish/View Results' : BeginnerComponent.FINISH;
         
     }
 
@@ -335,8 +337,11 @@ export class BeginnerComponent implements OnInit {
         else if (lvl == "upper") {
             this.level = "Upper Intermediate";
         }
-        else if (lvl == "vocab") {
-            this.level = "Vocabulary Size";
+        else if (lvl == "vocabA") {
+            this.level = "Vocabulary Size (A)";
+        }
+        else if (lvl == "vocabB") {
+            this.level = "Vocabulary Size (B)";
         }
         else if (lvl == "depth") {
             this.level = "Depth of Vocabulary Knowledge";

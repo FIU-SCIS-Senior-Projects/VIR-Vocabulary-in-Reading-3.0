@@ -1,1 +1,1 @@
-web: java -jar VIR-Backend-3.0.4.jar
+web: java -jar VIR-Backend-3.0.6.jar

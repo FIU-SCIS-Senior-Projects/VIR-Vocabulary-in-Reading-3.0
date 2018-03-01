@@ -1,17 +1,18 @@
 {
   "ExpandedNodes": [
     "",
+    "\\VIR-Backend",
     "\\VIR-Backend\\src",
     "\\VIR-Backend\\src\\main",
     "\\VIR-Backend\\src\\main\\java",
     "\\VIR-Backend\\src\\main\\java\\com",
     "\\VIR-Backend\\src\\main\\java\\com\\vir",
-    "\\VIR-Frontend",
-    "\\VIR-Frontend\\src",
-    "\\VIR-Frontend\\src\\app",
-    "\\VIR-Frontend\\src\\app\\layout",
-    "\\VIR-Frontend\\src\\app\\layout\\tests"
+    "\\VIR-Backend\\src\\main\\java\\com\\vir\\controller",
+    "\\VIR-Backend\\src\\main\\java\\com\\vir\\model",
+    "\\VIR-Backend\\src\\main\\java\\com\\vir\\service",
+    "\\VIR-Backend\\src\\main\\java\\com\\vir\\service\\impl",
+    "\\VIR-Backend\\src\\main\\java\\com\\vir\\service\\impl\\processor"
   ],
-  "SelectedNode": "\\VIR-Frontend\\src\\app\\layout\\tests\\tests.component.ts",
+  "SelectedNode": "\\VIR-Backend\\src\\main\\java\\com\\vir\\service\\impl\\processor\\ItranslatorProcessor.java",
   "PreviewInSolutionExplorer": false
 }

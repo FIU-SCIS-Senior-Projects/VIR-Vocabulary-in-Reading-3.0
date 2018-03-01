@@ -290,7 +290,306 @@ export class VocabATestBank {
                 options: ["Region between the stomach and the top of the leg", "Noisy street", "Group of players gatheres round the ball", "Race across a field of snow"]
             },
 
-           
+            {
+                question: "Rouble: He had a lot of <rouble>",
+                answer: "2",
+                options: ["Very small red stones","Distant family member","Russian money","moral difficulty in mind"]
+            },
+
+            {
+                question: "Canonical: These are <canonical examples>",
+                answer: "2",
+                options: ["Examples which break the usual rules","Examples taken from a religious book", "regular and widely accepted examples", "Examples discocered very recently"]
+            },
+
+            {
+                question: "Puree: This <puree> is bringht green",
+                answer: "0",
+                options: ["Fruit or vegetable in liquid form", "Dress worn by women in India", "Skin of a fruit", "Very thin material"]
+            },
+
+            {
+                question: "Vial: Put it in a <vial>",
+                answer: "3",
+                options: ["Device that stores electricity", "Country residense", "Dramatic scene", "Small glass bottle"]
+            },
+
+            {
+                question: "Counterclaim: They made a <counterclaim>",
+                answer: "0",
+                options: ["A demand response made by once side in a law case", "A request for a shop to take back thigs", "An agreement between two companies", " A decorative cover for a bed"]
+            },
+
+            {
+                question: "Refectory: We met in the <refectory>",
+                answer: "0",
+                options: ["Room for eating", "Office where legal papers can be signed", "Room for several people to sleep in", "Room with glass walls"]
+            },
+
+            {
+                question: "Trill: He practised the <trill>",
+                answer: "0",
+                options: ["Repeated high musical sound", "Type of stringed instrument", "Way of throwing the ball", "Dance step of turning around very fast"]
+            },
+
+            {
+                question: "Talon: Just look at those <talons>!",
+                answer: "1",
+                options: ["High points of a mountain", "Sharp hooks on the feet of a hunting bird", "Heavy metal coats to protect againts weapons", "People who make fool of themselves"]
+            },
+
+            {
+                question: "Plankton: We saw a lot of <plankton> here",
+                answer: "1",
+                options: ["Poisonous plants that spread quick", "Small animal or plants found in water", "Trees producing hard wood", "Grey soil that often causes land to slip"]
+            },
+
+            {
+                question: "Soliloquy: That was an excelent <soliloquy>",
+                answer: "3",
+                options: ["Song for six people", "Short clever saying", "Entertainment using lights and sound", "Speech in the theater by the character who is alone"]
+            },
+
+            {
+                question: "Puma: We saw a <puma>",
+                answer: "2",
+                options: ["Small house made of mud bricks", "Tree from hot countries", "Large wild cat", "Very strong winds"]
+            },
+
+            {
+                question: "Augur: It <augured> well",
+                answer: "0",
+                options: ["Promised good things for the future", "Agreed with what was expected", "Had a good color", "Rang with a clear, beautiful sound"]
+            },
+
+            {
+                question: "Emir: We saw the <emir>",
+                answer: "2",
+                options: ["Bird with two long curved tail feathers", "Woman who cares for other people's children", "Middle Eastern chief with power in his own land", "House made out of ice"]
+            },
+
+            {
+                question: "Didactic: The story <is very dedactic>",
+                answer: "0",
+                options: ["Tries to teach something", "Is very hard to believe", "Deals with exciting actions", "Is written witn unclear meaning"]
+            },
+
+            {
+                question: "Cranny: Look what we found in the <cranny>",
+                answer: "1",
+                options: ["Sale of unwanted objects", "Narrow opening", "Space for storing things", "Large wooden box"]
+            },
+
+            {
+                question: "Lectern: He stood at the <lectern>",
+                answer: "0",
+                options: ["Desk made o hold a book at a good height for reading", "Table or block used for church ceremonies", "Place where you buy drinks", "Very edge"]
+            },
+
+            {
+                question: "Azalea: This <azalea>is very pretty",
+                answer: "0",
+                options: ["Small tree with flowers growing in groups", "Light natural fabric", "Long piece of material worn in India", "Sea shell shaped like a fan"]
+            },
+
+            {
+                question: "Marsupial: It is a <marsupial>",
+                answer: "3",
+                options: ["An animal with small feet", "A plant that takes time to grow", "Plant with flowers that turn to the sun", "An animal with pockets for its babies"]
+            },
+
+            {
+                question: "Bawdy: It was very <bawdy>",
+                answer: "3",
+                options: ["Unpredictable", "Innocent", "Rushed", "Indecent"]
+            },
+
+            {
+                question: "Crowbar: He used a <crowbar>",
+                answer: "0",
+                options: ["Heavy iron bar with a curved edge", "False name", "Sharp tool to make holes", "Light metal walking stick"]
+            },
+
+            {
+                question: "Spangled: Her dress was <spangled>",
+                answer: "1",
+                options: ["Torn into thin strips", "Covered with small bright decorations", "Made with lots of folds in fabric", "Ruined by touching something vey hot"]
+            },
+
+            {
+                question: "Aver: She <averred> that it wsa the truth",
+                answer: "1",
+                options: ["Refused to agree", "Declared", "Believed", "Warned"]
+            },
+
+            {
+                question: "Retro: It has a <retro> look",
+                answer: "3",
+                options: ["Very fashionable look", "Look of a piece of modern art", "Used before", "Look of something from an earlier time"]
+            },
+
+            {
+                question: "Rascal: She is such a <rascal>",
+                answer: "3",
+                options: ["An unbeliever", "Demented", "Hard wroker", "Bad girl"]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
+
+            {
+                question: "",
+                answer: "",
+                options: ["", "", "", ""]
+            },
         ];
 
         this.totalQuestions = questions.length;

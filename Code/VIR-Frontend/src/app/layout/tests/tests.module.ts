@@ -11,7 +11,6 @@ import { TestsComponent } from './tests.component';
         NgbAlertModule.forRoot(),
         TestsRoutingModule,
         NgbModule.forRoot(),
-
     ],
     declarations: [
         TestsComponent,

@@ -6,7 +6,6 @@ import { Location } from '@angular/common';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute } from '@angular/router';
 import { SimpleTimer } from 'ng2-simple-timer';
-import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 
 import { TestBanks } from '../../../shared/services/testBanks/testBanks.service';
 

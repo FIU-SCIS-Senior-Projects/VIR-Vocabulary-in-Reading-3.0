@@ -45,6 +45,7 @@ export class AdminComponent implements OnInit {
         this.word = res;
         this.processing = false;
         this.showTable = true;
+        
       },
       (err: HttpErrorResponse) => {
         if (err.error instanceof Error) {

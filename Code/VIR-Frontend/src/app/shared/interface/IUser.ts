@@ -1,9 +1,9 @@
 
 export interface IUser {
-
     id: number;
     fullName: string;
-    userId: string;
+    userName: string;
     password: string;
     userLevel: string;
+
 }

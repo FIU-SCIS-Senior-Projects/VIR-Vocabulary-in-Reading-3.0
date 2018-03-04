@@ -1,0 +1,80 @@
+
+<div [@routerTransition]>
+
+
+    <ngb-alert class="alert-warning" *ngIf="!closed" (close)="close()">Your password did not match, please try again.</ngb-alert>
+    <ngb-alert type="success" *ngIf="registered">You have succesfully registered! Thank you!</ngb-alert>
+    <ngb-alert type="success" *ngIf="login">You have succesfully logged in! Thank you!</ngb-alert>
+
+
+    <div class="row">
+        <div class="col-md-4 push-md-4">
+            <img src="assets/images/logo.png" width="150px" class="user-avatar" />
+            <h1>Vocabulary in Reading</h1>
+
+            <form role="form">
+                <div class="form-content">
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="uName" class="form-control input-underline input-lg" id=""
+                               name="userName" placeholder="User Name">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="fName" class="form-control input-underline input-lg" id=""
+                               name="fullName" placeholder="First and Last name">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="pword" class="form-control input-underline input-lg" id=""
+                               name="pass" placeholder="Choose Password" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="cPass" class="form-control input-underline input-lg" id=""
+                               name="cpass" placeholder="Confirm Password" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="uLevel" class="form-control input-underline input-lg" id=""
+                               name="level" placeholder="User Level" />
+                    </div>
+                </div>
+                <a class="btn btn-primary" (click)="register()"> Register </a>
+                &nbsp;
+            </form>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <form role="form">
+            <div class="form-content">
+                <div class="form-group">
+                    <div>
+                        Get user
+                        <input type="text" [(ngModel)]="loginUser" class="form-control input-underline input-lg"
+                               name="user" placeholder="Enter User Name" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        Password
+                        <input type="text" [(ngModel)]="loginPassword" class="form-control input-underline input-lg"
+                               name="user" placeholder="Enter User Name" />
+                    </div>
+                </div>
+            </div>
+            <a class="btn btn-primary" (click)="getUser()"> login </a>
+            &nbsp;
+        </form>
+    </div>
+
+    <div *ngIf="show">
+        <h2>This is the user name: {{user.userName}}</h2>
+        <h2>This is the user Full Name: {{user.password}}</h2>
+        <h2>This is the user level: {{loginPassword}}</h2>
+        <h2>This is login: {{login}}</h2>
+    </div>
+
+
+</div>
+
+

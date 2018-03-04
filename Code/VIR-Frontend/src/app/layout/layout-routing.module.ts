@@ -20,12 +20,9 @@ const routes: Routes = [
             { path: 'credits', loadChildren: './credits/credits.module#CreditsModule' },
             { path: 'tests', loadChildren: './tests/tests.module#TestsModule' },
             { path: 'tests/:id', loadChildren: './tests/beginner/beginner.module#BeginnerModule' },
-            { path: 'itranslate', loadChildren: './itranslate/itranslate.module#ItranslateModule'}
-            //{ path: 'tests/STEM', loadChildren: './tests/stem/stem.module#StemModule' },
-            //{ path: 'tests/high', loadChildren: './tests/high/high.module#HighModule' },
-            //{ path: 'tests/med', loadChildren: './tests/med/med.module#MedModule' },
-            //{ path: 'tests/low', loadChildren: './tests/low/low.module#LowModule' },
-            //{ path: 'tests/all', loadChildren: './tests/all/all.module#AllModule' },
+            { path: 'itranslate', loadChildren: './itranslate/itranslate.module#ItranslateModule' },
+            { path: 'register', loadChildren: './register/register.module#RegisterModule' },
+
         ]
     }
 

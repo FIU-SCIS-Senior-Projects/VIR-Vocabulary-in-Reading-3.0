@@ -15,6 +15,7 @@ import { IUser } from '../../shared/interface/IUser';
 
 
 export class RegisterComponent implements OnInit {
+    closeResult: string;
 
     user: IUser;
 
@@ -38,7 +39,7 @@ export class RegisterComponent implements OnInit {
     @Input() loginUser: string;
     @Input() loginPassword: string;
 
-    constructor(private _modal: NgbModal, private _register: RegisterService) {
+    constructor(private _modalService: NgbModal, private _register: RegisterService) {
 
     }
 
@@ -78,7 +79,7 @@ export class RegisterComponent implements OnInit {
                     console.log('Server-side Error occured');
                 }
             })
-        //this.load();
+      
         
     }
 
@@ -86,6 +87,7 @@ export class RegisterComponent implements OnInit {
     verifyUser(password:string) {
         if (this.loginPassword == password) {
             this.login = true;
+            this.load();
         }
     }
 
@@ -93,6 +95,8 @@ export class RegisterComponent implements OnInit {
         this.passWord = this.user.password;
         this.userName = this.user.userName;
         this.fullName = this.user.fullName;
+
+        localStorage["fullName"] = this.fullName;
     }
 
     register() {
@@ -128,6 +132,28 @@ export class RegisterComponent implements OnInit {
         }
 
 
+    }
+
+    //-----------------------------------------------------------------------------------
+    //Opens or closes the modal
+    open(content) {
+        this._modalService.open(content).result.then((result) => {
+            this.closeResult = `Closed with: ${result}`;
+        }, (reason) => {
+            this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        });
+    }
+
+    //-----------------------------------------------------------------------------------
+
+    private getDismissReason(reason: any): string {
+        if (reason === ModalDismissReasons.ESC) {
+            return 'by pressing ESC';
+        } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+            return 'by clicking on a backdrop';
+        } else {
+            return `with: ${reason}`;
+        }
     }
 
 

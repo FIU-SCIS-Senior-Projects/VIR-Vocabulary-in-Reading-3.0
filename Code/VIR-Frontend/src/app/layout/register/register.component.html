@@ -15,65 +15,34 @@
             <form role="form">
                 <div class="form-content">
                     <div class="form-group">
-                        <input type="text" [(ngModel)]="uName" class="form-control input-underline input-lg" id=""
+                        <input type="text" [(ngModel)]="uName" class="form-control input-underline input-lg" id="userName"
                                name="userName" placeholder="User Name">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" [(ngModel)]="fName" class="form-control input-underline input-lg" id=""
+                        <input type="text" [(ngModel)]="fName" class="form-control input-underline input-lg" id="fullName"
                                name="fullName" placeholder="First and Last name">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" [(ngModel)]="pword" class="form-control input-underline input-lg" id=""
+                        <input type="text" [(ngModel)]="pword" class="form-control input-underline input-lg" id="password"
                                name="pass" placeholder="Choose Password" />
                     </div>
                     <div class="form-group">
-                        <input type="text" [(ngModel)]="cPass" class="form-control input-underline input-lg" id=""
+                        <input type="text" [(ngModel)]="cPass" class="form-control input-underline input-lg" id="cPassword"
                                name="cpass" placeholder="Confirm Password" />
                     </div>
                     <div class="form-group">
-                        <input type="text" [(ngModel)]="uLevel" class="form-control input-underline input-lg" id=""
+                        <input type="text" [(ngModel)]="uLevel" class="form-control input-underline input-lg" id="userLevel"
                                name="level" placeholder="User Level" />
                     </div>
                 </div>
-                <a class="btn btn-primary" (click)="register()"> Register </a>
+                <button class="btn btn-primary" type="submit"(click)="register()"> Register </button>
                 &nbsp;
             </form>
 
         </div>
     </div>
-
-    <div class="row">
-        <form role="form">
-            <div class="form-content">
-                <div class="form-group">
-                    <div>
-                        Get user
-                        <input type="text" [(ngModel)]="loginUser" class="form-control input-underline input-lg"
-                               name="user" placeholder="Enter User Name" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div>
-                        Password
-                        <input type="text" [(ngModel)]="loginPassword" class="form-control input-underline input-lg"
-                               name="user" placeholder="Enter User Name" />
-                    </div>
-                </div>
-            </div>
-            <a class="btn btn-primary" (click)="getUser()"> login </a>
-            &nbsp;
-        </form>
-    </div>
-
-    <div *ngIf="show">
-        <h2>This is the user name: {{user.userName}}</h2>
-        <h2>This is the user Full Name: {{user.password}}</h2>
-        <h2>This is the user level: {{loginPassword}}</h2>
-        <h2>This is login: {{login}}</h2>
-    </div>
-
 
 </div>
 

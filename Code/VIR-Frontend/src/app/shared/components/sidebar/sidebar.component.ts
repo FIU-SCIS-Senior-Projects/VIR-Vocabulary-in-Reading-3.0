@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RegisterService } from 'app/shared/services/register.service';
+import { IUser } from 'app/shared/interface/IUser';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
     selector: 'app-sidebar',
@@ -6,8 +11,23 @@ import { Component } from '@angular/core';
     styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
+    login: boolean;
+    fullName: string;
+    userName: string;
+    passWord: string;
+    processing: boolean;
+    show: boolean;
+
+    closeResult: string;
     isActive = false;
     showMenu = '';
+    user: IUser;
+
+    @Input() loginUser: string;
+    @Input() loginPassword: string;
+    constructor(private modal: NgbModal, private _register: RegisterService) { }
+
+
     eventCalled() {
         this.isActive = !this.isActive;
     }
@@ -18,4 +38,71 @@ export class SidebarComponent {
             this.showMenu = element;
         }
     }
+
+    //-----------------------------------------------------------------------------------
+    //Opens or closes the modal
+    open(content) {
+        this.modal.open(content).result.then((result) => {
+            this.closeResult = `Closed with: ${result}`;
+        }, (reason) => {
+            this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        });
+    }
+
+    //-----------------------------------------------------------------------------------
+
+    private getDismissReason(reason: any): string {
+        if (reason === ModalDismissReasons.ESC) {
+            return 'by pressing ESC';
+        } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+            return 'by clicking on a backdrop';
+        } else {
+            return `with: ${reason}`;
+        }
+    }
+
+ //-----------------------------------------------------------------------------------
+
+    getUser() {
+
+        this._register.getUser(this.loginUser)
+            .subscribe(res => {
+                this.user = res;
+                this.show = true;
+                this.verifyUser(this.user.password);
+            },
+            (err: HttpErrorResponse) => {
+                if (err.error instanceof Error) {
+                    console.log('Client-side Error occured');
+                } else {
+
+                    this.processing = false;
+                    console.log('Server-side Error occured');
+                }
+            })
+
+
+    }
+
+    logout() {
+        this.show = false;
+    }
+
+    verifyUser(password: string) {
+        if (this.loginPassword == password) {
+            this.login = true;
+            this.load();
+            this.loginPassword = '';
+            this.loginUser = '';
+        }
+    }
+
+    load() {
+        this.passWord = this.user.password;
+        this.userName = this.user.userName;
+        this.fullName = this.user.fullName;
+
+        localStorage["fullName"] = this.fullName;
+    }
+
 }

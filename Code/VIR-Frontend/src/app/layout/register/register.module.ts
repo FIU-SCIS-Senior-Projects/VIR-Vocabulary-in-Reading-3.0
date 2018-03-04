@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from './register.component';
-import {RegisterService} from '../../shared/services/register.service'
+import { RegisterService } from '../../shared/services/register.service'
 
 @NgModule({
     imports: [

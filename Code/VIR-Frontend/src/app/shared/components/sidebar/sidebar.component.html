@@ -47,9 +47,81 @@
         <a routerLink="/itranslate" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <li class="fa fa-fw fa-font"></li>&nbsp;{{ 'iTranslate' | translate }}
         </a>
-        <a routerLink="/register" [routerLinkActive]="['router-link-active']"  class="list-group-item">
-            <li class="fa fa-fw fa-address-book"></li>&nbsp;{{ 'Register' | translate }}
-        </a>
+
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('account')">
+                <span *ngIf="!show">
+                    <i class="fa fa-address-book"></i>&nbsp; {{ 'My Account' | translate }}
+                </span>
+                <span *ngIf="show">
+                    <i class="fa fa-address-book"></i>&nbsp; Welcome - {{ user.fullName }}
+                </span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'account'">
+                <ul class="submenu">
+                    <li>
+                        <div *ngIf="!show">
+                            <a class="list-group-item" (click)="open(content)" >
+                                <i class="fa fa-fw fa-keyboard-o"></i>&nbsp;{{ 'Login' | translate }}
+                            </a>
+                            <a [routerLink]="['/register']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                                <i class="fa fa-address-book"></i>&nbsp;{{ 'Register' | translate }}
+                            </a>
+                        </div>
+                        <a class="list-group-item" (click)="logout()" *ngIf="show">
+                            <i class="fa fa-fw fa-keyboard-o"></i>&nbsp;{{ 'Log Out' | translate }}
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
 
     </ul>
+
+    <!--This is the modal for skipped question warning-->
+    <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4>
+                Login!
+            </h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <form role="form">
+                    <div class="form-content">
+                        <div class="form-group">
+                            <div>
+                                <strong>User Name:</strong>
+                            </div>
+                            <input type="text" [(ngModel)]="loginUser" class="form-control input-underline input-lg"
+                                   name="user" placeholder="Enter User Name" />
+
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <strong>Password:</strong>
+                            </div>
+                            <input type="password" [(ngModel)]="loginPassword" class="form-control input-underline input-lg"
+                                   name="password" placeholder="Enter Password" />
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button routerLink="/dashboard" [routerLinkActive]="['router-link-active']"
+                                class="btn btn-primary btn-block" (click)="getUser(); c('Close click')" type="submit"> login </button>
+                        &nbsp;
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-->div class="modal-footer">
+            <!--this button will skip the current question from the quiz>
+            <button type="button" class="btn btn-warning" (click)="c('Close click'); skipQuestion(); nextQuestion(content)">Login.</button>
+        </div-->
+    </ng-template>
 </nav>
+
+

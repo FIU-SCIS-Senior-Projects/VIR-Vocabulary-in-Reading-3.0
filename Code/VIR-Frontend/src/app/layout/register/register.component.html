@@ -3,8 +3,8 @@
 
 
     <ngb-alert class="alert-warning" *ngIf="!closed" (close)="close()">Your password did not match, please try again.</ngb-alert>
-    <ngb-alert type="success" *ngIf="registered">You have succesfully registered! Thank you!</ngb-alert>
-    <ngb-alert type="success" *ngIf="login">You have succesfully logged in! Thank you!</ngb-alert>
+    <ngb-alert type="success" *ngIf="registered" (close)="close()">You have succesfully registered! Thank you!</ngb-alert>
+    <ngb-alert type="success" *ngIf="login" (close)="close()">You have succesfully logged in! Thank you!</ngb-alert>
 
 
     <div class="row">
@@ -25,11 +25,11 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="text" [(ngModel)]="pword" class="form-control input-underline input-lg" id="password"
+                        <input type="password" [(ngModel)]="pword" class="form-control input-underline input-lg" id="password"
                                name="pass" placeholder="Choose Password" />
                     </div>
                     <div class="form-group">
-                        <input type="text" [(ngModel)]="cPass" class="form-control input-underline input-lg" id="cPassword"
+                        <input type="password" [(ngModel)]="cPass" class="form-control input-underline input-lg" id="cPassword"
                                name="cpass" placeholder="Confirm Password" />
                     </div>
                     <div class="form-group">
@@ -37,13 +37,36 @@
                                name="level" placeholder="User Level" />
                     </div>
                 </div>
-                <button class="btn btn-primary" type="submit"(click)="register()"> Register </button>
+                <button class="btn btn-primary btn-block" type="submit" (click)="getUser(content)"> Register </button>
                 &nbsp;
             </form>
 
         </div>
     </div>
 
+    <!--This is the modal for register warning-->
+    <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4>
+                Error<i class="fa fa-fw fa-exclamation"></i>
+            </h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <!--Alert-->
+            <div>
+                <strong>User name taken! </strong>Please choose another user name, the one you chose is taken...
+            </div>
+            <div>
+                <strong>Sorry! </strong>
+            </div>
+        </div>
+    </ng-template>
+
 </div>
+
+
 
 

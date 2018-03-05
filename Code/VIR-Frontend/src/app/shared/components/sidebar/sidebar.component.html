@@ -51,10 +51,10 @@
         <div class="nested-menu">
             <a class="list-group-item" (click)="addExpandClass('account')">
                 <span *ngIf="!show">
-                    <i class="fa fa-address-book"></i>&nbsp; {{ 'My Account' | translate }}
+                    <i class="fa fa-user"></i>&nbsp; {{ 'My Account' | translate }}
                 </span>
                 <span *ngIf="show">
-                    <i class="fa fa-address-book"></i>&nbsp; Welcome - {{ user.fullName }}
+                    <i class="fa fa-user"></i>&nbsp; Welcome - {{ firstName }}
                 </span>
             </a>
             <li class="nested" [class.expand]="showMenu === 'account'">
@@ -68,9 +68,14 @@
                                 <i class="fa fa-address-book"></i>&nbsp;{{ 'Register' | translate }}
                             </a>
                         </div>
-                        <a class="list-group-item" (click)="logout()" *ngIf="show">
-                            <i class="fa fa-fw fa-keyboard-o"></i>&nbsp;{{ 'Log Out' | translate }}
-                        </a>
+                        <div *ngIf="show">
+                            <a class="list-group-item" (click)="logout()">
+                                <i class="fa fa-fw fa-address-card"></i>&nbsp;{{ 'Account' | translate }}
+                            </a>
+                            <a class="list-group-item" (click)="logout()">
+                                <i class="fa fa-fw fa-keyboard-o"></i>&nbsp;{{ 'Log Out' | translate }}
+                            </a>
+                        </div>
                     </li>
                 </ul>
             </li>
@@ -117,10 +122,6 @@
                 </form>
             </div>
         </div>
-        <!-->div class="modal-footer">
-            <!--this button will skip the current question from the quiz>
-            <button type="button" class="btn btn-warning" (click)="c('Close click'); skipQuestion(); nextQuestion(content)">Login.</button>
-        </div-->
     </ng-template>
 </nav>
 

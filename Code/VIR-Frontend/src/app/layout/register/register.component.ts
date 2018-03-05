@@ -49,6 +49,8 @@ export class RegisterComponent implements OnInit {
 
     close() {
         this.closed = true;
+        this.registered = false;
+        this.login = false;
     }
 
     comparePassword() {
@@ -62,19 +64,24 @@ export class RegisterComponent implements OnInit {
         }
     }
 
-    getUser() {
-        
-        this._register.getUser(this.loginUser)
+    //----------------------------------------
+    //GetUtser will first verify if the username is in the database already prior registering the user
+
+    getUser(content) {
+
+        this._register.getUser(this.uName)
             .subscribe(res => {
                 this.user = res;
                 this.show = true;
-                this.verifyUser(this.user.password);
+                this.processing = false;
+                this.open(content);
             },
             (err: HttpErrorResponse) => {
                 if (err.error instanceof Error) {
                     console.log('Client-side Error occured');
                 } else {
-                    
+
+                    this.register(content);
                     this.processing = false;
                     console.log('Server-side Error occured');
                 }
@@ -83,23 +90,10 @@ export class RegisterComponent implements OnInit {
         
     }
 
+    //-----------------------------------------
+    //Register will add the user info into the database once all has been verifed
 
-    verifyUser(password:string) {
-        if (this.loginPassword == password) {
-            this.login = true;
-            this.load();
-        }
-    }
-
-    load() {
-        this.passWord = this.user.password;
-        this.userName = this.user.userName;
-        this.fullName = this.user.fullName;
-
-        localStorage["fullName"] = this.fullName;
-    }
-
-    register() {
+    register(content) {
         this.passWord = this.pword;
         this.fullName = this.fName;
         this.userName = this.uName;

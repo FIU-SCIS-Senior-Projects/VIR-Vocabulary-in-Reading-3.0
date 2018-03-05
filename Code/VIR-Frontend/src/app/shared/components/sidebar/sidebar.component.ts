@@ -15,6 +15,8 @@ export class SidebarComponent {
     fullName: string;
     userName: string;
     passWord: string;
+    firstName: string;
+
     processing: boolean;
     show: boolean;
 
@@ -70,6 +72,7 @@ export class SidebarComponent {
                 this.user = res;
                 this.show = true;
                 this.verifyUser(this.user.password);
+                this.getFirstName();
             },
             (err: HttpErrorResponse) => {
                 if (err.error instanceof Error) {
@@ -88,6 +91,13 @@ export class SidebarComponent {
         this.show = false;
     }
 
+    getFirstName() {
+
+        var index = this.fullName.indexOf(" ");
+
+        this.firstName = this.fullName.slice(0, index);
+    }
+
     verifyUser(password: string) {
         if (this.loginPassword == password) {
             this.login = true;
@@ -102,7 +112,6 @@ export class SidebarComponent {
         this.userName = this.user.userName;
         this.fullName = this.user.fullName;
 
-        localStorage["fullName"] = this.fullName;
     }
 
 }

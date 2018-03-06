@@ -39,6 +39,7 @@ export class BeginnerComponent implements OnInit {
     standing: string;
     timerId: string;
     suggestion: string;
+    currentUser: string;
 
     numberOfQuestions: number;
     numWrong: number = 0;
@@ -57,6 +58,7 @@ export class BeginnerComponent implements OnInit {
     alrt: boolean = false;
     timeUp: boolean = false;
     showOnlyIcons: boolean;
+    loggedOn: boolean;
 
 
     counter: number = 0;
@@ -94,6 +96,13 @@ export class BeginnerComponent implements OnInit {
         this.showOnlyIcons = window.innerWidth <= 680;
         this.updaTeLabels();
 
+        this.currentUser = localStorage.getItem('currentUser');
+
+        if (localStorage.getItem('currentUser') != null) {
+            this.loggedOn = true;
+        } else {
+            this.loggedOn = false;
+        }
     }
 
     //-----------------------------------------------------------------------------------

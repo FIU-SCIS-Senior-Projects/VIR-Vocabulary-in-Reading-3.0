@@ -5,6 +5,7 @@ import { NgbModule, NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-boots
 import { RegisterService } from '../../shared/services/register.service'
 import { HttpErrorResponse } from '@angular/common/http';
 import { IUser } from '../../shared/interface/IUser';
+import { JsEncryption } from 'app/shared/services/jsEncryption.service';
 
 @Component({
     selector: 'app-tests',
@@ -39,7 +40,7 @@ export class RegisterComponent implements OnInit {
     @Input() loginUser: string;
     @Input() loginPassword: string;
 
-    constructor(private _modalService: NgbModal, private _register: RegisterService) {
+    constructor(private _modalService: NgbModal, private _register: RegisterService, private _encryptor: JsEncryption) {
 
     }
 
@@ -83,7 +84,7 @@ export class RegisterComponent implements OnInit {
 
                     this.register(content);
                     this.processing = false;
-                    console.log('Server-side Error occured');
+                    console.log('User not in DB, will be added.');
                 }
             })
       
@@ -94,7 +95,7 @@ export class RegisterComponent implements OnInit {
     //Register will add the user info into the database once all has been verifed
 
     register(content) {
-        this.passWord = this.pword;
+        this.passWord = this._encryptor.encrypt(this.pword);
         this.fullName = this.fName;
         this.userName = this.uName;
         this.userLevel = this.uLevel;

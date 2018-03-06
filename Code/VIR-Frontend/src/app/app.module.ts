@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterService } from 'app/shared/services/register.service';
+import { JsEncryption } from 'app/shared/services/jsEncryption.service';
 
 
 // AoT requires an exported function for factories
@@ -39,7 +40,7 @@ export function HttpLoaderFactory(http: Http) {
             }
         })
     ],
-    providers: [AuthGuard, RegisterService],
+    providers: [AuthGuard, RegisterService, JsEncryption],
     bootstrap: [AppComponent]
 })
 export class AppModule {

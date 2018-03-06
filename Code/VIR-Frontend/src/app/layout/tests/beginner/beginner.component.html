@@ -19,7 +19,8 @@
 
     <div class="card card-info card-inverse mb-3 col-lg-12 center-block">
         <div class="card-header card-info" placeholder="test" *ngIf="!start">
-            <h5>Ready?</h5>
+            <h5 *ngIf="loggedOn">Ready, {{currentUser}}?</h5>
+            <h5 *ngIf="!loggedOn">Ready?</h5>
         </div>
         <div class="card-header card-info" placeholder="test" *ngIf="start">
             <div class="float-right">Time: {{timer}} sec</div>

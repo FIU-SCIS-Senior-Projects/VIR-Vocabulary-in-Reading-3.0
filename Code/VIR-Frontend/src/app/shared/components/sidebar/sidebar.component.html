@@ -60,19 +60,19 @@
             <li class="nested" [class.expand]="showMenu === 'account'">
                 <ul class="submenu">
                     <li>
-                        <div *ngIf="!show">
-                            <a class="list-group-item" (click)="open(content)" >
+                        <div *ngIf="!login">
+                            <a class="list-group-item" (click)="open(content)">
                                 <i class="fa fa-fw fa-keyboard-o"></i>&nbsp;{{ 'Login' | translate }}
                             </a>
                             <a [routerLink]="['/register']" [routerLinkActive]="['router-link-active']" class="list-group-item">
                                 <i class="fa fa-address-book"></i>&nbsp;{{ 'Register' | translate }}
                             </a>
                         </div>
-                        <div *ngIf="show">
+                        <div *ngIf="login">
                             <a class="list-group-item" (click)="logout()">
                                 <i class="fa fa-fw fa-address-card"></i>&nbsp;{{ 'Account' | translate }}
                             </a>
-                            <a class="list-group-item" (click)="logout()">
+                            <a [routerLink]="['/dashboard']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="logout()">
                                 <i class="fa fa-fw fa-keyboard-o"></i>&nbsp;{{ 'Log Out' | translate }}
                             </a>
                         </div>
@@ -116,13 +116,34 @@
                     </div>
                     <div class="modal-footer">
                         <button routerLink="/dashboard" [routerLinkActive]="['router-link-active']"
-                                class="btn btn-primary btn-block" (click)="getUser(); c('Close click')" type="submit"> login </button>
+                                class="btn btn-primary btn-block" (click)="getUser(loginError); c('Close click')" type="submit">
+                            login
+                        </button>
                         &nbsp;
                     </div>
                 </form>
             </div>
         </div>
     </ng-template>
+
+    <!--This is the modal for register warning-->
+    <ng-template #loginError let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4>
+                Password Error<i class="fa fa-fw fa-exclamation"></i>
+            </h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <!--Alert-->
+            <div class="alert alert-warning">
+                <strong>Password did not match! </strong> Please try again.
+            </div>
+        </div>
+    </ng-template>
+
 </nav>
 
 

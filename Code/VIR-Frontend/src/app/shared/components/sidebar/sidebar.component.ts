@@ -4,6 +4,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterService } from 'app/shared/services/register.service';
 import { IUser } from 'app/shared/interface/IUser';
 import { HttpErrorResponse } from '@angular/common/http';
+import { JsEncryption } from 'app/shared/services/jsEncryption.service';
 
 @Component({
     selector: 'app-sidebar',
@@ -11,7 +12,7 @@ import { HttpErrorResponse } from '@angular/common/http';
     styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
-    login: boolean;
+    
     fullName: string;
     userName: string;
     passWord: string;
@@ -19,6 +20,7 @@ export class SidebarComponent {
 
     processing: boolean;
     show: boolean;
+    login: boolean;
 
     closeResult: string;
     isActive = false;
@@ -27,7 +29,7 @@ export class SidebarComponent {
 
     @Input() loginUser: string;
     @Input() loginPassword: string;
-    constructor(private modal: NgbModal, private _register: RegisterService) { }
+    constructor(private modal: NgbModal, private _register: RegisterService, private _encryptor: JsEncryption) { }
 
 
     eventCalled() {
@@ -44,6 +46,7 @@ export class SidebarComponent {
     //-----------------------------------------------------------------------------------
     //Opens or closes the modal
     open(content) {
+        console.log('opened');
         this.modal.open(content).result.then((result) => {
             this.closeResult = `Closed with: ${result}`;
         }, (reason) => {
@@ -65,14 +68,21 @@ export class SidebarComponent {
 
  //-----------------------------------------------------------------------------------
 
-    getUser() {
+    getUser(content) {
 
         this._register.getUser(this.loginUser)
             .subscribe(res => {
                 this.user = res;
-                this.show = true;
-                this.verifyUser(this.user.password);
-                this.getFirstName();
+
+                if (this.verifyUser(this.user.password, content)) {
+                    this.getFirstName();
+                    localStorage.setItem('currentUser', this.firstName);
+                }
+                /* //this is to test the encryption funstions ive created. (found in the jsEncription.service class)
+                var temp: string;
+                temp = this._encryptor.encrypt(this.user.fullName)
+                console.log(this._encryptor.decrypt(this._encryptor.encrypt(this.user.fullName)));
+                */
             },
             (err: HttpErrorResponse) => {
                 if (err.error instanceof Error) {
@@ -89,6 +99,8 @@ export class SidebarComponent {
 
     logout() {
         this.show = false;
+        this.login = false;
+        localStorage.removeItem('currentUser');
     }
 
     getFirstName() {
@@ -98,12 +110,21 @@ export class SidebarComponent {
         this.firstName = this.fullName.slice(0, index);
     }
 
-    verifyUser(password: string) {
+    verifyUser(password: string, content) {
+        password = this._encryptor.decrypt(password);
         if (this.loginPassword == password) {
             this.login = true;
+            this.show = true;
             this.load();
             this.loginPassword = '';
             this.loginUser = '';
+
+            return true;
+        } else {
+
+            this.open(content);
+
+            return false;
         }
     }
 

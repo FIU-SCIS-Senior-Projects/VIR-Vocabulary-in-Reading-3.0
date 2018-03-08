@@ -3,6 +3,8 @@ import { IWord, AdminService } from '../../shared'
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
+
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -59,15 +61,16 @@ export class AdminComponent implements OnInit {
   }
 
   // Add new word to data base
-  addWord(): void {
+  addWord(wordArea:string, category:string): void {
+    console.log('in addword')
     this.processing = true;
     this.error = false;
     this.errorAdd = false;
-    this._admin.postWord(this.wordArea, this.category)
+    this._admin.postWord(wordArea, category)
       .subscribe
       (res => {
         this.processing = false;
-        this.sessionHistory[this.index] = this.wordArea + ' is added to ' + this.category + ' category.'
+        this.sessionHistory[this.index] = wordArea + ' is added to ' + category + ' category.'
         this.index++;
       },
       (err: HttpErrorResponse) => {
@@ -105,6 +108,8 @@ export class AdminComponent implements OnInit {
         }
       }
       );
+
+      
   }
 
   // Delete the word in database
@@ -130,6 +135,87 @@ export class AdminComponent implements OnInit {
       }
       );
   }
+
+  fileUploadListener($event:any):void{
+    
+    this.csvadd($event.target, this.addWord.bind(this), this._admin, this.processing, this.sessionHistory, this.index, this.errorAdd, this.categoryItems);
+    console.log('out of it');
+    
+   }
+
+  
+csvadd(csv: any,  callback, _admin, processing, sessionHistory, index, errorAdd, categoryItems ):void { 
+    console.log('in csvadd')
+    var file:File = csv.files[0];
+    var self = this;
+    var reader:FileReader = new FileReader();
+    var wordArea:string;
+    var category:string;
+    var array;
+    var fields;
+    this.processing = true;
+    this.error = false;
+    this.errorAdd = false;
+
+    console.log('here 2')
+ 
+    reader.readAsText(file);
+    
+     reader.onloadend =(e)=> {
+      var csvData = reader.result;
+      console.log(csvData);
+      fields = csvData.split('\n');
+
+
+      fields.forEach(function(element){
+        console.log('in loop'); 
+        var array = element.split(',');
+        console.log(element);
+        wordArea=array[0];
+        console.log(wordArea);
+        console.log(categoryItems[1])
+        array[1]=array[1].replace(/[^a-zA-Z ]/g, "");
+       if(array[1]==='awl'){
+         category=categoryItems[1];
+       }
+       if(array[1]==='stem'){
+        category=categoryItems[2];
+      }
+      if(array[1]==='hi'){
+        category=categoryItems[3];
+      }
+      if(array[1]==='med'){
+        category=categoryItems[4];
+      }
+      if(array[1]==='low'){
+        category=categoryItems[5];
+      }
+      console.log(category);
+        _admin.postWord(wordArea, category)
+      .subscribe
+      (res => {
+        processing = false;
+        sessionHistory[index] = array[0] + ' is added to ' + array[1] + ' category.'
+        index++;
+      },
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          console.log('Client-side Error occured');
+        } else {
+          errorAdd = true;
+          processing = false;
+          console.log('Server-side Error occured');
+        }
+      }
+      );
+        
+      }
+    
+    ,
+    reader.onerror = function () {
+             console.log('Unable to read ' + file);
+         })
+  }}
 
   ngOnInit() {
   }

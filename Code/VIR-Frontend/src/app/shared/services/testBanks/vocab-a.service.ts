@@ -1,5 +1,3 @@
-import { Injectable } from '@angular/core';
-
 
 export class VocabATestBank {
 
@@ -435,160 +433,185 @@ export class VocabATestBank {
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Tweezers: They used <tweezers>",
+                answer: "2",
+                options: ["Small piece of metal for holding papers", "Small piece of string for closing wounds",
+                    "A tool with  two blades for picking up small objects", "Strong tool for cutting plants"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Bidet: They have <bidet>",
+                answer: "0",
+                options: ["Low basin for washing the body after using the toilet", "Large fierce brown dog", "Small private swimming pool", "Man to help in the house"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Sloop: Whoose <sloop> is that?",
+                answer: "1",
+                options: ["Warm hat", "Light sailing boat", "left over food", "untidy work"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Swingeing: They got <swingeing fines>",
+                answer: "0",
+                options: ["Very large fines", "Very small fines", "Fines paid in small amounts", "Fines that vary depending on income"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Cenotaph: We met at the <cenotaph>",
+                answer: "2",
+                options: ["Large important church", "Public square", "Memorial for people buried somewhere else", "Underground train station"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Denouement: I was dissapointed with the <denouement>",
+                answer: "0",
+                options: ["Ending of a story which solves the mystery", "Amount of money paid for a piece of work", "Official report of a meeting", "Small place to live"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Bittern: She saw a <bittern>",
+                answer: "3",
+                options: ["Large bottle for storing liquids", "small green snake", "False picture caused by hot air", "Water bird with long legs and a loud call"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Reconnoitre: They have gone to <reconnoitre>",
+                answer: "1",
+                options: ["Think again", "Make an examination of a new place", "Have a good time to mark a happy event", "Complain formally"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Magnanimity: We will never forget her <magnanimity>",
+                answer: "2",
+                options: ["Very offensive manners", "Courage in times of trouble", "Generosity", "Complete sincere words"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Effete: He has become <effete>",
+                answer: "0",
+                options: ["Weak and soft", "Too fond of something", "unable to leave his bed", "Extremely easy to annoy"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Rollick: They were <rollick>",
+                answer: "2",
+                options: ["Driving very fast", "Staying away from school", "Having fun in a noisy and spirited way", "Sliding on snow"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Gobbet: The cat left a <gobbet> behind",
+                answer: "3",
+                options: ["Strip of torn material", "Footprint", "Piece of solid waste from the body", "Lump of food returned from the stomach"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Rigmarole: I hate the <rigmarole>",
+                answer: "3",
+                options: ["Very fast and dificult dance", "Funny character in a theatre", "Tax form", "long, pointless and complicates set of actions"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Alimony: The article was about <alimony>",
+                answer: "1",
+                options: ["Feelings of bitternes and annoyance", "Money for the care f children, regurlarly after divorce", "Giving praise for excelent ideas", "A metal that breaks easily"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Roughshod: he <rode roughshod>",
+                answer: "2",
+                options: ["Traveled without good preparation", "Made lots of mistakes", "Did not concider other people's feelings", "Did not care about his own comfort"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Copra: They supply <copra>",
+                answer: "1",
+                options: ["A highly poisonous substance used to kill plants", "The dried meat from a large nut used to make oil", "A venemous snake", "Strong rope used on a sail"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Bier: She lay on the <bier>",
+                answer: "3",
+                options: ["Folding garden chair", "Grass next to the river", "Place where boats are tied up", "Board on which a dead body is carried"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Torpid: He was <torpid>",
+                answer: "3",
+                options: ["Undecided", "Filled with very strong feelings", "Confused", "Slow and sleepy"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Dachshund: She loves her <dachsund>",
+                answer: "2",
+                options: ["Warm fur hat", "Thick floor rug", "Small dog with small legs", "Old musical instrument"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Cadenza: What do you think of the <cadenza>?",
+                answer: "3",
+                options: ["Cake topped with cream and fruit", "Large box hanging from a wire", "Slow formal dance from Italy", "Passage in a piece of music that shows a player's great skill"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Obtrude: These thoughts <obtruded themselves>",
+                answer: "3",
+                options: ["Got themselves lost", "Did not agree with each other", "Got mixed up", "Pushed themselves forward in the mind"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Panzer: They saw a <panzer> getting nearer",
+                answer: "2",
+                options: ["Players in a marching band", "Figher planes", "Large, slow moving windowless army cars", "Policewomen"]
 
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Cyborg: She read about a <cyborg>",
+                answer: "0",
+                options: ["An integrated human-machine system", "A musical intrument with 40 strings", "A small, newly invented object", "A warm wind in winter"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Zygote: It is a <zygote>",
+                answer: "0",
+                options: ["An early phase of sexual reproduction", "A lot of bother over nothing", "A small animal found in South Africa", "A gun used to launch rockets"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Sylvan: The painting has a <sylvan> theme",
+                answer: "2",
+                options: ["Lost love", "Wandering", "Forest", "Casual folk"]
             },
 
             {
-                question: "",
-                answer: "",
-                options: ["", "", "", ""]
+                question: "Sagacious: She had many ideas that were <sagacious>",
+                answer: "0",
+                options: ["Instinctively clever", "Ridiculous and wild", "About abusing people and being abused", "Rebelious and dividing"]
+            },
+
+            {
+                question: "Spatiotemporal: My theory is <spatiotemporal>",
+                answer: "3",
+                options: ["Focused on small details", "Annoying to people", "Objectionably modern", "Oriented to time and space"]
+            },
+
+            {
+                question: "Casuist: Don't <play the casuist> with me",
+                answer: "2",
+                options: ["Focus only on self-pleasure", "Act like a tough guy", "Make judgements about my conduct of duty", "Be stupid"]
+            },
+
+            {
+                question: "Cyberpunk: I like <cyberpunk>",
+                answer: "1",
+                options: ["Medicine thta does not use drugs", "One variety of science-fiction", "Art and science of eating", ""]
+            },
+
+            {
+                question: "Pussyfoot: Let's not <pussyfoot around>",
+                answer: "1",
+                options: ["Criticise unreasonably", "Take care to avoid confrontation", "Attack indirectly", "Suddenly start"]
             },
         ];
 

@@ -20,7 +20,7 @@ export class JsEncryption {
                 padding: CryptoJS.pad.Pkcs7
             });
 
-        console.log('Encrypted :' + this.encrypted);
+        //console.log('Encrypted :' + this.encrypted);
 
         return this.encrypted.toString() ; 
     }

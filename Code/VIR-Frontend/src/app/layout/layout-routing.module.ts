@@ -22,6 +22,7 @@ const routes: Routes = [
             { path: 'tests/:id', loadChildren: './tests/beginner/beginner.module#BeginnerModule' },
             { path: 'itranslate', loadChildren: './itranslate/itranslate.module#ItranslateModule' },
             { path: 'register', loadChildren: './register/register.module#RegisterModule' },
+            { path: 'account', loadChildren: './account/account.module#UserAccountModule' },
 
         ]
     }

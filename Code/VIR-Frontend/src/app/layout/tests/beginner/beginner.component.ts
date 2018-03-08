@@ -19,6 +19,7 @@ import { TestBanks } from '../../../shared/services/testBanks/testBanks.service'
 
 
 export class BeginnerComponent implements OnInit {
+    firstName: any;
 
     //-----------------------------------------------------------------------------------
 
@@ -98,11 +99,24 @@ export class BeginnerComponent implements OnInit {
 
         this.currentUser = localStorage.getItem('currentUser');
 
+        if (this.currentUser != null)
+            this.getFirstName();
+
         if (localStorage.getItem('currentUser') != null) {
             this.loggedOn = true;
         } else {
             this.loggedOn = false;
         }
+        
+    }
+
+    //-----------------------------------------------------------------------------------
+
+    getFirstName() {
+
+        var index = this.currentUser.indexOf(" ");
+
+        this.firstName = this.currentUser.slice(0, index);
     }
 
     //-----------------------------------------------------------------------------------
@@ -210,6 +224,12 @@ export class BeginnerComponent implements OnInit {
         }//If question is not submited, the warning modal will pop up
 
         else if (this.submited || this.skip) {
+
+            var elements = document.getElementsByName('formRadio');
+            var form = <HTMLFormElement>elements[0];
+            form.reset();
+
+            //console.log("Element 0:" + form.reset);
 
             this.counter++;
 

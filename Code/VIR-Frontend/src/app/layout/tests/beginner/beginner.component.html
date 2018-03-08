@@ -19,7 +19,7 @@
 
     <div class="card card-info card-inverse mb-3 col-lg-12 center-block">
         <div class="card-header card-info" placeholder="test" *ngIf="!start">
-            <h5 *ngIf="loggedOn">Ready, {{currentUser}}?</h5>
+            <h5 *ngIf="loggedOn">Ready, {{firstName}}?</h5>
             <h5 *ngIf="!loggedOn">Ready?</h5>
         </div>
         <div class="card-header card-info" placeholder="test" *ngIf="start">
@@ -32,12 +32,12 @@
             <hr>
 
             <!--This is the section for the possible answers-->
-            <form class="qOptions" id="qOptions">
+            <form id="qOptions" name="formRadio">
                 <div class="form-group">
                     <div class="row">
                         <div class="col col-lg-6 col-md-4">
                             <label class="custom-control custom-radio">
-                                <input id="radio1" name="radio" [(ngModel)]="radioData" type="radio" class="custom-control-input" value="0" checked="checked">
+                                <input id="radio1" name="radio" [(ngModel)]="radioData" type="radio" [class.custom-control-checked]="checked" class="custom-control-input" value="0">
                                 <span class="custom-control-indicator"></span>
                                 <span class="custom-control-description">{{options[0]}}</span>
                             </label>

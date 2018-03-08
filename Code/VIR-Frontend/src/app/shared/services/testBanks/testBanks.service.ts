@@ -4,6 +4,7 @@ import { IntermediateTestBank } from '../testBanks/intermediateTestBank.service'
 import { UpperTestBank } from '../testBanks/upperTestBank.service';
 import { AdvancedTestBank } from '../testBanks/advancedTestBank.service';
 import { VocabATestBank } from '../testBanks/vocab-a.service';
+import { VocabBTestBank } from '../testBanks/vocab-b.service';
 
 /**
  * This class acts as a single access point for all other test banks
@@ -96,6 +97,23 @@ export class TestBanks {
             this.options = VocabATestBank.options;
 
             this.totalQuestions = VocabATestBank.totalQuestions;
+
+        }//Pulls the questions from the VocabATestBank test bank
+
+        if (level == "vocabB" || level == this.VOCAB1) {
+            /*
+            VocabBTestBank.questionsLib(id);
+
+            this.question = VocabBTestBank.question;
+            this.answer = VocabBTestBank.answer;
+            this.options = VocabBTestBank.options;
+
+            this.totalQuestions = VocabBTestBank.totalQuestions;
+            */
+            this.answer = this.NOTE;
+            this.question = this.NOTE;
+            this.options = [this.NOTE, this.NOTE, this.NOTE, this.NOTE];
+            this.totalQuestions = 0;
 
         }//Pulls the questions from the VocabATestBank test bank
 

@@ -3,6 +3,12 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { SidebarComponent } from './sidebar.component';
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RegisterService } from 'app/shared/services/register.service';
+import { HttpClient } from '@angular/common/http';
+import { HttpHandler } from '@angular/common/http';
+import { JsEncryption } from 'app/shared/services/jsEncryption.service';
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
@@ -12,9 +18,13 @@ describe('SidebarComponent', () => {
     TestBed.configureTestingModule({
       imports: [ 
         RouterTestingModule,
-        TranslateModule.forRoot()
+          TranslateModule.forRoot(),
+          FormsModule,
+          NgbModule.forRoot(),
+          
       ],
-      declarations: [ SidebarComponent ]
+        declarations: [SidebarComponent],
+        providers: [RegisterService, HttpClient, HttpHandler, JsEncryption]
     })
     .compileComponents();
   }));

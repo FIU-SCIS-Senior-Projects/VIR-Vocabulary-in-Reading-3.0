@@ -69,7 +69,7 @@
                             </a>
                         </div>
                         <div *ngIf="login">
-                            <a class="list-group-item" (click)="logout()">
+                            <a [routerLink]="['/account']" [routerLinkActive]="['router-link-active']" class="list-group-item">
                                 <i class="fa fa-fw fa-address-card"></i>&nbsp;{{ 'Account' | translate }}
                             </a>
                             <a [routerLink]="['/dashboard']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="logout()">

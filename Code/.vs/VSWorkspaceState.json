@@ -8,11 +8,16 @@
     "\\VIR-Backend\\src\\main\\java\\com",
     "\\VIR-Backend\\src\\main\\java\\com\\vir",
     "\\VIR-Backend\\src\\main\\java\\com\\vir\\controller",
-    "\\VIR-Backend\\src\\main\\java\\com\\vir\\model",
-    "\\VIR-Backend\\src\\main\\java\\com\\vir\\service",
-    "\\VIR-Backend\\src\\main\\java\\com\\vir\\service\\impl",
-    "\\VIR-Backend\\src\\main\\java\\com\\vir\\service\\impl\\processor"
+    "\\VIR-Frontend",
+    "\\VIR-Frontend\\src",
+    "\\VIR-Frontend\\src\\app",
+    "\\VIR-Frontend\\src\\app\\layout",
+    "\\VIR-Frontend\\src\\app\\layout\\account",
+    "\\VIR-Frontend\\src\\app\\layout\\dashboard",
+    "\\VIR-Frontend\\src\\app\\shared",
+    "\\VIR-Frontend\\src\\app\\shared\\components",
+    "\\VIR-Frontend\\src\\app\\shared\\components\\header"
   ],
-  "SelectedNode": "\\VIR-Backend\\src\\main\\java\\com\\vir\\service\\impl\\processor\\ItranslatorProcessor.java",
+  "SelectedNode": "\\VIR-Backend\\src\\main\\java\\com\\vir\\controller\\UserController.java",
   "PreviewInSolutionExplorer": false
 }

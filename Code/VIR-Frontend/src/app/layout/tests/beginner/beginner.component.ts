@@ -6,13 +6,12 @@ import { Location } from '@angular/common';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute } from '@angular/router';
 import { SimpleTimer } from 'ng2-simple-timer';
-import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 
 import { TestBanks } from '../../../shared/services/testBanks/testBanks.service';
 
 
 @Component({
-    selector: 'app-academic',
+    selector: 'ngbd-buttons-radio',
     templateUrl: './beginner.component.html',
     styleUrls: ['./beginner.component.scss'],
     animations: [routerTransition()] 
@@ -20,15 +19,17 @@ import { TestBanks } from '../../../shared/services/testBanks/testBanks.service'
 
 
 export class BeginnerComponent implements OnInit {
+    firstName: any;
 
     //-----------------------------------------------------------------------------------
 
     public static BACK_LABEL: string = ' Categories';
-
+    public static FINISH: string = 'Finish Test and View Results';
 
     //-----------------------------------------------------------------------------------
 
     backLabel: string = BeginnerComponent.BACK_LABEL;
+    finish: string = BeginnerComponent.FINISH;
     question: string;
     answer: string;
     options: any[];
@@ -39,6 +40,7 @@ export class BeginnerComponent implements OnInit {
     standing: string;
     timerId: string;
     suggestion: string;
+    currentUser: string;
 
     numberOfQuestions: number;
     numWrong: number = 0;
@@ -57,6 +59,7 @@ export class BeginnerComponent implements OnInit {
     alrt: boolean = false;
     timeUp: boolean = false;
     showOnlyIcons: boolean;
+    loggedOn: boolean;
 
 
     counter: number = 0;
@@ -94,6 +97,26 @@ export class BeginnerComponent implements OnInit {
         this.showOnlyIcons = window.innerWidth <= 680;
         this.updaTeLabels();
 
+        this.currentUser = localStorage.getItem('currentUser');
+
+        if (this.currentUser != null)
+            this.getFirstName();
+
+        if (localStorage.getItem('currentUser') != null) {
+            this.loggedOn = true;
+        } else {
+            this.loggedOn = false;
+        }
+        
+    }
+
+    //-----------------------------------------------------------------------------------
+
+    getFirstName() {
+
+        var index = this.currentUser.indexOf(" ");
+
+        this.firstName = this.currentUser.slice(0, index);
     }
 
     //-----------------------------------------------------------------------------------
@@ -120,6 +143,7 @@ export class BeginnerComponent implements OnInit {
 
     private updaTeLabels(): void {
         this.backLabel = this.showOnlyIcons ? '' : BeginnerComponent.BACK_LABEL;
+        this.finish = this.showOnlyIcons ? 'Finish/View Results' : BeginnerComponent.FINISH;
         
     }
 
@@ -200,6 +224,12 @@ export class BeginnerComponent implements OnInit {
         }//If question is not submited, the warning modal will pop up
 
         else if (this.submited || this.skip) {
+
+            var elements = document.getElementsByName('formRadio');
+            var form = <HTMLFormElement>elements[0];
+            form.reset();
+
+            //console.log("Element 0:" + form.reset);
 
             this.counter++;
 
@@ -335,8 +365,11 @@ export class BeginnerComponent implements OnInit {
         else if (lvl == "upper") {
             this.level = "Upper Intermediate";
         }
-        else if (lvl == "vocab") {
-            this.level = "Vocabulary Size";
+        else if (lvl == "vocabA") {
+            this.level = "Vocabulary Size (A)";
+        }
+        else if (lvl == "vocabB") {
+            this.level = "Vocabulary Size (B)";
         }
         else if (lvl == "depth") {
             this.level = "Depth of Vocabulary Knowledge";

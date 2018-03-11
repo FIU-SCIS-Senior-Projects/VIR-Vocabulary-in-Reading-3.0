@@ -1,7 +1,6 @@
 
 <div [@routerTransition] class="container-fluid">
 
-
     <!--This button dissapears whenerer you start the quiz-->
 
     <div class="container-fluid" text-align="center" (window:resize)="onResize($event)">
@@ -20,7 +19,8 @@
 
     <div class="card card-info card-inverse mb-3 col-lg-12 center-block">
         <div class="card-header card-info" placeholder="test" *ngIf="!start">
-            <h5>Ready?</h5>
+            <h5 *ngIf="loggedOn">Ready, {{firstName}}?</h5>
+            <h5 *ngIf="!loggedOn">Ready?</h5>
         </div>
         <div class="card-header card-info" placeholder="test" *ngIf="start">
             <div class="float-right">Time: {{timer}} sec</div>
@@ -32,12 +32,12 @@
             <hr>
 
             <!--This is the section for the possible answers-->
-            <form class="qOptions" id="qOptions">
+            <form id="qOptions" name="formRadio">
                 <div class="form-group">
                     <div class="row">
                         <div class="col col-lg-6 col-md-4">
                             <label class="custom-control custom-radio">
-                                <input id="radio1" name="radio" [(ngModel)]="radioData" type="radio" class="custom-control-input" value="0" checked>
+                                <input id="radio1" name="radio" [(ngModel)]="radioData" type="radio" [class.custom-control-checked]="checked" class="custom-control-input" value="0">
                                 <span class="custom-control-indicator"></span>
                                 <span class="custom-control-description">{{options[0]}}</span>
                             </label>
@@ -88,9 +88,9 @@
 
     <div class="container-fluid">
         <button class="btn btn-primary" (click)="finishQuiz(stats); calcPercentage()" *ngIf="start">
-            Finish test and check the result!
+            {{finish}}
         </button>
-        <button class="btn btn-success float-right" (click)="nextQuestion(content)" *ngIf="!finished">
+        <button class="btn btn-success float-right" (click)="nextQuestion(content)" *ngIf="!finished" id="Next">
             Next <i class="fa fa-step-forward">  </i>
         </button>
     </div>
@@ -101,8 +101,6 @@
     </div>
 
     <br />
-    <br />
-    <hr />
 
     <!--This is the modal for skipped question warning-->
     <ng-template #content let-c="close" let-d="dismiss">
@@ -141,7 +139,7 @@
         <div class="modal-body">
             <table id="progress">
                 <tr>
-                    <th>Attempted</th>
+                    <th>Attempts</th>
                     <th>Correct</th>
                     <th>Wrong</th>
                     <th>Skipped</th>
@@ -194,6 +192,7 @@
     </ng-template>
 
     <div>
+
 
     </div>
 

@@ -2,18 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { TestsRoutingModule } from './tests-routing.module';
-import { TestsComponent } from './tests.component';
+import { UserAccountRoutingModule } from './account-routing.module';
+import { UserAccount } from './account.component';
 
 @NgModule({
     imports: [
         CommonModule,
         NgbAlertModule.forRoot(),
-        TestsRoutingModule,
+        UserAccountRoutingModule,
         NgbModule.forRoot(),
     ],
     declarations: [
-        TestsComponent,
+        UserAccount,
     ]
 })
-export class TestsModule { }
+export class UserAccountModule { }

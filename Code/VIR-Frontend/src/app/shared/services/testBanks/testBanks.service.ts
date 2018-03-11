@@ -3,6 +3,8 @@ import { BeginnerTestBank } from '../testBanks/beginnerTestBank.service';
 import { IntermediateTestBank } from '../testBanks/intermediateTestBank.service';
 import { UpperTestBank } from '../testBanks/upperTestBank.service';
 import { AdvancedTestBank } from '../testBanks/advancedTestBank.service';
+import { VocabATestBank } from '../testBanks/vocab-a.service';
+import { VocabBTestBank } from '../testBanks/vocab-b.service';
 
 /**
  * This class acts as a single access point for all other test banks
@@ -18,7 +20,9 @@ export class TestBanks {
     private INTER: string = "Intermediate";
     private UPPER: string = "Upper Intermediate";
     private ADVANCED: string = "Advanced";
-    private VOCAB: string = "Vocabulary Size"
+    private VOCAB1: string = "Vocabulary Size (A)";
+    private VOCAB2: string = "Vocabulary Size (B)";
+    private DEPTH: string = "D";
 
 
     //This for when the testbanks are being modified.. something to pass on to the html
@@ -70,14 +74,50 @@ export class TestBanks {
 
             this.totalQuestions = UpperTestBank.totalQuestions;
 
-            //this.answer = this.NOTE;
-            //this.question = this.NOTE;
-            //this.options = [this.NOTE, this.NOTE, this.NOTE, this.NOTE];
-            //this.totalQuestions = 0;
-
         }//Pulls the questions from the Upper Intermediate test bank
 
         if (level == "advanced" || level == this.ADVANCED) {
+
+            AdvancedTestBank.questionsLib(id);
+
+            this.question = AdvancedTestBank.question;
+            this.answer = AdvancedTestBank.answer;
+            this.options = AdvancedTestBank.options;
+
+            this.totalQuestions = AdvancedTestBank.totalQuestions;
+
+        }//Pulls the questions from the Advanced test bank
+
+        if (level == "vocabA" || level == this.VOCAB1) {
+
+            VocabATestBank.questionsLib(id);
+
+            this.question = VocabATestBank.question;
+            this.answer = VocabATestBank.answer;
+            this.options = VocabATestBank.options;
+
+            this.totalQuestions = VocabATestBank.totalQuestions;
+
+        }//Pulls the questions from the VocabATestBank test bank
+
+        if (level == "vocabB" || level == this.VOCAB1) {
+            /*
+            VocabBTestBank.questionsLib(id);
+
+            this.question = VocabBTestBank.question;
+            this.answer = VocabBTestBank.answer;
+            this.options = VocabBTestBank.options;
+
+            this.totalQuestions = VocabBTestBank.totalQuestions;
+            */
+            this.answer = this.NOTE;
+            this.question = this.NOTE;
+            this.options = [this.NOTE, this.NOTE, this.NOTE, this.NOTE];
+            this.totalQuestions = 0;
+
+        }//Pulls the questions from the VocabATestBank test bank
+
+        if (level == "depth" || level == this.DEPTH) {
 
             //AdvancedTestBank.questionsLib(id);
 
@@ -92,14 +132,6 @@ export class TestBanks {
             this.options = [this.NOTE, this.NOTE, this.NOTE, this.NOTE];
             this.totalQuestions = 0;
         }//Pulls the questions from the Intermediate test bank
-
-        else {
-
-            this.answer = this.NOTE;
-            this.question = this.NOTE;
-            this.options = [this.NOTE, this.NOTE, this.NOTE, this.NOTE];
-            this.totalQuestions = 0;
-        }
 
     }
 

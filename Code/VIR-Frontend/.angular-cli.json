@@ -25,7 +25,8 @@
             ],
             "scripts": [
                 "../node_modules/chart.js/dist/Chart.js",
-                "../node_modules/chart.js/dist/Chart.bundle.min.js"
+                "../node_modules/chart.js/dist/Chart.bundle.min.js",
+                "../node_modules/crypto-js/crypto-js.js"
             ],
             "environmentSource": "environments/environment.ts",
             "environments": {

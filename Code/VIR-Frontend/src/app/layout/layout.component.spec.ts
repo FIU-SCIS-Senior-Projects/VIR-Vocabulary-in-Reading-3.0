@@ -1,10 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { HeaderComponent, SidebarComponent, FooterComponent } from '../shared';
 import { LayoutComponent } from './layout.component';
+import { FormsModule } from '@angular/forms';
+import { RegisterService } from 'app/shared/services/register.service';
+import { HttpClient } from '@angular/common/http';
+import { HttpHandler } from '@angular/common/http';
+import { JsEncryption } from 'app/shared/services/jsEncryption.service';
 
 describe('LayoutComponent', () => {
   let component: LayoutComponent;
@@ -15,14 +20,19 @@ describe('LayoutComponent', () => {
     imports: [
       RouterTestingModule,
       NgbDropdownModule.forRoot(),
-      TranslateModule.forRoot(),
+        TranslateModule.forRoot(),
+        FormsModule,
+        NgbModule.forRoot(),
+        
     ],
       declarations: [
         LayoutComponent,
         HeaderComponent,
         SidebarComponent,
         FooterComponent,
-      ]
+        ],
+        providers: [RegisterService, HttpClient, HttpHandler, JsEncryption]
+
     })
     .compileComponents();
   }));

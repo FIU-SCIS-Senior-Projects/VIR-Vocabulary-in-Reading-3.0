@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { IUser } from '../../interface/IUser';
 
 @Component({
     selector: 'app-header',
@@ -10,7 +11,11 @@ import { TranslateService } from '@ngx-translate/core';
 export class HeaderComponent implements OnInit {
 
     pushRightClass: string = 'push-right';
-    
+
+    login: boolean = false;
+
+    name: string;
+
     constructor(private translate: TranslateService, public router: Router) {
         this.router.events.subscribe((val) => {
             if (val instanceof NavigationEnd && window.innerWidth <= 992 && this.isToggled()) {
@@ -19,7 +24,10 @@ export class HeaderComponent implements OnInit {
         });
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+
+
+    }
 
     isToggled(): boolean {
         const dom: Element = document.querySelector('body');

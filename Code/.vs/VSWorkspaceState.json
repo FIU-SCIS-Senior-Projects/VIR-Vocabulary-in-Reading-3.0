@@ -1,19 +1,23 @@
 {
   "ExpandedNodes": [
     "",
+    "\\VIR-Backend",
+    "\\VIR-Backend\\src",
+    "\\VIR-Backend\\src\\main",
+    "\\VIR-Backend\\src\\main\\java",
+    "\\VIR-Backend\\src\\main\\java\\com",
+    "\\VIR-Backend\\src\\main\\java\\com\\vir",
+    "\\VIR-Backend\\src\\main\\java\\com\\vir\\controller",
     "\\VIR-Frontend",
     "\\VIR-Frontend\\src",
     "\\VIR-Frontend\\src\\app",
     "\\VIR-Frontend\\src\\app\\layout",
-    "\\VIR-Frontend\\src\\app\\layout\\itranslate",
-    "\\VIR-Frontend\\src\\app\\layout\\tests",
-    "\\VIR-Frontend\\src\\app\\layout\\tests\\beginner",
+    "\\VIR-Frontend\\src\\app\\layout\\account",
+    "\\VIR-Frontend\\src\\app\\layout\\dashboard",
     "\\VIR-Frontend\\src\\app\\shared",
     "\\VIR-Frontend\\src\\app\\shared\\components",
-    "\\VIR-Frontend\\src\\app\\shared\\components\\sidebar",
-    "\\VIR-Frontend\\src\\app\\shared\\services",
-    "\\VIR-Frontend\\src\\app\\shared\\services\\testBanks"
+    "\\VIR-Frontend\\src\\app\\shared\\components\\header"
   ],
-  "SelectedNode": "\\VIR-Frontend\\src\\app\\layout\\itranslate\\itranslate.component.ts",
+  "SelectedNode": "\\VIR-Backend\\src\\main\\java\\com\\vir\\controller\\UserController.java",
   "PreviewInSolutionExplorer": false
 }

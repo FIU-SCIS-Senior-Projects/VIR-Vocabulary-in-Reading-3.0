@@ -1,13 +1,13 @@
+/*
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { TestsComponent } from './tests.component';
-import { BeginnerComponent } from './beginner/beginner.component';
+import { UserAccount } from './account.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
-describe('TestsComponent', () => {
-    let fixture: ComponentFixture<TestsComponent>;
-    let component: TestsComponent;
+describe('AccountComponent', () => {
+    let fixture: ComponentFixture<UserAccount>;
+    let component: UserAccount;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -16,13 +16,13 @@ describe('TestsComponent', () => {
                 NgbModule.forRoot(),
             ],
             declarations: [
-                TestsComponent
+                UserAccount
             ],
         }).compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(TestsComponent);
+        fixture = TestBed.createComponent(UserAccount);
         component = fixture.componentInstance;
     });
 
@@ -31,4 +31,4 @@ describe('TestsComponent', () => {
     }));
 
 });
-
+*/

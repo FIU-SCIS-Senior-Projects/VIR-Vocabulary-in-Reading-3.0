@@ -5,7 +5,9 @@
 
 	<groupId>com.vir</groupId>
 	<artifactId>VIR-Project</artifactId>
+
 	<version>3.0.13</version>
+
 	<packaging>pom</packaging>
 
 	<name>VIR-Project</name>

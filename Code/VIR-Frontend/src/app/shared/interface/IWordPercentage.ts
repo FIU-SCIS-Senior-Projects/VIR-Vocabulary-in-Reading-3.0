@@ -1,4 +1,5 @@
 export interface IWordPercentage {
+    stem: number;
     awl: number;
     hi: number;
     med: number;

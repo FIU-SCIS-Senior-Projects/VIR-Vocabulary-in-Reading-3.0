@@ -88,6 +88,7 @@ public class OptimizedTextProcessorService implements TextProcessorService {
 	 * @return an instance of the count.
 	 */
 	private Count getWordCount(List<WordMatch> words) {
+		long stem = 0;
 		long awl = 0;
 		long hi = 0;
 		long low = 0;
@@ -96,6 +97,7 @@ public class OptimizedTextProcessorService implements TextProcessorService {
 
 		for (WordMatch wordMatch : words) {
 			if (!StringUtils.isBlank(wordMatch.getInitialValue())) {
+				stem += wordMatch.getCategory().equalsIgnoreCase("stem") ? 1 : 0;
 				awl += wordMatch.getCategory().equalsIgnoreCase("awl") ? 1 : 0;
 				hi += wordMatch.getCategory().equalsIgnoreCase("hi") ? 1 : 0;
 				med += wordMatch.getCategory().equalsIgnoreCase("med") ? 1 : 0;
@@ -106,7 +108,7 @@ public class OptimizedTextProcessorService implements TextProcessorService {
 				}
 			}
 		}
-		return new Count(awl, hi, med, low, noCategory);
+		return new Count(stem, awl, hi, med, low, noCategory);
 	}
 
 	/**

@@ -4,7 +4,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class Percent {
-
+	private double stem;
 	private double awl;
 	private double hi;
 	private double med;
@@ -17,6 +17,7 @@ public class Percent {
 	}
 
 	public Percent(Count count) {
+		this.stem = (double) count.getStem() / count.getTotal();
 		this.awl = (double) count.getAwl() / count.getTotal();
 		this.hi = (double) count.getHi() / count.getTotal();
 		this.med = (double) count.getMed() / count.getTotal();
@@ -36,6 +37,14 @@ public class Percent {
 		return EqualsBuilder.reflectionEquals(this, that);
 	}
 	
+	public double getStem() {
+		return stem;
+	}
+
+	public void setStem(double stem) {
+		this.stem = stem;
+	}
+
 	public double getAwl() {
 		return awl;
 	}

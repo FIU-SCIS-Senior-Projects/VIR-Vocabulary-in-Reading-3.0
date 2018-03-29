@@ -20,6 +20,7 @@
      <option [ngValue]="undefined" disabled  selected> Select target language </option>
      <option *ngFor="let options of optionsSelect" [value]="options.value">{{options.label}}</option>
   </select>
+  <p class="float-right"> Characters left to translate (for more please register): {{charsLeft}} </p>
 
 
 </div>

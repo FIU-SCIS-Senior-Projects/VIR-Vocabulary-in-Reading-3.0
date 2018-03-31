@@ -20,11 +20,21 @@
      <option [ngValue]="undefined" disabled  selected> Select target language </option>
      <option *ngFor="let options of optionsSelect" [value]="options.value">{{options.label}}</option>
   </select>
+ 
 
 
 </div>
 <div class="btn-group">
   <button type="button" class="btn btn-warning float-left" (click)="translate()">Translate</button>
+</div>
+
+<br>
+<br>
+
+
+
+<div>
+    <p class="float-left"> Characters left to translate: {{charsLeft}} </p>
 </div>
 
 <br>

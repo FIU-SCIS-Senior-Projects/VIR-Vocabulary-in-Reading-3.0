@@ -4,6 +4,7 @@ import { iTranslateService } from '../../shared/services'
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 
+
 @Component({
   selector: 'app-itranslate',
   templateUrl: './itranslate.component.html',
@@ -20,11 +21,15 @@ export class ItranslateComponent implements OnInit {
   t1:any;
   t2:any;
   optionsSelect: Array<any>;
+  charsLeft: number;
+  
 
   
   constructor(private _itranslate:iTranslateService) { }
 
   ngOnInit() {
+    this.charsLeft=1000;
+    this.checkCookie();
     this.targetDisplay='';
     this.optionsSelect = [
     { value: 'af', label: 'Afrikaans' },
@@ -122,7 +127,7 @@ export class ItranslateComponent implements OnInit {
   }
 
   translate(){
-    
+   if(this.charsLeft>0){
     this._itranslate.postTranslation(this.textArea, this.target).subscribe((rec:any)=>{this.data=rec["data"];
       console.log(this.data);
       this.t = this.data["translations"];
@@ -134,10 +139,50 @@ export class ItranslateComponent implements OnInit {
 
     
     });
-    
+    this.charsLeft=this.charsLeft-this.textArea.length;
+    this.setCookie("charsLeft", this.charsLeft);
+    }
+    else{
+      this.t2="You are out of Characters to translate"
+    }
   }
 
-  
+  setCookie(cname,cvalue) {
+    document.cookie = cname + "=" + cvalue ;
+}
+
+  getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+  checkCookie() {
+    console.log('in here');
+    var chars=this.getCookie("charsLeft");
+    console.log(chars);
+    if (chars != "") {
+      console.log('in here 1');
+        this.charsLeft=parseInt(chars);
+        console.log(this.charsLeft);
+    } else {
+       chars = "charsLeft";
+       if (chars != "" && chars != null) {
+        console.log('in here 2');
+        this.setCookie("charsLeft", "1000");
+       }
+    }
 
 
+  }
 }

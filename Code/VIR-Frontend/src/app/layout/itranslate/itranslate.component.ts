@@ -4,6 +4,7 @@ import { iTranslateService } from '../../shared/services'
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 
+
 @Component({
   selector: 'app-itranslate',
   templateUrl: './itranslate.component.html',
@@ -19,11 +20,100 @@ export class ItranslateComponent implements OnInit {
   t:any;
   t1:any;
   t2:any;
+  optionsSelect: Array<any>;
+  charsLeft: number;
+  
+
   
   constructor(private _itranslate:iTranslateService) { }
 
   ngOnInit() {
+    this.charsLeft=1000;
+    this.checkCookie();
     this.targetDisplay='';
+    this.optionsSelect = [
+    { value: 'af', label: 'Afrikaans' },
+    { value: 'sq', label: 'Albanian' },
+    { value: 'am', label: 'Amharic' },
+    { value: 'ar', label: 'Arabic' },
+    { value: 'hy', label: 'Armenian' },
+    { value: 'az', label: 'Azeerbaijani' },
+    { value: 'eu', label: 'Basque' },
+    { value: 'bs', label: 'Bosnian' },
+    { value: 'bg', label: 'Bulgarian' },
+    { value: 'ca', label: 'Catalan' },
+    { value: 'zh-CN', label: 'Chinese' },
+    { value: 'hr', label: 'Croatian' },
+    { value: 'cs', label: 'Czech' },
+    { value: 'da', label: 'Danish' },
+    { value: 'nl', label: 'Dutch' },
+    { value: 'en', label: 'English' },
+    { value: 'et', label: 'Estonian' },
+    { value: 'fi', label: 'Finnish' },
+    { value: 'fr', label: 'French' },
+    { value: 'gl', label: 'Galician' },
+    { value: 'ka', label: 'Georgian' },
+    { value: 'de', label: 'German' },
+    { value: 'el', label: 'Greek' },
+    { value: 'ht', label: 'Haitian Creole' },
+    { value: 'haw', label: 'Hawaiian' },
+    { value: 'iw', label: 'Hebrew' },
+    { value: 'hi', label: 'Hindi' },
+    { value: 'hmn', label: 'Hmong' },
+    { value: 'hu', label: 'Hungarian' },
+    { value: 'is', label: 'Icelandic' },
+    { value: 'id', label: 'Indonesian' },
+    { value: 'ga', label: 'Irish' },
+    { value: 'it', label: 'Italian' },
+    { value: 'ja', label: 'Japanese' },
+    { value: 'kk', label: 'Kazakh' },
+    { value: 'ko', label: 'Korean' },
+    { value: 'ku', label: 'Kurdish' },
+    { value: 'ky', label: 'Kyrgyz' },
+    { value: 'lo', label: 'Lao' },
+    { value: 'la', label: 'Latin' },
+    { value: 'lv', label: 'Latvian' },
+    { value: 'lt', label: 'Lithuanian' },
+    { value: 'lb', label: 'Luxembourgish' },
+    { value: 'mk', label: 'Macedonian' },
+    { value: 'ms', label: 'Malay' },
+    { value: 'mn', label: 'Mongolian' },
+    { value: 'my', label: 'Myanmar' },
+    { value: 'ne', label: 'Nepali' },
+    { value: 'no', label: 'Norwegian' },
+    { value: 'ps', label: 'Pashto' },
+    { value: 'fa', label: 'Persian' },
+    { value: 'po', label: 'Polish' },
+    { value: 'pt', label: 'Portuguese' },
+    { value: 'pa', label: 'Punjabi' },
+    { value: 'ro', label: 'Romanian' },
+    { value: 'ru', label: 'Russian' },
+    { value: 'sm', label: 'Samoan' },
+    { value: 'gd', label: 'Scots Gaelic' },
+    { value: 'sr', label: 'Serbian' },
+    { value: 'si', label: 'Sinhala' },
+    { value: 'sk', label: 'Slovak' },
+    { value: 'sl', label: 'Slovenian' },
+    { value: 'so', label: 'Somali' },
+    { value: 'es', label: 'Spanish' },
+    { value: 'se', label: 'Sundanese' },
+    { value: 'sw', label: 'Swahili' },
+    { value: 'sv', label: 'Swedish' },
+    { value: 'tl', label: 'Tagalog' },
+    { value: 'tg', label: 'Tajik' },
+    { value: 'ta', label: 'Tamil' },
+    { value: 'te', label: 'Telugu' },
+    { value: 'th', label: 'Thai' },
+    { value: 'tr', label: 'Turkish' },
+    { value: 'uk', label: 'Ukrainian' },
+    { value: 'uz', label: 'Uzbek' },
+    { value: 'vi', label: 'Vietnamese' },
+    { value: 'cy', label: 'Welsh' },
+    { value: 'xh', label: 'Xhosa' },
+    { value: 'yi', label: 'Yiddish' },
+    { value: 'yo', label: 'Yoruba' },
+    { value: 'zu', label: 'Zulu' },
+     ];
   }
 
   onClick(){
@@ -37,7 +127,7 @@ export class ItranslateComponent implements OnInit {
   }
 
   translate(){
-    
+   if(this.charsLeft>0){
     this._itranslate.postTranslation(this.textArea, this.target).subscribe((rec:any)=>{this.data=rec["data"];
       console.log(this.data);
       this.t = this.data["translations"];
@@ -49,10 +139,50 @@ export class ItranslateComponent implements OnInit {
 
     
     });
-    
+    this.charsLeft=this.charsLeft-this.textArea.length;
+    this.setCookie("charsLeft", this.charsLeft);
+    }
+    else{
+      this.t2="You are out of Characters to translate"
+    }
   }
 
-  
+  setCookie(cname,cvalue) {
+    document.cookie = cname + "=" + cvalue ;
+}
+
+  getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+  checkCookie() {
+    console.log('in here');
+    var chars=this.getCookie("charsLeft");
+    console.log(chars);
+    if (chars != "") {
+      console.log('in here 1');
+        this.charsLeft=parseInt(chars);
+        console.log(this.charsLeft);
+    } else {
+       chars = "charsLeft";
+       if (chars != "" && chars != null) {
+        console.log('in here 2');
+        this.setCookie("charsLeft", "1000");
+       }
+    }
 
 
+  }
 }

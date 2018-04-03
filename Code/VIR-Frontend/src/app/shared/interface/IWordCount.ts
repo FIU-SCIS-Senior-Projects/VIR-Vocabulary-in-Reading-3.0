@@ -1,4 +1,5 @@
 export interface IWordCount {
+    stem: number;
     awl: number;
     hi: number;
     med: number;

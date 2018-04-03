@@ -15,7 +15,7 @@ export class TextStatisticsComponent implements OnInit {
   public static BACK_LABEL = ' Back';
   public static readonly ENHANCETEXT_LABEL: string = ' Enhanced Text';
 
-  public pieChartLabels: string[] = ['Academic Word', 'High Freq.', 'Medium Freq.', 'Low Freq.', 'Names & Off-List'];
+  public pieChartLabels: string[] = ['Stem Word', 'Academic Word', 'High Freq.', 'Medium Freq.', 'Low Freq.', 'Names & Off-List'];
   public pieChartData: number[];
   public pieChartType = 'pie';
 
@@ -23,10 +23,36 @@ export class TextStatisticsComponent implements OnInit {
     scaleShowVerticalLines: false,
     responsive: true
   };
-  public barChartLabels: string[] = ['Academic Word', 'High Freq.', 'Medium Freq.', 'Low Freq.', 'Off-List'];
+  public barChartLabels: string[] = ['Stem Word', 'Academic Word', 'High Freq.', 'Medium Freq.', 'Low Freq.', 'Off-List'];
   public barChartData: any[];
   public barChartType = 'bar';
   public barChartLegend = true;
+  public lineChartColors:Array<any> = [
+    { // grey
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    },
+    { // dark grey
+      backgroundColor: 'rgba(77,83,96,0.2)',
+      borderColor: 'rgba(77,83,96,1)',
+      pointBackgroundColor: 'rgba(77,83,96,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(77,83,96,1)'
+    },
+    { // grey
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    }
+  ];
 
 
   text: IText;
@@ -37,6 +63,7 @@ export class TextStatisticsComponent implements OnInit {
   backLabel: string = TextStatisticsComponent.BACK_LABEL;
   enhanceTextLabel: string = TextStatisticsComponent.ENHANCETEXT_LABEL;
 
+  stemPercentage: number;
   awlPercentage: number;
   hiPercentage: number;
   medPercentage: number;
@@ -61,9 +88,9 @@ export class TextStatisticsComponent implements OnInit {
     if (!this.text) {
       return;
     } else {
-      this.updateBarChart(this.text.statistics.wordCount.awl, this.text.statistics.wordCount.hi,
+      this.updateBarChart(this.text.statistics.wordCount.stem, this.text.statistics.wordCount.awl, this.text.statistics.wordCount.hi,
         this.text.statistics.wordCount.med, this.text.statistics.wordCount.low, this.text.statistics.wordCount.noCategory);
-      this.updatePieChart(this.text.statistics.wordPercentage.awl, this.text.statistics.wordPercentage.hi,
+      this.updatePieChart(this.text.statistics.wordPercentage.stem, this.text.statistics.wordPercentage.awl, this.text.statistics.wordPercentage.hi,
         this.text.statistics.wordPercentage.med, this.text.statistics.wordPercentage.low, this.text.statistics.wordPercentage.noCategory);
     }
   }
@@ -125,14 +152,14 @@ export class TextStatisticsComponent implements OnInit {
   }
 
   // Update Pie chart
-  updateBarChart(awl: number, hi: number, med: number, low: number, noCategory: number) {
+  updateBarChart(stem:number, awl: number, hi: number, med: number, low: number, noCategory: number) {
 
     this.barChartData = [
-      { data: [awl, hi, med, low, noCategory], label: '# of Words in different Category' },
+      { data: [stem, awl, hi, med, low, noCategory], label: '# of Words in different Category' },
     ];
   }
-  updatePieChart(awl: number, hi: number, med: number, low: number, noCategory: number) {
-    this.pieChartData = [awl * 100, hi * 100, med * 100, low * 100, noCategory * 100]
+  updatePieChart(stem:number, awl: number, hi: number, med: number, low: number, noCategory: number) {
+    this.pieChartData = [stem*100, awl * 100, hi * 100, med * 100, low * 100, noCategory * 100]
   }
 
 

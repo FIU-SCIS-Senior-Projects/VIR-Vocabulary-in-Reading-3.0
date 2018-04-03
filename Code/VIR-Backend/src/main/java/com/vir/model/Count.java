@@ -5,6 +5,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class Count {
 
+	private long stem;
 	private long awl;
 	private long hi;
 	private long med;
@@ -15,13 +16,14 @@ public class Count {
 	private Count() {
 	}
 
-	public Count(long awl, long hi, long med, long low, long noCategory) {
+	public Count(long stem, long awl, long hi, long med, long low, long noCategory) {
+		this.stem = stem;
 		this.awl = awl;
 		this.hi = hi;
 		this.med = med;
 		this.low = low;
 		this.noCategory = noCategory;
-		this.total = this.awl + this.hi + this.med + this.low + this.noCategory;
+		this.total = this.stem + this.awl + this.hi + this.med + this.low + this.noCategory;
 	}
 	
 	@Override
@@ -35,6 +37,14 @@ public class Count {
 		return EqualsBuilder.reflectionEquals(this, that);
 	}
 	
+	public long getStem() {
+		return stem;
+	}
+
+	public void setStem(long stem) {
+		this.stem = stem;
+	}
+
 	public long getAwl() {
 		return awl;
 	}

@@ -80,7 +80,7 @@
           </div>
 
           <div class="col-3 float-right">
-            <button class="btn btn-success" (click)="addWord()" [disabled]="!wordArea" required>
+            <button class="btn btn-success" (click)="addWord(wordArea, category)" [disabled]="!wordArea" required>
               <i class="fa fa-plus" aria-hidden="true"></i> Add</button>
             <button class="btn btn-warning" (click)="editWord()" [disabled]="!wordArea || !idArea" required>
               <i class="fa fa-pencil" aria-hidden="true"></i> Edit</button>
@@ -88,6 +88,13 @@
               <i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
           </div>
         </div>
+
+        <body ng-controller="MainCtrl">
+          <h1>Add words trough CSV File</h1>
+          <input type="file" accept=".csv" (change) = "fileUploadListener($event)" />
+        </body>
+
+
 
         <hr>
         <!--Session history-->
@@ -110,6 +117,7 @@
 
     </div>
   </div>
+
 
   <!--Instructions Boxes-->
   <div class="row topMargin">

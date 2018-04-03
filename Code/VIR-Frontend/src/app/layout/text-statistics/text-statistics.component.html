@@ -82,7 +82,12 @@
 					</thead>
 					<tbody>
 						<tr>
-							<th scope="row">AWL</th>
+							<th scope="row">STEM</th>
+							<td>{{text.statistics.wordCount.stem}}</td>
+							<td>{{(text.statistics.wordPercentage.stem * 100) | number:'1.0-2'}}%</td>
+						</tr>
+						<tr>
+							<th scope="row">Academic Words</th>
 							<td>{{text.statistics.wordCount.awl}}</td>
 							<td>{{(text.statistics.wordPercentage.awl * 100) | number:'1.0-2'}}%</td>
 						</tr>
@@ -139,7 +144,7 @@
 						Bar Chart (#)
 					</div>
 					<div class="card-body">
-						<canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+						<canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"   [colors]="lineChartColors" [legend]="barChartLegend"
 						 [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
 						</canvas>
 					</div>

@@ -12,11 +12,11 @@
             <img src="assets/images/logo.png" width="150px" class="user-avatar" />
             <h1>Vocabulary in Reading</h1>
 
-            <form role="form">
+            <form>
                 <div class="form-content">
                     <div class="form-group">
                         <input type="text" [(ngModel)]="uName" class="form-control input-underline input-lg" id="userName"
-                               name="userName" placeholder="User Name" required>
+                               name="userName" placeholder="Email" required>
                     </div>
 
                     <div class="form-group">
@@ -26,20 +26,25 @@
 
                     <div class="form-group">
                         <input type="password" [(ngModel)]="pword" class="form-control input-underline input-lg" id="password"
-                               name="pass" placeholder="Choose Password"  required/>
+                               name="pass" placeholder="Choose Password" required />
                     </div>
                     <div class="form-group">
                         <input type="password" [(ngModel)]="cPass" class="form-control input-underline input-lg" id="cPassword"
-                               name="cpass" placeholder="Confirm Password" required/>
+                               name="cpass" placeholder="Confirm Password" required />
                     </div>
                     <div class="form-group">
-                        <input type="text" [(ngModel)]="uLevel" class="form-control input-underline input-lg" id="userLevel"
-                               name="level" placeholder="User Level" required />
+
                     </div>
                 </div>
-                <button class="btn btn-primary btn-block" type="submit" (click)="getUser(content)"> Register </button>
-                &nbsp;
             </form>
+
+            <select class="form-control" id="status" [(ngModel)]="uLevel">
+                <option *ngFor="let i of categoryItems" [value]="i">{{i}}</option>
+            </select>
+            <br />
+            <br />
+            <button class="btn btn-primary btn-block" type="submit" (click)="getUser(content)"> Register </button>
+            &nbsp;
 
         </div>
     </div>

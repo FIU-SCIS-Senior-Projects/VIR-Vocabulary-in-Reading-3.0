@@ -1,10 +1,52 @@
 <div [@routerTransition] class="container-fluid">
-    <h1>Test</h1>
-    <div>
-        {{username}}
+
+    <div class="col col-md-6 col-sm-12 center">
+        <ul class="list-group">
+            <li class="list-group-item active">My Account Details</li>
+            <li class="list-group-item">Name: {{fullName}}</li>
+            <li class="list-group-item">Email: {{username}}</li>
+            <a href="#" class="list-group-item list-group-item-action">Change Password</a>
+            <li class="list-group-item">User Type: Student</li>
+        </ul>
     </div>
-    <div>
-        {{fullName}}
-    </div>
+    
+    <hr />
+
+    <table id="stats">
+        <tr>
+            <th>Test Caterogy</th>
+            <th>Attempts</th>
+        </tr>
+        <tr>
+            <td>Begginer</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>Intermediate</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>Upper Intermediate</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>Advanced</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>Vocab Size Test (A)</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>Vocab Size Test (B)</td>
+            <td>--</td>
+        </tr>
+        <tr>
+            <td>WAT Read(2017)</td>
+            <td>--</td>
+        </tr>
+
+    </table>
+
 
 </div>

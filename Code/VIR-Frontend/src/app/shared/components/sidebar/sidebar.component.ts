@@ -78,6 +78,7 @@ export class SidebarComponent {
                     this.getFirstName();
                     localStorage.setItem('currentUser', this.fullName);
                     localStorage.setItem('userName', this.userName);
+                    localStorage.setItem('loggedIn', 'true');
                 }
                 /* //this is to test the encryption funstions ive created. (found in the jsEncription.service class)
                 var temp: string;
@@ -103,6 +104,7 @@ export class SidebarComponent {
         this.login = false;
         localStorage.removeItem('currentUser');
         localStorage.removeItem('userName');
+        localStorage.removeItem('loggedIn');
     }
 
     getFirstName() {

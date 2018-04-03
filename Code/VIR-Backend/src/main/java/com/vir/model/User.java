@@ -30,39 +30,39 @@ public class User implements Serializable {
 	@Column(name = "[id]")
 	private Long id;
 
-	@Column(name = "[fullName]")
-	private String fullName;
+	@Column(name = "[full_name]")
+	private String full_name;
 
-	@Column(name = "[userName]")
-	private String userName;
+	@Column(name = "[user_name]")
+	private String user_name;
 
 	@Column(name = "[password]")
 	private String password;
 
-	@Column(name = "[userLevel]")
-	private String userLevel;
+	@Column(name = "[user_level]")
+	private String user_level;
 
 	//---constructors-----
 
 	public User() {
 	}
 
-	public User(String fullName, String userName, String password, String userLevel) {
+	public User(String full_name, String user_name, String password, String user_level) {
 		super();
-		this.userName = userName;
-		this.fullName = fullName;
+		this.user_name = user_name;
+		this.full_name = full_name;
 		this.password = password;
-		this.userLevel = userLevel;
+		this.user_level = user_level;
 	}
 
 	//-----getter methods----
 
 	public String getUserName(){
-		return this.userName;
+		return this.user_name;
 	}
 
 	public String getFullName(){
-		return this.fullName;
+		return this.full_name;
 	}
 
 	public Long getId(){
@@ -74,25 +74,25 @@ public class User implements Serializable {
 	}
 
 	public String getUserLevel(){
-		return this.userLevel;
+		return this.user_level;
 	}
 
 	//------setter methods-----
 
-	public void setFullName(String fullName){
-		this.fullName = fullName;
+	public void setFullName(String full_name){
+		this.full_name = full_name;
 	}
 
-	public void setUserName(String userName){
-		this.userName = userName;
+	public void setUserName(String user_name){
+		this.user_name = user_name;
 	}
 
 	public void setPassword(String password){
 		this.password = password;	
 	}
 
-	public void setUserLevel(String userLevel){
-		this.userLevel = userLevel;
+	public void setUserLevel(String user_level){
+		this.user_level = user_level;
 	}
 
 	public void setId(Long id) {

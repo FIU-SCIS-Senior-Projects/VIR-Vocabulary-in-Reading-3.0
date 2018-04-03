@@ -6,6 +6,7 @@ import { routerTransition } from '../../router.animations';
 @Component({
     selector: 'app-account',
     templateUrl: './account.component.html',
+    styleUrls: ['./account.component.scss'],
     animations: [routerTransition()],
 })
 export class UserAccount implements OnInit{
@@ -14,8 +15,11 @@ export class UserAccount implements OnInit{
     fullName: string;
 
     ngOnInit() {
-        this.username = localStorage.getItem('userName');
-        this.fullName = localStorage.getItem('currentUser');
+        if (localStorage.getItem('loggedIn') == 'true') {
+            this.username = localStorage.getItem('userName');
+            this.fullName = localStorage.getItem('currentUser');
+        }
+
     }
 }
 

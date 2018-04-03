@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
     userName: string;
     fullName: string;
     userLevel: string;
-
+    
     processing: boolean;
     match: boolean;
     closed: boolean = true;
@@ -32,11 +32,14 @@ export class RegisterComponent implements OnInit {
     show: boolean = false;
     login: boolean = false;
 
+    categoryItems: string[] = ['Student', 'Professor', 'Parent', 'Researcher', 'Faculty'];
+    uLevel: string = this.categoryItems[0];
+
     @Input() uName: string;
     @Input() fName: string;
     @Input() pword: string;
     @Input() cPass: string;
-    @Input() uLevel: string;
+ 
     @Input() loginUser: string;
     @Input() loginPassword: string;
 

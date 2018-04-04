@@ -60,6 +60,7 @@ public class WikiDictionaryEntryService implements DictionaryEntryService {
 			return entry;
 
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			throw new UnableToGetEntryException(e.getMessage());
 		}
 	}

@@ -102,7 +102,7 @@ export class BeginnerComponent implements OnInit {
         if (this.currentUser != null)
             this.getFirstName();
 
-        if (localStorage.getItem('currentUser') != null && localStorage.getItem('loggedIn') == 'true') {
+        if (localStorage.getItem('currentUser') != null) {
             this.loggedOn = true;
         } else {
             this.loggedOn = false;
@@ -228,6 +228,8 @@ export class BeginnerComponent implements OnInit {
             var elements = document.getElementsByName('formRadio');
             var form = <HTMLFormElement>elements[0];
             form.reset();
+
+            //console.log("Element 0:" + form.reset);
 
             this.counter++;
 

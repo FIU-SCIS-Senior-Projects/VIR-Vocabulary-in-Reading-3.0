@@ -100,8 +100,8 @@ export class TestBanks {
 
         }//Pulls the questions from the VocabATestBank test bank
 
-        if (level == "vocabB" || level == this.VOCAB2) {
-            
+        if (level == "vocabB" || level == this.VOCAB1) {
+            /*
             VocabBTestBank.questionsLib(id);
 
             this.question = VocabBTestBank.question;
@@ -109,7 +109,11 @@ export class TestBanks {
             this.options = VocabBTestBank.options;
 
             this.totalQuestions = VocabBTestBank.totalQuestions;
-            
+            */
+            this.answer = this.NOTE;
+            this.question = this.NOTE;
+            this.options = [this.NOTE, this.NOTE, this.NOTE, this.NOTE];
+            this.totalQuestions = 0;
 
         }//Pulls the questions from the VocabATestBank test bank
 

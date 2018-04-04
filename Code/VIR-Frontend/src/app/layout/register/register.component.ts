@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
     userName: string;
     fullName: string;
     userLevel: string;
-    
+
     processing: boolean;
     match: boolean;
     closed: boolean = true;
@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
     @Input() fName: string;
     @Input() pword: string;
     @Input() cPass: string;
- 
+
     @Input() loginUser: string;
     @Input() loginPassword: string;
 
@@ -70,7 +70,6 @@ export class RegisterComponent implements OnInit {
 
     //----------------------------------------
     //GetUtser will first verify if the username is in the database already prior registering the user
-
     getUser(content) {
 
         this._register.getUser(this.uName)
@@ -90,13 +89,12 @@ export class RegisterComponent implements OnInit {
                     console.log('User not in DB, will be added.');
                 }
             })
-      
-        
+
+
     }
 
     //-----------------------------------------
     //Register will add the user info into the database once all has been verifed
-
     register(content) {
         this.passWord = this._encryptor.encrypt(this.pword);
         this.fullName = this.fName;
@@ -143,7 +141,6 @@ export class RegisterComponent implements OnInit {
     }
 
     //-----------------------------------------------------------------------------------
-
     private getDismissReason(reason: any): string {
         if (reason === ModalDismissReasons.ESC) {
             return 'by pressing ESC';

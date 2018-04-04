@@ -1,17 +1,20 @@
 {
   "ExpandedNodes": [
     "",
-    "\\VIR-Frontend",
-    "\\VIR-Frontend\\src",
-    "\\VIR-Frontend\\src\\app",
-    "\\VIR-Frontend\\src\\app\\layout",
-    "\\VIR-Frontend\\src\\app\\layout\\account",
-    "\\VIR-Frontend\\src\\app\\layout\\tests",
-    "\\VIR-Frontend\\src\\app\\layout\\tests\\beginner",
-    "\\VIR-Frontend\\src\\app\\shared",
-    "\\VIR-Frontend\\src\\app\\shared\\components",
-    "\\VIR-Frontend\\src\\app\\shared\\components\\footer"
+    "\\VIR-Backend",
+    "\\VIR-Backend\\bundle\\.ebextensions",
+    "\\VIR-Backend\\src",
+    "\\VIR-Backend\\src\\main",
+    "\\VIR-Backend\\src\\main\\java",
+    "\\VIR-Backend\\src\\main\\java\\com",
+    "\\VIR-Backend\\src\\main\\java\\com\\vir",
+    "\\VIR-Backend\\src\\main\\java\\com\\vir\\model",
+    "\\VIR-Backend\\src\\main\\java\\com\\vir\\model\\dictionary",
+    "\\VIR-Backend\\src\\main\\java\\com\\vir\\model\\dictionary\\wiki",
+    "\\VIR-Backend\\src\\main\\java\\com\\vir\\service\\impl",
+    "\\VIR-Backend\\src\\main\\java\\com\\vir\\service\\impl\\dictionary",
+    "\\VIR-Frontend"
   ],
-  "SelectedNode": "\\VIR-Frontend\\src\\app\\shared\\components\\footer\\footer.component.html",
+  "SelectedNode": "\\VIR-Backend\\src\\main\\java\\com\\vir\\model\\dictionary\\wiki\\WikiResult.java",
   "PreviewInSolutionExplorer": false
 }

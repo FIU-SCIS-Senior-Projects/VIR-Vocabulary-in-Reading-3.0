@@ -15,11 +15,8 @@ export class UserAccount implements OnInit{
     fullName: string;
 
     ngOnInit() {
-        if (localStorage.getItem('loggedIn') == 'true') {
-            this.username = localStorage.getItem('userName');
-            this.fullName = localStorage.getItem('currentUser');
-        }
-
+        this.username = localStorage.getItem('userName');
+        this.fullName = localStorage.getItem('currentUser');
     }
 }
 

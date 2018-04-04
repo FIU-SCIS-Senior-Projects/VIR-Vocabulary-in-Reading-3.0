@@ -1,11 +1,15 @@
 package com.vir.model.dictionary.wiki;
 
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class WikiResult {
+
+	
 
 	private String batchcomplete;
 	private Map<String, Map<String, WikiPage>> query;

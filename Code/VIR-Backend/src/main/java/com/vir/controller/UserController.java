@@ -59,7 +59,7 @@ public class UserController {
 		return _userRepository.findAll(pageRequest);
 	}
 
-	@ApiOperation(value = "Get the current user.", notes= "You always have to get authenticated first with /login"	)
+	@ApiOperation(value = "Get the current user.")
 	@ApiResponse(code = 400, message = "Generic error", response = ApiError.class)
 	@GetMapping(value = "{userName}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public User getUser(@PathVariable(name="userName", required=true) String userName) {
@@ -69,7 +69,7 @@ public class UserController {
 
 	@ApiOperation(value = "Add the current user."	)
 	@ApiResponse(code = 400, message = "Generic error", response = ApiError.class)
-	@RequestMapping(method = RequestMethod.POST , value = "/add", produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(method = {RequestMethod.POST}, value = "/add", produces = MediaType.APPLICATION_JSON_VALUE)
 	public User addUser(@RequestBody(required=true) User user) {
 
 		User exists = _userRepository.findByUserName( user.getUserName() );

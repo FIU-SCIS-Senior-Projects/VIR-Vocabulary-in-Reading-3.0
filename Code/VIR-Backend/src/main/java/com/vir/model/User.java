@@ -98,4 +98,20 @@ public class User implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+		@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.JSON_STYLE);
+	}
+
+	@Override
+	public int hashCode() {
+		return HashCodeBuilder.reflectionHashCode(this);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		Word that = (Word) obj;
+		return EqualsBuilder.reflectionEquals(this, that);
+	}
 }

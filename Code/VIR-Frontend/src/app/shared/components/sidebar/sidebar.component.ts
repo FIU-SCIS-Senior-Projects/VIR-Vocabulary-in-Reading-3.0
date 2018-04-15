@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterService } from 'app/shared/services/register.service';
@@ -11,12 +11,13 @@ import { JsEncryption } from 'app/shared/services/jsEncryption.service';
     templateUrl: './sidebar.component.html',
     styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
     
     fullName: string;
     userName: string;
     passWord: string;
     firstName: string;
+    level: string;
 
     processing: boolean;
     show: boolean;
@@ -40,6 +41,16 @@ export class SidebarComponent {
             this.showMenu = '0';
         } else {
             this.showMenu = element;
+        }
+    }
+
+    ngOnInit() {
+        if (localStorage.getItem("currentUser") != null) {
+            this.fullName = localStorage.getItem("currentUser");
+            this.getFirstName();
+
+            this.show = true;
+            this.login = true;
         }
     }
 
@@ -70,20 +81,23 @@ export class SidebarComponent {
 
     getUser(content) {
 
+        event.preventDefault();
+        console.log(this.loginUser);
+
         this._register.getUser(this.loginUser)
             .subscribe(res => {
                 this.user = res;
-
                 if (this.verifyUser(this.user.password, content)) {
                     this.getFirstName();
                     localStorage.setItem('currentUser', this.fullName);
                     localStorage.setItem('userName', this.userName);
+                    localStorage.setItem('level', this.level);
                 }
-                /* //this is to test the encryption funstions ive created. (found in the jsEncription.service class)
+                /*//this is to test the encryption funstions ive created. (found in the jsEncription.service class)
                 var temp: string;
                 temp = this._encryptor.encrypt(this.user.fullName)
                 console.log(this._encryptor.decrypt(this._encryptor.encrypt(this.user.fullName)));
-                */
+               */
             },
             (err: HttpErrorResponse) => {
                 if (err.error instanceof Error) {
@@ -103,6 +117,7 @@ export class SidebarComponent {
         this.login = false;
         localStorage.removeItem('currentUser');
         localStorage.removeItem('userName');
+
     }
 
     getFirstName() {
@@ -118,10 +133,11 @@ export class SidebarComponent {
             this.login = true;
             this.show = true;
             this.load();
-            this.loginPassword = '';
-            this.loginUser = '';
-
+            this.loginPassword = '';    //This clears the string where the user entered his info
+            this.loginUser = '';        //This clears the string where the user entered his info
+            localStorage.removeItem("attempt");// use this to reset the values of the attempts.
             return true;
+
         } else {
 
             this.open(content);
@@ -134,6 +150,7 @@ export class SidebarComponent {
         this.passWord = this.user.password;
         this.userName = this.user.userName;
         this.fullName = this.user.fullName;
+        this.level = this.user.userLevel;
 
     }
 

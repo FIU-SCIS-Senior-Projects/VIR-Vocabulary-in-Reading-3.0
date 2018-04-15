@@ -19,6 +19,10 @@ export class TestsComponent implements OnInit {
     smallLabel: string = TestsComponent.SMALL_LABEL;
     closeResult: string;
 
+    login: boolean = false;
+    attempts: number[];
+
+
 
     constructor(private _modal: NgbModal) {
 
@@ -29,7 +33,10 @@ export class TestsComponent implements OnInit {
         window.scrollTo(0, 0);
         this.displaySmall = window.innerWidth <= 1330;
         this.updaTeLabels();
-
+        if (localStorage.getItem("currentUser") != null) {
+            this.login = true;
+        }     
+      
     }
 
     onResize(event) {

@@ -20,7 +20,7 @@
     <div class="card card-info card-inverse mb-3 col-lg-12 center-block">
         <div class="card-header card-info" placeholder="test" *ngIf="!start">
             <h5 *ngIf="loggedOn">Ready, {{firstName}}?</h5>
-            <h5 *ngIf="!loggedOn">Ready?</h5>
+            <h5 *ngIf="!loggedOn">Ready? You have <strong>{{remaining}}</strong>  attempt(s) remaining</h5>
         </div>
         <div class="card-header card-info" placeholder="test" *ngIf="start">
             <div class="float-right">Time: {{timer}} sec</div>
@@ -80,7 +80,10 @@
 
     <div *ngIf="!start">
         <hr />
-        <button class="btn btn-success btn-block" (click)="startQuiz()" type="button">
+        <button *ngIf="!loggedOn"class="btn btn-success btn-block" (click)="startQuiz()" type="button" [disabled]="remaining == 0">
+            Start The {{level}} Word Test!
+        </button>
+        <button *ngIf="loggedOn" class="btn btn-success btn-block" (click)="startQuiz()" type="button" >
             Start The {{level}} Word Test!
         </button>
     </div>

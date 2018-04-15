@@ -30,6 +30,20 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit() {
         window.scrollTo(0, 0);
+
+        //localStorage.removeItem("attempt");// use this to reset the values of the attempts.
+
+        var attempt: number[] = [5, 5, 5, 5, 5, 5]; //FORMAT: [begginer, intermediate, upper_intermediate, advanced, vocab, WAT]
+
+        if (localStorage.getItem("attempt") == null) {
+            
+            localStorage.setItem("attempt", JSON.stringify(attempt));
+
+            console.log(JSON.parse(localStorage.getItem("attempt")));
+
+        }//This will initialize the cookies to 5 if thwy are not set.
+
+        //console.log(JSON.parse(localStorage.getItem("attempt"))[2]);//USe this to debug the LocalStorage key "attempt"
     }
 
     public closeAlert(alert: any) {

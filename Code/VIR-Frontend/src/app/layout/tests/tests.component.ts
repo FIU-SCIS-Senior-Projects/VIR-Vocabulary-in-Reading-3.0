@@ -13,7 +13,7 @@ import { NgbModule, NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-boots
 
 export class TestsComponent implements OnInit {
 
-    public static SMALL_LABEL = 'WAT Read (2017)';
+    public static SMALL_LABEL = 'WAT - Read (2017)';
 
     displaySmall: boolean;
     smallLabel: string = TestsComponent.SMALL_LABEL;

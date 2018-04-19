@@ -12,11 +12,14 @@ import { routerTransition } from '../../router.animations';
 export class UserAccount implements OnInit{
 
     username: string;
+    level: string;
     fullName: string;
 
     ngOnInit() {
         this.username = localStorage.getItem('userName');
         this.fullName = localStorage.getItem('currentUser');
+        this.level = localStorage.getItem('level');
     }
+
 }
 

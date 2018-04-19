@@ -51,6 +51,16 @@ export class BeginnerComponent implements OnInit {
     usedIndex: number = 0;
     percent: number;
     timer: number = 0;
+    attemptID: number;
+    attempts: number[];
+    remaining: number;
+
+    b_attempt: number;
+    a_attempt: number;
+    i_attempt: number;
+    ui_attempt: number;
+    w_attempt: number;
+    v_attempt: number;
 
     correct: boolean;
     wrong: boolean;
@@ -84,6 +94,7 @@ export class BeginnerComponent implements OnInit {
 
         this.numberOfQuestions = _test.totalQuestions;
 
+
     }
 
     //-----------------------------------------------------------------------------------
@@ -92,6 +103,11 @@ export class BeginnerComponent implements OnInit {
     ngOnInit() {
 
         window.scrollTo(0, 0);
+
+        if (localStorage.getItem("attempt") != null) {
+            this.attempts = JSON.parse(localStorage.getItem("attempt"));
+            this.loadAttempts();
+        } 
         this.level = this._route.snapshot.paramMap.get('id');
         this.determineLevel(this.level);
         this.showOnlyIcons = window.innerWidth <= 680;
@@ -107,7 +123,19 @@ export class BeginnerComponent implements OnInit {
         } else {
             this.loggedOn = false;
         }
+
+  
         
+    }
+
+    loadAttempts() {
+
+        this.b_attempt = this.attempts[0];
+        this.i_attempt = this.attempts[1];
+        this.ui_attempt = this.attempts[2];
+        this.a_attempt = this.attempts[3];
+        this.v_attempt = this.attempts[4];
+        this.w_attempt = this.attempts[5];
     }
 
     //-----------------------------------------------------------------------------------
@@ -123,11 +151,21 @@ export class BeginnerComponent implements OnInit {
     //Starts the test and creates a new timer and activates it.
 
     startQuiz() {
+        var attempt: number[];
+        var temp: number;
 
         this.start = true;
         this.finished = false;
         this.simpleT.newTimer('1sec', 1);
         this.subscribeTimer();
+
+        
+        attempt = JSON.parse(localStorage.getItem("attempt"));
+
+        if (!this.loggedOn)
+            attempt[this.attemptID] = attempt[this.attemptID] - 1;
+
+        localStorage.setItem("attempt", JSON.stringify(attempt));
 
     }
 
@@ -355,24 +393,38 @@ export class BeginnerComponent implements OnInit {
 
         if (lvl == "beginner") {
             this.level = "Beginner";
+            this.attemptID = 0;
+            this.remaining = this.b_attempt;
         }
         else if (lvl == "advanced") {
             this.level = "Advanced";
+            this.attemptID = 3;
+            this.remaining = this.a_attempt;
         }
         else if (lvl == "intermediate") {
             this.level = "Intermediate";
+            this.attemptID = 1;
+            this.remaining = this.i_attempt;
         }
         else if (lvl == "upper") {
             this.level = "Upper Intermediate";
+            this.attemptID = 2;
+            this.remaining = this.ui_attempt;
         }
         else if (lvl == "vocabA") {
             this.level = "Vocabulary Size (A)";
+            this.attemptID = 4;
+            this.remaining = this.v_attempt
         }
         else if (lvl == "vocabB") {
             this.level = "Vocabulary Size (B)";
+            this.attemptID = 4;
+            this.remaining = this.v_attempt
         }
         else if (lvl == "depth") {
             this.level = "Depth of Vocabulary Knowledge";
+            this.attemptID = 5;
+            this.remaining = this.w_attempt;
         }
     }
 

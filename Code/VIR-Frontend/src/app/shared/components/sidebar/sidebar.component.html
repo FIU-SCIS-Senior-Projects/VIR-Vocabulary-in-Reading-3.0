@@ -51,7 +51,7 @@
         <div class="nested-menu">
             <a class="list-group-item" (click)="addExpandClass('account')">
                 <span *ngIf="!show">
-                    <i class="fa fa-user"></i>&nbsp; {{ 'My Account' | translate }}
+                    <i class="fa fa-user"></i>&nbsp; {{ 'My Profile' | translate }}
                 </span>
                 <span *ngIf="show">
                     <i class="fa fa-user"></i>&nbsp; Welcome - {{ firstName }}
@@ -70,7 +70,7 @@
                         </div>
                         <div *ngIf="login">
                             <a [routerLink]="['/account']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-                                <i class="fa fa-fw fa-address-card"></i>&nbsp;{{ 'Account' | translate }}
+                                <i class="fa fa-fw fa-address-card"></i>&nbsp;{{ 'My Profile' | translate }}
                             </a>
                             <a [routerLink]="['/dashboard']" [routerLinkActive]="['router-link-active']" class="list-group-item" (click)="logout()">
                                 <i class="fa fa-fw fa-keyboard-o"></i>&nbsp;{{ 'Log Out' | translate }}
@@ -83,7 +83,7 @@
 
     </ul>
 
-    <!--This is the modal for skipped question warning-->
+    <!--This is the modal for Login-->
     <ng-template #content let-c="close" let-d="dismiss">
         <div class="modal-header">
             <h4>
@@ -95,7 +95,7 @@
         </div>
         <div class="modal-body">
             <div class="row">
-                <form role="form">
+                <form role="form" id="form" >
                     <div class="form-content">
                         <div class="form-group">
                             <div>

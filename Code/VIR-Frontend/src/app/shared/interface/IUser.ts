@@ -5,5 +5,6 @@ export interface IUser {
     userName: string;
     password: string;
     userLevel: string;
+    email: string;
 
 }

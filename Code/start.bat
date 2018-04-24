@@ -1,1 +1,1 @@
-java -Xms256m -Xmx512m -jar VIR-Backend/target/VIR-Backend-3.0.18.jar
+java -Xms256m -Xmx512m -jar VIR-Backend/target/VIR-Backend-3.0.21.jar

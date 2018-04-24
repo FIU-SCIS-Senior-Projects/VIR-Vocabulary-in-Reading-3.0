@@ -7,15 +7,18 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { IUser } from '../../shared/interface/IUser';
 import { JsEncryption } from 'app/shared/services/jsEncryption.service';
 
+
 @Component({
     selector: 'app-tests',
     templateUrl: './register.component.html',
     styleUrls: ['./register.component.scss'],
-    animations: [routerTransition()]
+    animations: [routerTransition()],
+    providers: [RegisterService]
 })
 
 
 export class RegisterComponent implements OnInit {
+    
     closeResult: string;
 
     user: IUser;
@@ -24,21 +27,24 @@ export class RegisterComponent implements OnInit {
     userName: string;
     fullName: string;
     userLevel: string;
-
+    userEmail: string;
+    
     processing: boolean;
     match: boolean;
     closed: boolean = true;
     registered: boolean = false;
     show: boolean = false;
     login: boolean = false;
+    pwordLengthError: boolean;
 
-    categoryItems: string[] = ['Student', 'Professor', 'Parent', 'Researcher', 'Faculty'];
+    categoryItems: string[] = ['User Level (Optional)','Student', 'Professor', 'Parent', 'Researcher', 'Faculty'];
     uLevel: string = this.categoryItems[0];
 
     @Input() uName: string;
     @Input() fName: string;
     @Input() pword: string;
     @Input() cPass: string;
+    @Input() email: string;
 
     @Input() loginUser: string;
     @Input() loginPassword: string;
@@ -55,6 +61,19 @@ export class RegisterComponent implements OnInit {
         this.closed = true;
         this.registered = false;
         this.login = false;
+        this.pwordLengthError = false;
+        this.show = false;
+    }
+
+    passwordLength() {
+
+        this.show = false;
+
+        if (this.cPass.length < 6) {
+            this.pwordLengthError = true;
+        } else {
+            this.pwordLengthError = false;
+        }
     }
 
     comparePassword() {
@@ -72,12 +91,14 @@ export class RegisterComponent implements OnInit {
     //GetUtser will first verify if the username is in the database already prior registering the user
     getUser(content) {
 
+        this.pwordLengthError = false;
+
         this._register.getUser(this.uName)
             .subscribe(res => {
                 this.user = res;
                 this.show = true;
                 this.processing = false;
-                this.open(content);
+                //this.open(content);
             },
             (err: HttpErrorResponse) => {
                 if (err.error instanceof Error) {
@@ -96,18 +117,25 @@ export class RegisterComponent implements OnInit {
     //-----------------------------------------
     //Register will add the user info into the database once all has been verifed
     register(content) {
+
+        if (this.uLevel == "User Level (Optional)") {
+            this.uLevel = " ";
+        }
+
         this.passWord = this._encryptor.encrypt(this.pword);
         this.fullName = this.fName;
         this.userName = this.uName;
         this.userLevel = this.uLevel;
+        this.userEmail = this.email;
 
+        this.passwordLength();
         this.comparePassword();
 
-        if (this.match) {
+        if (this.match && this.pwordLengthError == false) {
 
             this.registered = true;
 
-            this._register.postUser(this.fullName, this.userName, this.passWord, this.userLevel)
+            this._register.postUser(this.fullName, this.userName, this.passWord, this.userLevel, this.email)
                 .subscribe
                 (res => {
                 },
@@ -122,7 +150,7 @@ export class RegisterComponent implements OnInit {
                 );
         }
         else {
-
+            //this.open(content);
             this.registered = false;
 
         }

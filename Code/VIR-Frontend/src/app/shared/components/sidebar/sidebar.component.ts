@@ -18,6 +18,7 @@ export class SidebarComponent implements OnInit {
     passWord: string;
     firstName: string;
     level: string;
+    email: string;
 
     processing: boolean;
     show: boolean;
@@ -92,6 +93,7 @@ export class SidebarComponent implements OnInit {
                     localStorage.setItem('currentUser', this.fullName);
                     localStorage.setItem('userName', this.userName);
                     localStorage.setItem('level', this.level);
+                    localStorage.setItem('email', this.email);
                 }
                 /*//this is to test the encryption funstions ive created. (found in the jsEncription.service class)
                 var temp: string;
@@ -151,6 +153,7 @@ export class SidebarComponent implements OnInit {
         this.userName = this.user.userName;
         this.fullName = this.user.fullName;
         this.level = this.user.userLevel;
+        this.email = this.user.email;
 
     }
 

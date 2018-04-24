@@ -14,11 +14,13 @@ export class UserAccount implements OnInit{
     username: string;
     level: string;
     fullName: string;
+    email: string;
 
     ngOnInit() {
         this.username = localStorage.getItem('userName');
         this.fullName = localStorage.getItem('currentUser');
         this.level = localStorage.getItem('level');
+        this.email = localStorage.getItem('email');
     }
 
 }

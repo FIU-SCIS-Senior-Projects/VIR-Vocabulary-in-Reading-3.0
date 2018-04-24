@@ -14,7 +14,7 @@ export class RegisterService{
     }
 
     // To add new user to data base
-    postUser(fName: string, uName: string, pass: string, ulevel:string) {
+    postUser(fName: string, uName: string, pass: string, ulevel:string, email:string) {
         return this.http.post(`/api/user/add`,
             (
                 {
@@ -22,6 +22,7 @@ export class RegisterService{
                     'userName': uName,
                     'password': pass,
                     'userLevel': ulevel,
+                    'email': email,
                 }
             ))
             .do((res => console.log(res)));

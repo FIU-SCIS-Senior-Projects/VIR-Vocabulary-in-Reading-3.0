@@ -1,25 +1,19 @@
 {
   "ExpandedNodes": [
     "",
-    "\\VIR-Backend\\src",
-    "\\VIR-Backend\\src\\main",
-    "\\VIR-Backend\\src\\main\\java",
-    "\\VIR-Backend\\src\\main\\java\\com",
-    "\\VIR-Backend\\src\\main\\java\\com\\vir",
-    "\\VIR-Backend\\src\\main\\java\\com\\vir\\controller",
-    "\\VIR-Backend\\src\\main\\java\\com\\vir\\repository",
-    "\\VIR-Backend\\src\\main\\java\\com\\vir\\service",
+    "\\VIR-Backend",
     "\\VIR-Frontend",
     "\\VIR-Frontend\\src",
     "\\VIR-Frontend\\src\\app",
     "\\VIR-Frontend\\src\\app\\layout",
-    "\\VIR-Frontend\\src\\app\\layout\\dashboard",
+    "\\VIR-Frontend\\src\\app\\layout\\account",
+    "\\VIR-Frontend\\src\\app\\layout\\register",
     "\\VIR-Frontend\\src\\app\\shared",
     "\\VIR-Frontend\\src\\app\\shared\\components",
     "\\VIR-Frontend\\src\\app\\shared\\components\\sidebar",
     "\\VIR-Frontend\\src\\app\\shared\\interface",
     "\\VIR-Frontend\\src\\app\\shared\\services"
   ],
-  "SelectedNode": "\\VIR-Frontend\\src\\app\\layout\\tests\\beginner\\beginner.component.ts",
+  "SelectedNode": "\\VIR-Backend\\src",
   "PreviewInSolutionExplorer": false
 }

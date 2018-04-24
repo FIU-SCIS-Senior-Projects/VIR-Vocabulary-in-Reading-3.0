@@ -42,20 +42,28 @@ public class User implements Serializable {
 	@Column(name = "[userLevel]")
 	private String userLevel;
 
+	@Column(name = "[email]")
+	private String email;
+
 	//---constructors-----
 
 	public User() {
 	}
 
-	public User(String fullName, String userName, String password, String userLevel) {
+	public User(String fullName, String userName, String password, String userLevel, String email) {
 		super();
 		this.userName = userName;
 		this.fullName = fullName;
 		this.password = password;
 		this.userLevel = userLevel;
+		this.email = email;
 	}
 
 	//-----getter methods----
+
+	public String getEmail(){
+		return this.email;
+	}
 
 	public String getUserName(){
 		return this.userName;
@@ -78,6 +86,9 @@ public class User implements Serializable {
 	}
 
 	//------setter methods-----
+	public void setEmail(String email){
+		this.email = email;
+	}
 
 	public void setFullName(String fullName){
 		this.fullName = fullName;
